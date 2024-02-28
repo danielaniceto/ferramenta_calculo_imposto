@@ -1,20 +1,20 @@
 Anexo 1 - Comércio
-Participantes: empresas de comércio (lojas em geral)
-Receita Bruta Total em 12 meses	            | Alíquota	|    Quanto descontar do valor recolhido
-________________________________________________________________________________    
-    Até R$ 180.000,00	                    |   4%	    |        0
-    De R$ 180.000,01 a R$ 360.000,00	    |   7,3%	|       R$ 5.940,00
-    De R$ 360.000,01 a R$ 720.000,00	    |   9,5%	|       R$ 13.860,00
-    De R$ 720.000,01 a R$ 1.800.000,00	    |   10,7%	|       R$ 22.500,00
-    De R$ 1.800.000,01 a R$ 3.600.000,00    |	14,3%	|       R$ 87.300,00
-    De R$ 3.600.000,01 a R$ 4.800.000,00    |	19%	    |       R$ 378.000,00
+Participantes: empresas de comércio, lojas em geral
+_________________________________________________________________________________________________  
+Receita Bruta Total em 12 meses	            | Alíquota	|   Quanto descontar do valor recolhido  
+    Até R$ 180.000,00	                    |   4%	    |     R$ 0
+    De R$ 180.000,01 a R$ 360.000,00	    |   7,3%	|     R$ 5.940,00
+    De R$ 360.000,01 a R$ 720.000,00	    |   9,5%	|     R$ 13.860,00
+    De R$ 720.000,01 a R$ 1.800.000,00	    |   10,7%	|     R$ 22.500,00
+    De R$ 1.800.000,01 a R$ 3.600.000,00    |	14,3%	|     R$ 87.300,00
+    De R$ 3.600.000,01 a R$ 4.800.000,00    |	19%	    |     R$ 378.000,00
 
 
 Anexo 2 - Industria
 Participantes: fábricas/indústrias e empresas industriais
-______________________________________________________________________________________________
-    Receita Bruta Total em 12 meses	        | Alíquota	| Quanto descontar do valor recolhido
-    Até R$ 180.000,00	                    |   4,5%	|         0
+_________________________________________________________________________________________________
+Receita Bruta Total em 12 meses	            | Alíquota	|   Quanto descontar do valor recolhido
+    Até R$ 180.000,00	                    |   4,5%	|     R$ 0
     De R$ 180.000,01 a R$ 360.000,00	    |   7,8%	|     R$ 5.940,00
     De R$ 360.000,01 a R$ 720.000,00	    |   10%	    |     R$ 13.860,00
     De R$ 720.000,01 a R$ 1.800.000,00	    |   11,2%	|     R$ 22.500,00
@@ -26,9 +26,9 @@ Anexo 3 - Prestadores de Serviço
 Participantes: empresas que oferecem serviços de instalação, de reparos e de manutenção. Consideram-se neste anexo ainda, agências de viagens,
                escritórios de contabilidade, academias, laboratórios, empresas de medicina e odontologia.
                Consideram-se neste anexo ainda agências de viagens, escritórios de contabilidade, academias, laboratórios, empresas de medicina e odontologia.   
- _______________________________________________________________________________________________
-    Receita Bruta Total em 12 meses	        |  Alíquota	|  Quanto descontar do valor recolhido
-    Até R$ 180.000,00	                    |    6%	    |        0
+________________________________________________________________________________________________
+Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do valor recolhido
+    Até R$ 180.000,00	                    |    6%	    |     R$ 0
     De R$ 180.000,01 a R$ 360.000,00	    |    11,2%	|     R$ 9.360,00
     De R$ 360.000,01 a R$ 720.000,00	    |    13,5%	|     R$ 17.640,00
     De R$ 720.000,01 a R$ 1.800.000,00	    |    16%	|     R$ 35.640,00
@@ -38,21 +38,23 @@ Participantes: empresas que oferecem serviços de instalação, de reparos e de 
 
 Anexo 4 - Prestadores de Serviço
 Participantes: empresas que fornecem serviço de limpeza, vigilância, obras, construção de imóveis, serviços advocatícios
-_______________________________________________________________________________________
-Receita Bruta Total em 12 meses	            |  Alíquota |  Quanto descontar do valor recolhido
-Até R$ 180.000,00	                        |    4,5%	|      0
-De R$ 180.000,01 a R$ 360.000,00	        |    9%	    |      R$ 8.100,00
-De R$ 360.000,01 a R$ 720.000,00	        |    10,2%	|      R$ 12.420,00
-De R$ 720.000,01 a R$ 1.800.000,00	        |    14%	|      R$ 39.780,00
-De R$ 1.800.000,01 a R$ 3.600.000,00	    |    22%	|      R$ 183.780,00
-De R$ 3.600.000,01 a R$ 4.800.000,00	    |    33%	|      R$ 828.000,00
+____________________________________________________________________________________________________
+Receita Bruta Total em 12 meses	            |  Alíquota |   Quanto descontar do valor recolhido
+    Até R$ 180.000,00	                    |    4,5%	|     R$ 0
+    De R$ 180.000,01 a R$ 360.000,00	    |    9%	    |     R$ 8.100,00
+    De R$ 360.000,01 a R$ 720.000,00	    |    10,2%	|     R$ 12.420,00
+    De R$ 720.000,01 a R$ 1.800.000,00	    |    14%	|     R$ 39.780,00
+    De R$ 1.800.000,01 a R$ 3.600.000,00	|    22%	|     R$ 183.780,00
+    De R$ 3.600.000,01 a R$ 4.800.000,00	|    33%	|     R$ 828.000,00
+
 
 Anexo 5 - Prestadores de Serviço
 Participantes: empresas que fornecem serviço de auditoria, jornalismo, tecnologia, publicidade, engenharia, entre outros
-________________________________________________________________________________________
-Até R$ 180.000,00	15,5%	0
-De 180.000,01 a 360.000,00	18%	R$ 4.500,00
-De 360.000,01 a 720.000,00	19,5%	R$ 9.900,00
-De 720.000,01 a 1.800.000,00	20,5%	R$ 17.100,00
-De 1.800.000,01 a 3.600.000,00	23%	R$ 62.100,00
-De 3.600.000,01 a 4.800.000,00	30,50%	R$ 540.000,00
+____________________________________________________________________________________________________
+Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do valor recolhido
+    Até R$ 180.000,00	                    |   15,5%	|     R$ 0
+    De 180.000,01 a 360.000,00	            |   18%	    |     R$ 4.500,00
+    De 360.000,01 a 720.000,00	            |   19,5%	|     R$ 9.900,00
+    De 720.000,01 a 1.800.000,00	        |   20,5%	|     R$ 17.100,00
+    De 1.800.000,01 a 3.600.000,00	        |   23%	    |     R$ 62.100,00
+    De 3.600.000,01 a 4.800.000,00	        |   30,50%	|     R$ 540.000,00
