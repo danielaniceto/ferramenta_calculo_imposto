@@ -1,7 +1,7 @@
 INFORMAÇÕES DE ANEXOS E PORCENTAGENS SIMPLES NACIONAL
 ________________________________________________________
 
-Anexo 1 - Comércio
+Anexo 01 - Comércio
 Participantes: empresas de comércio, lojas em geral
 _________________________________________________________________________________________________  
 Receita Bruta Total em 12 meses	            | Alíquota	|   Quanto descontar do valor recolhido  
@@ -13,7 +13,7 @@ Receita Bruta Total em 12 meses	            | Alíquota	|   Quanto descontar do 
     De R$ 3.600.000,01 a R$ 4.800.000,00    |	19%	    |     R$ 378.000,00
 
 
-Anexo 2 - Industria
+Anexo 02 - Industria
 Participantes: fábricas/indústrias e empresas industriais
 _________________________________________________________________________________________________
 Receita Bruta Total em 12 meses	            | Alíquota	|   Quanto descontar do valor recolhido
@@ -25,7 +25,7 @@ Receita Bruta Total em 12 meses	            | Alíquota	|   Quanto descontar do 
     De R$ 3.600.000,01 a R$ 4.800.000,00	|   30%	    |     R$ 720.000,00
 
 
-Anexo 3 - Prestadores de Serviço
+Anexo 03 - Prestadores de Serviço
 Participantes: empresas que oferecem serviços de instalação, de reparos e de manutenção. Consideram-se neste anexo ainda, agências de viagens,
                escritórios de contabilidade, academias, laboratórios, empresas de medicina e odontologia.
                Consideram-se neste anexo ainda agências de viagens, escritórios de contabilidade, academias, laboratórios, empresas de medicina e odontologia.   
@@ -39,7 +39,7 @@ Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do
     De R$ 3.600.000,01 a R$ 4.800.000,00	|    33%	|     R$ 648.000,00
 
 
-Anexo 4 - Prestadores de Serviço
+Anexo 04 - Prestadores de Serviço
 Participantes: empresas que fornecem serviço de limpeza, vigilância, obras, construção de imóveis, serviços advocatícios
 ____________________________________________________________________________________________________
 Receita Bruta Total em 12 meses	            |  Alíquota |   Quanto descontar do valor recolhido
@@ -51,7 +51,7 @@ Receita Bruta Total em 12 meses	            |  Alíquota |   Quanto descontar do
     De R$ 3.600.000,01 a R$ 4.800.000,00	|    33%	|     R$ 828.000,00
 
 
-Anexo 5 - Prestadores de Serviço
+Anexo 05 - Prestadores de Serviço
 Participantes: empresas que fornecem serviço de auditoria, jornalismo, tecnologia, publicidade, engenharia, entre outros
 ____________________________________________________________________________________________________
 Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do valor recolhido
