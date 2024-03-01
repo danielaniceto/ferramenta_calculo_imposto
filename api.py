@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/simples_nacional', methods=['GET'])
 def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
 
-    pega_receita_bruta = (request.args.get('receita_bruta'))
+    pega_receita_bruta["renda_bruta"] = float(request.args.get('renda_bruta'))
 
     simples_nacional = SimplesNacional.calcular_simples_nacional_menor_180k(
         self = None,
