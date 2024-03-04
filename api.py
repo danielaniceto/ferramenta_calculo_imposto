@@ -1,6 +1,5 @@
 import json
 from main import *
-#from cliente import Cliente
 from calculos.simples_nacional import *
 from flask import Flask, Response, request, jsonify
 
