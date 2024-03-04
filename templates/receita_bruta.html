@@ -1,0 +1,16 @@
+<form method="POST" action="segurado/">
+    Renda Bruta:<br>
+    <input type="text" name="Renda_Bruta" value="{{renda_bruta}}" placeholder="Renda Bruta"></br>
+    
+    <button type="submit">Inserir Receita</button>
+
+</form>
+
+{% block content %}
+
+<form action="/simples_nacional" method="POST">
+    <input type="number" name="receita_bruta" value="receita_bruta" placeholder="Receita Bruta">
+
+</form>
+
+{% endblock %}
