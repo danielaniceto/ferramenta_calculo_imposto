@@ -1,7 +1,7 @@
 import json
 from main import *
 from cliente import Cliente
-from simples_nacional import *
+from calculos.simples_nacional import *
 from flask import Flask, Response, request, jsonify
 
 #empresa = Cliente("Maiore", 0000000000000)
