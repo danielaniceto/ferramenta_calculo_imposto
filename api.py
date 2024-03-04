@@ -1,6 +1,6 @@
 import json
 from main import *
-from cliente import Cliente
+#from cliente import Cliente
 from calculos.simples_nacional import *
 from flask import Flask, Response, request, jsonify
 
@@ -10,14 +10,14 @@ app = Flask(__name__)
 
 @app.route('/simples_nacional', methods=['GET'])
 def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
-
-    pega_receita_bruta["renda_bruta"] = float(request.args.get('renda_bruta'))
+    
+    pega_receita_bruta = float(request.json.get('Renda Bruta'))
 
     simples_nacional = SimplesNacional.calcular_simples_nacional_menor_180k(
         self = None,
-        receita_bruta=pega_receita_bruta,
+        receita_bruta = pega_receita_bruta,
         porcentagem_alicota = 0.04,
-        faixa_desconto=0
+        faixa_desconto = 0
         )
     return Response(json.dumps(simples_nacional), mimetype="application/json")
 
