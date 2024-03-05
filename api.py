@@ -16,7 +16,6 @@ def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
     pega_receita_bruta = request.form["renda_bruta"]
 
     simples_nacional = SimplesNacional.calcular_simples_nacional_menor_180k(
-        self = None,
         receita_bruta = pega_receita_bruta,
         porcentagem_alicota = 0.04,
         faixa_desconto = 0
