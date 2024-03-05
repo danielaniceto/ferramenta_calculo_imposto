@@ -1,16 +1,16 @@
-<form method="POST" action="segurado/">
-    Renda Bruta:<br>
-    <input type="text" name="Renda_Bruta" value="{{renda_bruta}}" placeholder="Renda Bruta"></br>
-    
-    <button type="submit">Inserir Receita</button>
-
-</form>
-
-{% block content %}
-
-<form action="/simples_nacional" method="POST">
-    <input type="number" name="receita_bruta" value="receita_bruta" placeholder="Receita Bruta">
-
-</form>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Renda Bruta</title>
+</head>
+<body>
+    <h1>Informe a Renda Bruta da sua Empresa</h1>
+    <form action="/processar" method="post">
+        <label for="renda_bruta">Renda Bruta:</label>
+        <input type="number" id="renda_bruta" name="renda_bruta">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
