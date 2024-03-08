@@ -17,8 +17,8 @@ def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
 
     imposto_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional_menor_180k(
         receita_bruta = pega_receita_bruta,
-        porcentagem_alicota = 0.04, #valor fixo segundo tabela
-        faixa_desconto = 0 #valor fixo segundo tabela
+        porcentagem_alicota = 0.04, #valor fixo segundo tabela de imposto
+        faixa_desconto = 0 #valor fixo segundo tabela de imposto
         )
     
     return render_template("resultado_simples_nacional.html", simples_nacional=imposto_simples_nacional)
