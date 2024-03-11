@@ -1,7 +1,7 @@
 import json
 from app.models import *
 
-class CalculoSimplesNacional:       
+class CalculoSimplesNacional:
     #Anexo 01 - Comercio
     def calcular_simples_nacional_menor_180k(self, imposto_simples_nacional: SimplesNacional):
         imposto_simples_nacional.receita_bruta
