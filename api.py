@@ -14,12 +14,11 @@ def recebe_receita_html():
 @app.route('/resultado_simples_nacional', methods=['POST'])
 def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
         
-        pega_receita_bruta = request.form.get("Renda Bruta")
+        pega_receita_bruta = float(request.form.get("Renda Bruta"))
 
-        CalculoSimplesNacional.calcular_simples_nacional_menor_180k(
-             
-        )
-        return redirect ("/resultado_simples_nacional")
+        valor_imposto_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional_menor_180k(pega_receita_bruta)
+
+        return render_template ("resultado_simples_nacional_anexo01.html", imposto_simples_nacional = valor_imposto_simples_nacional)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
