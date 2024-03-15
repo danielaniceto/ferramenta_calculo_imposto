@@ -1,6 +1,5 @@
 import json
 from app.models import *
-from api import is_CalculoImpostoSimplesNacionalAnexo01_menor180k
 
 class CalculoSimplesNacional:
 #Anexo 01 - Comercio
