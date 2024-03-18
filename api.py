@@ -18,7 +18,7 @@ def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
 
         valor_simples_nacional_menor_180k = CalculoSimplesNacional().calcular_simples_nacional_menor_180k(simples)
 
-        return render_template ("/resultados_calculos_imposto", imposto_simples_nacional = valor_simples_nacional_menor_180k)
+        return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional_menor_180k)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
