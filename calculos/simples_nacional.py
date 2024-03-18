@@ -9,14 +9,6 @@ tributacoes = [
     {"minimo": 3600001, "maximo": 4800000, "aliquota": 0.19, "faixa_desconto": 378000}
 ]
 
-for t in self.tributacao:
-     if receita_bruta >= t["min"] and receita_bruta <= t["max"]:
-          receita = Receita(receita_bruta, t["aliquota"], t["desconto"])
-          break;
-else:
-    raise Exception("Não há faixa de intervalo para ser calculado")
-#segue o calculo
-
 class CalculoSimplesNacional:
 #Anexo 01 - Comercio - Calculo para receitas abaixo de R$180.000,00
     def calcular_simples_nacional_menor_180k(self, imposto_simples_nacional_menor_180: SimplesNacional):

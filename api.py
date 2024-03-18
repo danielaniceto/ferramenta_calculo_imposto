@@ -14,7 +14,7 @@ def recebe_receita_html():
 @app.route('/resultados_calculos_imposto', methods=['POST'])
 def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
         
-        simples = SimplesNacional(receita_bruta = request.form.get("renda_bruta"), porcentagem_alicota=0.04, faixa_desconto=0)
+        simples = SimplesNacional(receita_bruta = request.form.get("renda_bruta"), porcentagem_aliquota=0.04, faixa_desconto=0)
 
         valor_simples_nacional_menor_180k = CalculoSimplesNacional().calcular_simples_nacional_menor_180k(simples)
 
