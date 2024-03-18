@@ -11,14 +11,14 @@ app = Flask(__name__)
 def recebe_receita_html():
     return render_template("receita_bruta.html")
 
-@app.route('/resultado_simples_nacional_anexo01', methods=['POST'])
+@app.route('/resultados_calculos_imposto', methods=['POST'])
 def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
         
         simples = SimplesNacional(receita_bruta = request.form.get("renda_bruta"), porcentagem_alicota=0.04, faixa_desconto=0)
 
         valor_simples_nacional_menor_180k = CalculoSimplesNacional().calcular_simples_nacional_menor_180k(simples)
 
-        return render_template ("/resultado_simples_nacional_anexo01.html", imposto_simples_nacional = valor_simples_nacional_menor_180k)
+        return render_template ("/resultados_calculos_imposto", imposto_simples_nacional = valor_simples_nacional_menor_180k)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)

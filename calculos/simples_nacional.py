@@ -1,4 +1,3 @@
-import json
 from app.models import *
 
 class CalculoSimplesNacional:
