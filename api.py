@@ -1,7 +1,7 @@
 from main import *
 from calculos.simples_nacional import *
 from app.models import SimplesNacional
-from flask import Flask, Response, request, redirect, render_template, url_for
+from flask import Flask, request, render_template
 
 #empresa = Cliente("Maiore", 0000000000000)
 
@@ -12,13 +12,13 @@ def recebe_receita_html():
     return render_template("receita_bruta.html")
 
 @app.route('/resultados_calculos_imposto', methods=['POST'])
-def is_CalculoImpostoSimplesNacionalAnexo01_menor180k():
+def is_CalculoImpostoSimplesNacionalAnexo01():
         
-        simples = SimplesNacional(receita_bruta = request.form.get("renda_bruta"), porcentagem_aliquota=0.04, faixa_desconto=0)
+    receita = SimplesNacional(receita_bruta = request.form.get("renda_bruta"))
 
-        valor_simples_nacional_menor_180k = CalculoSimplesNacional().calcular_simples_nacional_menor_180k(simples)
+    valor_simples_nacional_menor_180k = CalculoSimplesNacional.init(receita_bruta=receita)
 
-        return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional_menor_180k)
+    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional_menor_180k)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)

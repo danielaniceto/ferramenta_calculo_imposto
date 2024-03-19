@@ -10,6 +10,6 @@ class Cliente:
 class SimplesNacional:
     def __init__(self, receita_bruta, porcentagem_aliquota, faixa_desconto):
         self.receita_bruta = float(receita_bruta)
-        self.porcentagem_aliquota = float(porcentagem_aliquota)
-        self.faixa_desconto = float(faixa_desconto)
+        self.porcentagem_aliquota = None(porcentagem_aliquota)
+        self.faixa_desconto = None(faixa_desconto)
         
