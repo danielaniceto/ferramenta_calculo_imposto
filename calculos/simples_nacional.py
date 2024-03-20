@@ -17,10 +17,11 @@ class CalculoSimplesNacional():
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
                     return tributacao
                 
-            return {}
+            else:
+                return "O valor da receita bruta, esta fora do range máximo de calculos"
 
     def __init__(self, receita_bruta:float, porcentagem_aliquota:float=None, faixa_desconto:float=None):
-        
+
         self.receita_bruta = float(receita_bruta)
 
         side_tributacao = self.__get_tributacao_side(self.receita_bruta)
