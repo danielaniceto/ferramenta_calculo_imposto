@@ -16,7 +16,7 @@ def is_CalculoImpostoSimplesNacionalAnexo01():
         
     receita = SimplesNacional(receita_bruta = request.form.get("renda_bruta"))
 
-    valor_simples_nacional_menor_180k = CalculoSimplesNacional.init(receita_bruta=receita)
+    valor_simples_nacional_menor_180k = CalculoSimplesNacional.__init__(receita_bruta=receita)
 
     return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional_menor_180k)
 

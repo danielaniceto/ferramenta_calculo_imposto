@@ -11,6 +11,14 @@ class CalculoSimplesNacional():
         {"minimo": 3600001, "maximo": 4800000, "aliquota": 0.19, "faixa_desconto": 378000}
     ]
 
+    @staticmethod
+    def __get_tributacao_side(receita_bruta:float) -> dict:
+        for tributacao in SimplesNacional.TRIBUTACOES:
+            if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
+                    return tributacao
+                
+            return {}
+
     def __init__(self, receita_bruta:float, porcentagem_aliquota:float=None, faixa_desconto:float=None):
         self.receita_bruta = float(receita_bruta)
 
@@ -25,14 +33,6 @@ class CalculoSimplesNacional():
             self.faixa_desconto = side_tributacao.get("faixa_desconto")
         else:
             self.faixa_desconto = faixa_desconto
-
-    @staticmethod
-    def __get_tributacao_side(receita_bruta:float) -> dict:
-        for tributacao in SimplesNacional.TRIBUTACOES:
-            if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-                return tributacao
-            
-            return {}
         
 #Anexo 01 - Comercio - Calculo para receitas abaixo de R$180.000,00
     def calcular_simples_nacional_menor_180k(self, imposto_simples_nacional_menor_180: SimplesNacional):

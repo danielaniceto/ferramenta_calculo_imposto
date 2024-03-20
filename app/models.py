@@ -8,8 +8,6 @@ class Cliente:
     self.documento = cnpj
 
 class SimplesNacional:
-    def __init__(self, receita_bruta, porcentagem_aliquota, faixa_desconto):
+    def __init__(self, receita_bruta):
         self.receita_bruta = float(receita_bruta)
-        self.porcentagem_aliquota = None(porcentagem_aliquota)
-        self.faixa_desconto = None(faixa_desconto)
         
