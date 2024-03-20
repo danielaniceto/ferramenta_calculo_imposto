@@ -13,13 +13,14 @@ class CalculoSimplesNacional():
 
     @staticmethod
     def __get_tributacao_side(receita_bruta:float) -> dict:
-        for tributacao in SimplesNacional.TRIBUTACOES:
+        for tributacao in CalculoSimplesNacional.TRIBUTACOES:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
                     return tributacao
                 
             return {}
 
     def __init__(self, receita_bruta:float, porcentagem_aliquota:float=None, faixa_desconto:float=None):
+        
         self.receita_bruta = float(receita_bruta)
 
         side_tributacao = self.__get_tributacao_side(self.receita_bruta)
@@ -37,13 +38,13 @@ class CalculoSimplesNacional():
 #Anexo 01 - Comercio - Calculo para receitas abaixo de R$180.000,00
     def calcular_simples_nacional_menor_180k(self, imposto_simples_nacional_menor_180: SimplesNacional):
 
-        imposto_simples_nacional_menor_180.receita_bruta = receita
+        imposto_simples_nacional_menor_180.receita_bruta = self.__get_tributacao_side(self.receita_bruta)
         
-        if imposto_simples_nacional_menor_180.porcentagem_aliquota == None:
-            imposto_simples_nacional_menor_180.porcentagem_aliquota = tributacoes["aliquota"]
+        if porcentagem_aliquota == None:
+            porcentagem_aliquota = self.__get_tributacao_side("aliquota")
         
-        elif imposto_simples_nacional_menor_180.faixa_desconto == None:
-            imposto_simples_nacional_menor_180.faixa_desconto = tributacoes["faixa_desconto"]
+        elif faixa_desconto == None:
+            faixa_desconto = self.__get_tributacao_side("faixa_desconto")
 
         elif imposto_simples_nacional_menor_180.receita_bruta <= 0:
             raise Exception("Impossível Calcular Simples Nacional com receita negativa")
