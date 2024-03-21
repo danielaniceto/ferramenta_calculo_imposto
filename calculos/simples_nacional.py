@@ -1,9 +1,9 @@
-from app.models import *
+#from app.models import *
 
 class CalculoSimplesNacional():
 
     TRIBUTACOES = [
-        {"minimo": 0, "maximo": 180000, "aliquota": 0.04, "faixa_desconto": 0},
+        {"minimo": 0, "maximo": 180000, "aliquota": 0.04, "desconto": 0},
         {"minimo": 180001, "maximo": 360000, "aliquota": 0.073, "desconto": 5940},
         {"minimo": 360001, "maximo": 720000, "aliquota": 0.095, "desconto": 13860},
         {"minimo": 720001, "maximo": 1800000, "aliquota": 0.107, "desconto": 22500},
@@ -14,12 +14,20 @@ class CalculoSimplesNacional():
 #Anexo 01 - Comercio - Calculo para receitas abaixo de R$180.000,00
     @classmethod
     def calcular_simples_nacional_menor_180k(cls, receita_bruta):
+        print(F"EU SOU A RECEITA DENTRO DE SIMPLES NACIONAL {receita_bruta}")
+        porcentagem_aliquota = None
+        faixa_desconto = None
         for tributacao in cls.TRIBUTACOES:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
                     porcentagem_aliquota = tributacao["aliquota"]
                     faixa_desconto = tributacao["desconto"]
+
+                    print(f"EU SOU A RECEITA BRUTA {receita_bruta}")
+                    print(f"EU SOU A PORCENTAGEM {porcentagem_aliquota}")
+                    print(f"EU SOU O DESCONTO {faixa_desconto}")
+
                     break
-            
+
             elif receita_bruta < 0:
                 raise Exception("Impossível Calcular Simples Nacional com receita negativa")
 
@@ -28,8 +36,9 @@ class CalculoSimplesNacional():
 
             elif receita_bruta > 0 and receita_bruta <= 180000:
                 imposto_anexo01_menor_180 = (float(receita_bruta * porcentagem_aliquota)) - faixa_desconto
+                print(f" EU SOU O IMPOSTO ANEXO 01 {imposto_anexo01_menor_180}")
                 
-            return round(imposto_anexo01_menor_180, 2)
+                return round(imposto_anexo01_menor_180, 2)
         
 #Anexo 01 - Comercio - Calculo para receitas entre R$180.000,00 a R$360.000,00
 
