@@ -15,7 +15,7 @@ def recebe_receita_html():
 def is_CalculoImpostoSimplesNacionalAnexo01():
         
     receita = float(request.form.get("renda_bruta"))
-    print(f"OLAAAAAAAAAAAAAAAAAAAAAAAAAAA RECEITA {receita}")
+    print(f"EU SOU A RECEITA VINDA DO FORMS {receita}")
 
     valor_simples_nacional_menor_180k = CalculoSimplesNacional.calcular_simples_nacional_menor_180k(receita)
 

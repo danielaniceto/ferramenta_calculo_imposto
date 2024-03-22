@@ -17,24 +17,25 @@ class CalculoSimplesNacional():
         print(F"EU SOU A RECEITA DENTRO DE SIMPLES NACIONAL {receita_bruta}")
         porcentagem_aliquota = None
         faixa_desconto = None
+        
         for tributacao in cls.TRIBUTACOES:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
                     porcentagem_aliquota = tributacao["aliquota"]
                     faixa_desconto = tributacao["desconto"]
 
-                    print(f"EU SOU A RECEITA BRUTA {receita_bruta}")
-                    print(f"EU SOU A PORCENTAGEM {porcentagem_aliquota}")
-                    print(f"EU SOU O DESCONTO {faixa_desconto}")
-
-                    break
+                    print(f"EU SOU A TRIBUTAÇÃO {tributacao}")
+                    print(f"EU SOU A RECEITA BRUTA DENTRO DA FUNÇÃO {receita_bruta}")
+                    print(f"EU SOU A PORCENTAGEM ALIQUOTA{porcentagem_aliquota}")
+                    print(f"EU SOU A FAIXA DE DESCONTO {faixa_desconto}")
 
             elif receita_bruta < 0:
                 raise Exception("Impossível Calcular Simples Nacional com receita negativa")
-
-            elif receita_bruta not in tributacao:
-                raise ValueError("Seu range de receita, está fora do valor máximo de calculo segundo o anexo 01")
+            
+            elif receita_bruta not in range(tributacao["minimo"] and receita_bruta not in tributacao["maximo"]):
+                raise ValueError("O valor da receita fornecida, está fora do valor máximo de calculo segundo o anexo 01")
 
             elif receita_bruta > 0 and receita_bruta <= 180000:
+
                 imposto_anexo01_menor_180 = (float(receita_bruta * porcentagem_aliquota)) - faixa_desconto
                 print(f" EU SOU O IMPOSTO ANEXO 01 {imposto_anexo01_menor_180}")
                 
