@@ -34,8 +34,8 @@ class SimplesNacional:
     else:
        self.faixa_desconto = faixa_desconto
     
-    @staticmethod
-    def __get_tributacao_side(receita_bruta:float)->dict:
+  @staticmethod
+  def __get_tributacao_side(receita_bruta:float)->dict:
         for tributacao in SimplesNacional.TRIBUTACOES:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
                 return tributacao
