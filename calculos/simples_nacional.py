@@ -5,9 +5,9 @@ from app.models import SimplesNacional
 class CalculoSimplesNacional():        
 #Anexo 01 - Comercio - Calculo para receitas abaixo de R$180.000,00
     @classmethod
-    def calcular_simples_nacional_menor_180k(cls, receita_bruta, porcentagem_aliquota, faixa_desconto: SimplesNacional) -> float:
+    def calcular_simples_nacional_menor_180k(cls, receita_bruta, tributacao:SimplesNacional) -> float:
 
-            imposto_anexo01_menor_180 = (float(receita_bruta * porcentagem_aliquota)) - faixa_desconto
+            imposto_anexo01_menor_180 = (float(receita_bruta * tributacao["aliquota"])) - tributacao["desconto"]
             print(f"EU SOU O IMPOSTO ANEXO 01 {imposto_anexo01_menor_180}")
                 
             return round(imposto_anexo01_menor_180, 2)
