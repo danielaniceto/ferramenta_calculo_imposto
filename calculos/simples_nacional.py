@@ -5,15 +5,12 @@ from app.models import SimplesNacional
 class CalculoSimplesNacional():        
 #Anexo 01 - Comercio - Calculo para receitas abaixo de R$180.000,00
     @classmethod
-    def calcular_simples_nacional_menor_180k(cls, receita_bruta: float, porcentagem_aliquota:float=None, faixa_desconto:float=None) -> float:
-        print(F"EU SOU A RECEITA DENTRO DE SIMPLES NACIONAL {receita_bruta}")
+    def calcular_simples_nacional_menor_180k(cls, tributacao: dict) -> float:
 
-        print(f"EU SOU A RECEITA BRUTA DENTRO DA FUNÇÃO {receita_bruta}")
-
-        if receita_bruta < 0:
+        if SimplesNacional.__get_tributacao_side(tributacao[""]) < 0:
             raise Exception("Impossível Calcular Simples Nacional com receita negativa")
             
-        elif receita_bruta < tributacao["minimo"] or receita_bruta > tributacao["maximo"]:
+        elif receita_bruta < SimplesNacional.__get_tributacao_side["minimo"] or receita_bruta > SimplesNacional.__get_tributacao_side["maximo"]:
             raise ValueError("O valor da receita fornecida, está fora do valor máximo de calculo segundo o anexo 01")
 
         else:
