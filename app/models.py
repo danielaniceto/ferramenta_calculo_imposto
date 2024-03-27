@@ -22,15 +22,23 @@ class SimplesNacional:
     self.receita_bruta = float(receita_bruta)
     side_tributacao = self.__get_tributacao_side(self.receita_bruta)
 
+    if receita_bruta < 0:
+       raise Exception("Impossível Calcular Simples Nacional com receita negativa")
+            
+    elif receita_bruta > 4800000:
+       raise ValueError("O valor da receita fornecida, está fora do valor máximo de calculo segundo o anexo 01")
+
     if porcentagem_aliquota is None:
       self.porcentagem_aliquota = side_tributacao.get("aliquota")
+      print(F"EU SOU A PORCENTAGEM {self.porcentagem_aliquota}")
 
     else:
       self.porcentagem_aliquota = porcentagem_aliquota
             
     if faixa_desconto is None:
-      self.faixa_desconto = side_tributacao.get("faixa_desconto")
-
+      self.faixa_desconto = side_tributacao.get("desconto")
+      print(f"EU SOU O DESCONTO {self.faixa_desconto}")
+      
     else:
        self.faixa_desconto = faixa_desconto
     
@@ -38,6 +46,7 @@ class SimplesNacional:
   def __get_tributacao_side(receita_bruta:float)->dict:
         for tributacao in SimplesNacional.TRIBUTACOES:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
+                print(F"EU SOU A TRIBUTAÇÃO {tributacao}")
                 return tributacao
         return {}
     
