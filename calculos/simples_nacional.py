@@ -1,28 +1,14 @@
-#from app.models import *
-from typing import List, Dict
 from app.models import SimplesNacional
 
 class CalculoSimplesNacional():        
-#Anexo 01 - Comercio - Calculo para receitas abaixo de R$180.000,00
+#Anexo 01 - Comercio
     @classmethod
-    def calcular_simples_nacional_menor_180k(cls, receita_bruta, tributacao:SimplesNacional) -> float:
+    def calcular_simples_nacional(cls, receita_bruta, tributacao:SimplesNacional) -> float:
 
-            imposto_anexo01_menor_180 = (float(receita_bruta * tributacao["aliquota"])) - tributacao["desconto"]
-            print(f"EU SOU O IMPOSTO ANEXO 01 {imposto_anexo01_menor_180}")
+            imposto_anexo01 = (float(receita_bruta * tributacao["aliquota"])) - tributacao["desconto"]
+            print(f"EU SOU O IMPOSTO ANEXO 01 {imposto_anexo01}")
                 
-            return round(imposto_anexo01_menor_180, 2)
-        
-#Anexo 01 - Comercio - Calculo para receitas entre R$180.000,00 a R$360.000,00
-
-#Anexo 01 - Comercio - Calculo para receitas entre R$360.000,00 a R$ 720.000,00
-
-#Anexo 01 - Comercio - Calculo para receitas entre R$ 720.000,00 a R$ 1.800.000,00
-
-#Anexo 01 - Comercio - Calculo para receitas entre R$1.800.000,00 a R$ 3.600.000,00
-
-#Anexo 01 - Comercio - Calculo para receitas entre R$3.600.000,00 a R$ 4.800.000,00
-
-
+            return round(imposto_anexo01, 2)
 
 #Anexo 02 - Industria
         

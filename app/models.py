@@ -9,7 +9,7 @@ class Cliente:
 
 class SimplesNacional:
     
-  TRIBUTACOES: List[Dict[str, int]] = [
+  TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = [
     {"minimo": 0, "maximo": 180000, "aliquota": 0.04, "desconto": 0},
     {"minimo": 180001, "maximo": 360000, "aliquota": 0.073, "desconto": 5940},
     {"minimo": 360001, "maximo": 720000, "aliquota": 0.095, "desconto": 13860},
@@ -20,7 +20,7 @@ class SimplesNacional:
    
   def __init__(self, receita_bruta:float, porcentagem_aliquota:float=None, faixa_desconto:float=None):
     self.receita_bruta = float(receita_bruta)
-    side_tributacao = self.__get_tributacao_side(self.receita_bruta)
+    side_tributacao = self.__get_tributacao_anexo01_side(self.receita_bruta)
 
     if receita_bruta < 0:
        raise Exception("Impossível Calcular Simples Nacional com receita negativa")
@@ -43,8 +43,8 @@ class SimplesNacional:
        self.faixa_desconto = faixa_desconto
     
   @staticmethod
-  def __get_tributacao_side(receita_bruta:float)->dict:
-        for tributacao in SimplesNacional.TRIBUTACOES:
+  def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
+        for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
                 print(F"EU SOU A TRIBUTAÇÃO {tributacao}")
                 return tributacao
