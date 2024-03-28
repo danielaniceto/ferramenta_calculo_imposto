@@ -47,6 +47,7 @@ class SimplesNacional:
         for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
                 print(F"EU SOU A TRIBUTAÇÃO {tributacao}")
-                return tributacao
+                return tributacao[{"receita_bruta" : receita_bruta}]
+            print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
         return {}
     
