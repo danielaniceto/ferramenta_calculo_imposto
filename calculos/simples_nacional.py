@@ -1,13 +1,12 @@
 from app.models import SimplesNacional
 from typing import List, Dict
-from api import is_CalculoImpostoSimplesNacionalAnexo01
 
 class CalculoSimplesNacional():        
 #Anexo 01 - Comercio
     @classmethod
-    def calcular_simples_nacional(cls, calulo_valor_simples_nacional: Dict[str, float]) -> float:
+    def calcular_simples_nacional(cls, side_tributacao: Dict[str, float]) -> float:
 
-            imposto_anexo01 = (float(calulo_valor_simples_nacional["receita_bruta"] * calulo_valor_simples_nacional["aliquota"]) - calulo_valor_simples_nacional["desconto"])
+            imposto_anexo01 = (float(side_tributacao["receita_bruta"] * side_tributacao["aliquota"]) - side_tributacao["desconto"])
             print(f"EU SOU O IMPOSTO ANEXO 01 {imposto_anexo01}")
                 
             return round(imposto_anexo01, 2)

@@ -17,11 +17,11 @@ def is_CalculoImpostoSimplesNacionalAnexo01():
     receita = float(request.form.get("renda_bruta"))
     print(f"EU SOU A RECEITA VINDA DO FORMS {receita}")
 
-    calulo_valor_simples_nacional = SimplesNacional(receita)
-    print(f"EU SOU O CALCULO SIMPLES NACIONAL {calulo_valor_simples_nacional}")
+    valor_simples_nacional = SimplesNacional(receita)
+    print(f"EU SOU O DICIONARIO COM OS VALORES PARA SEREM USADOS NO CALCULO SIMPLES NACIONAL {calulo_valor_simples_nacional}")
     
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(calulo_valor_simples_nacional)
-    print(f"EU SOU O calulo_valor_simples_nacional_menor_180k {valor_simples_nacional}")
+    #valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(calulo_valor_simples_nacional)
+    #print(f"EU SOU O calulo_valor_simples_nacional_menor_180k {valor_simples_nacional}")
 
     return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
 
