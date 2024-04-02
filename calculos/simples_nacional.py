@@ -1,5 +1,4 @@
-from app.models import SimplesNacional
-from typing import List, Dict
+from typing import Dict
 
 class CalculoSimplesNacional():        
 #Anexo 01 - Comercio
@@ -9,7 +8,7 @@ class CalculoSimplesNacional():
             imposto_anexo01 = (float(side_tributacao["receita_bruta"] * side_tributacao["aliquota"]) - side_tributacao["desconto"])
             print(f"EU SOU O IMPOSTO ANEXO 01 {imposto_anexo01}")
                 
-            return round(imposto_anexo01, 2)
+            return round(imposto_anexo01, 3)
 
 #Anexo 02 - Industria
         

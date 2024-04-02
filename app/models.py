@@ -2,11 +2,11 @@ import uuid
 from calculos.simples_nacional import CalculoSimplesNacional
 from typing import List, Dict
 
-class Cliente:
+"""class Cliente:
   def __init__(self, id, nome_empresa, cnpj):
     self.id = id(str(uuid.uuid4()))
     self.nome_empresa = nome_empresa
-    self.documento = cnpj
+    self.documento = cnpj"""
 
 class SimplesNacional:
     
@@ -42,12 +42,7 @@ class SimplesNacional:
       
     else:
        self.faixa_desconto = faixa_desconto
-
-    #print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
-    #return side_tributacao
-  
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
-    return(valor_simples_nacional)
+    print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
@@ -59,4 +54,9 @@ class SimplesNacional:
                 print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
                 return tributacao
         return {}
+  
+class CalculaSimplesNacional:
+   def calcula_simples_nacional():
+    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao=SimplesNacional.__init__)
+    return valor_simples_nacional
     
