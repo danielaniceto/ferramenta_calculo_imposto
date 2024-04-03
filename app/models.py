@@ -1,4 +1,4 @@
-import uuid
+#import uuid
 from calculos.simples_nacional import CalculoSimplesNacional
 from typing import List, Dict
 
@@ -16,7 +16,7 @@ class SimplesNacional:
     {"minimo": 360001, "maximo": 720000, "aliquota": 0.095, "desconto": 13860},
     {"minimo": 720001, "maximo": 1800000, "aliquota": 0.107, "desconto": 22500},
     {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.143, "desconto": 87300},
-    {"minimo": 3600001, "maximo": 4800000, "aliquota": 0.19, "desconto": 378000}
+    {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.19, "desconto": 378000}
   ]
    
   def __init__(self, receita_bruta:float, porcentagem_aliquota:float=None, faixa_desconto:float=None):
@@ -25,9 +25,12 @@ class SimplesNacional:
 
     if receita_bruta < 0:
        raise Exception("Impossível Calcular Simples Nacional com receita negativa")
-            
-    elif receita_bruta > 4800000:
-       raise ValueError("O valor da receita fornecida, está fora do valor máximo de calculo segundo o anexo 01")
+    
+    elif receita_bruta > 4800000 and receita_bruta <= 5760000:
+       raise ValueError("Com base no valor da receita fornecida, seu imposto será calculado com o valor teto de contribuição, e com valor teto de descontos, porém, para o próximo ano, sua empresa será desenquadrada dessa modalidade")
+
+    elif receita_bruta > 5760000:
+       raise ValueError("Sua receita anual, estrapola o teto de valor para calculo nessa modalidade")
 
     if porcentagem_aliquota is None:
       self.porcentagem_aliquota = side_tributacao.get("aliquota")
@@ -42,7 +45,12 @@ class SimplesNacional:
       
     else:
        self.faixa_desconto = faixa_desconto
+
     print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
+
+    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
+    print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL MODELS/SIMPLES {valor_simples_nacional}")
+    return(valor_simples_nacional)
 
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
@@ -55,8 +63,8 @@ class SimplesNacional:
                 return tributacao
         return {}
   
-class CalculaSimplesNacional:
-   def calcula_simples_nacional():
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao=SimplesNacional.__init__)
+  @staticmethod
+  def calcula_simples_nacional():
+    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao=SimplesNacional.__get_tributacao_anexo01_side)
     return valor_simples_nacional
     

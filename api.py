@@ -19,10 +19,8 @@ def is_CalculoImpostoSimplesNacionalAnexo01():
 
     valida_valor_simples_nacional = SimplesNacional(receita)
     print(f"EU SOU O RETONO DO CALCULO DO VALOR DO IMPOSTO {valida_valor_simples_nacional}")
-
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional()
-
-    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
+    
+    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valida_valor_simples_nacional)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
