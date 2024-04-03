@@ -1,4 +1,5 @@
 import uuid
+from calculos.simples_nacional import CalculoSimplesNacional
 from typing import List, Dict
 
 class Cliente:
@@ -41,13 +42,21 @@ class SimplesNacional:
       
     else:
        self.faixa_desconto = faixa_desconto
-    
+
+    #print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
+    #return side_tributacao
+  
+    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
+    return(valor_simples_nacional)
+
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
         for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
             if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-                print(F"EU SOU A TRIBUTAÇÃO {tributacao}")
-                return tributacao[{"receita_bruta" : receita_bruta}]
-            print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+                print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
+                
+                tributacao["receita_bruta"] = receita_bruta
+                print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+                return tributacao
         return {}
     
