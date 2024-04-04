@@ -48,23 +48,23 @@ class SimplesNacional:
 
     print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
-    print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL MODELS/SIMPLES {valor_simples_nacional}")
-    return(valor_simples_nacional)
-
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
-        for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
-            if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-                print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
+      for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
+          if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
+              print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
                 
-                tributacao["receita_bruta"] = receita_bruta
-                print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
-                return tributacao
-        return {}
+              tributacao["receita_bruta"] = receita_bruta
+              print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+              return tributacao
+      return {}
   
   @staticmethod
-  def calcula_simples_nacional():
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao=SimplesNacional.__get_tributacao_anexo01_side)
-    return valor_simples_nacional
-    
+  def calcula_simples_nacional(receita_bruta:float)->float:
+          receita_bruta = float(receita_bruta)
+          side_tributacao = SimplesNacional.__get_tributacao_anexo01_side(receita_bruta)
+          valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
+          print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
+          
+          return valor_simples_nacional
+  
