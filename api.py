@@ -14,13 +14,16 @@ def recebe_receita_html():
 @app.route('/resultados_calculos_imposto', methods=['POST'])
 def is_CalculoImpostoSimplesNacionalAnexo01():
         
-    receita = float(request.form.get("renda_bruta"))
-    print(f"EU SOU A RECEITA VINDA DO FORMS {receita}")
+    receita_bruta = float(request.form.get("renda_bruta"))
+    print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS {receita_bruta}")
 
-    valida_valor_simples_nacional = SimplesNacional(receita)
-    print(f"EU SOU O RETONO DO CALCULO DO VALOR DO IMPOSTO {valida_valor_simples_nacional}")
+    valida_valor_simples_nacional = SimplesNacional(receita_bruta)
+    print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO {valida_valor_simples_nacional}")
+
+    valor_simples_nacional = SimplesNacional.calcula_simples_nacional(receita_bruta)
+    print(print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API {valor_simples_nacional}"))
     
-    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valida_valor_simples_nacional)
+    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
