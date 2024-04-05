@@ -27,8 +27,7 @@ Receita Bruta Total em 12 meses	            | Alíquota	|   Quanto descontar do 
 
 Anexo 03 - Prestadores de Serviço
 Participantes: empresas que oferecem serviços de instalação, de reparos e de manutenção. Consideram-se neste anexo ainda, agências de viagens,
-               escritórios de contabilidade, academias, laboratórios, empresas de medicina e odontologia.
-               Consideram-se neste anexo ainda agências de viagens, escritórios de contabilidade, academias, laboratórios, empresas de medicina e odontologia.   
+               escritórios de contabilidade, academias, laboratórios, empresas de medicina e odontologia.  
 ________________________________________________________________________________________________
 Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do valor recolhido
     Até R$ 180.000,00	                    |    6%	    |     R$ 0

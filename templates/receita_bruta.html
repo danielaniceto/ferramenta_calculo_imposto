@@ -13,6 +13,13 @@
     <h1>Informe a Renda Bruta da sua Empresa</h1>
     
     <form action="/resultados_calculos_imposto" method="post" >
+        <select>
+            <option value="Anexo">Anexo 01 - Comercio</option>
+            <option value="Anexo">Anexo 02 - Industria</option>
+            <option value="Anexo">Anexo 03 - Prestadores de Serviços - Serviços de Instalação, reparos, manutenções, agencia de viagens, contabilidade, academias, laboratorios, empresas de medicina e odontologia.</option>
+            <option value="Anexo">Anexo 04 - Prestadores de Serviços - Serviço de limpeza, vigilância, obras, construção de imóveis, serviços advocatícios</option>
+            <option value="Anexo">Anexo 05 - Prestadores de Serviços - Serviço de auditoria, jornalismo, tecnologia, publicidade, engenharia, entre outros</option>
+        </select>
         Renda Bruta: <input type="number" name="renda_bruta" maxlength="1000000000000000"/>
         <button type="submit" > Enviar </button>
     </form>
