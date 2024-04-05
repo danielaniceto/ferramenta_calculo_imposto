@@ -60,7 +60,7 @@ class SimplesNacionalAnexo01:
       return {}
   
   @staticmethod
-  def calcula_simples_nacional(receita_bruta:float)->float:
+  def calcula_simples_nacional_anexo01(receita_bruta:float)->float:
     receita_bruta = float(receita_bruta)
     side_tributacao = SimplesNacionalAnexo01.__get_tributacao_anexo01_side(receita_bruta)
     valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
@@ -120,7 +120,7 @@ class SimplesNacionalAnexo02:
       return {}
   
   @staticmethod
-  def calcula_simples_nacional(receita_bruta:float)->float:
+  def calcula_simples_nacional_anexo02(receita_bruta:float)->float:
     receita_bruta = float(receita_bruta)
     side_tributacao = SimplesNacionalAnexo02.TRIBUTACOES_ANEXO_02(receita_bruta)
     valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
