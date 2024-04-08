@@ -14,10 +14,10 @@ def recebe_receita_html():
 @app.route('/resultados_calculos_imposto', methods=['POST'])
 def is_CalculoImpostoSimplesNacionalAnexo01():
 
-    anexo = str(request.form.get("Anexo 01"))
+    anexo = str(request.form.get("Anexos_Simples_Nacional"))
     print(f"EU SOU O ANEXO VINDO DO FORMS = {anexo}")
 
-    if anexo == "Anexo 01 - Comercio":
+    if anexo == "Anexo 01":
         receita_bruta = float(request.form.get("renda_bruta"))
         print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS {receita_bruta}")
 
@@ -29,7 +29,7 @@ def is_CalculoImpostoSimplesNacionalAnexo01():
         
         return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
     
-    elif anexo == "Anexo 02 - Industria":
+    elif anexo == "Anexo 02":
         receita_bruta = float(request.form.get("renda_bruta"))
         print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS {receita_bruta}")
 
