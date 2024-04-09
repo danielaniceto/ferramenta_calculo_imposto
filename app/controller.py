@@ -44,18 +44,18 @@ class SimplesNacionalAnexo01:
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
     for tributacao in SimplesNacionalAnexo01.TRIBUTACOES_ANEXO_01:
       if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
+        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND = {tributacao}")
         
         tributacao["receita_bruta"] = receita_bruta
-        print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+        print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND = {tributacao}")
         return tributacao
       return {}
   
   @staticmethod
   def calcula_simples_nacional_anexo01(receita_bruta:float)->float:
     receita_bruta = float(receita_bruta)
-    side_tributacao = SimplesNacionalAnexo01.__get_tributacao_anexo01_side(receita_bruta)
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
+    side_tributacao_anexo01 = SimplesNacionalAnexo01.__get_tributacao_anexo01_side(receita_bruta)
+    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo01)
     print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
           
     return valor_simples_nacional
@@ -113,8 +113,8 @@ class SimplesNacionalAnexo02:
   @staticmethod
   def calcula_simples_nacional_anexo02(receita_bruta:float)->float:
     receita_bruta = float(receita_bruta)
-    side_tributacao = SimplesNacionalAnexo02.TRIBUTACOES_ANEXO_02(receita_bruta)
-    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao)
+    side_tributacao_anexo02 = SimplesNacionalAnexo02.TRIBUTACOES_ANEXO_02(receita_bruta)
+    valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo02)
     print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
           
     return valor_simples_nacional

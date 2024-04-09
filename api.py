@@ -20,25 +20,25 @@ def is_CalculoImpostoSimplesNacionalAnexo01():
 
     if anexo == "Anexo 01":
         receita_bruta = float(request.form.get("renda_bruta"))
-        print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS {receita_bruta}")
+        print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
 
         valida_valor_simples_nacional = SimplesNacionalAnexo01(receita_bruta)
-        print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO {valida_valor_simples_nacional}")
+        print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_valor_simples_nacional}")
 
         valor_simples_nacional = SimplesNacionalAnexo01.calcula_simples_nacional_anexo01(receita_bruta)
-        print(print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API {valor_simples_nacional}"))
+        print(print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API = {valor_simples_nacional}"))
         
         return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
     
     elif anexo == "Anexo 02":
         receita_bruta = float(request.form.get("renda_bruta"))
-        print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS {receita_bruta}")
+        print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
 
         valida_valor_simples_nacional = SimplesNacionalAnexo02(receita_bruta)
-        print(f"EU SOU O RETORNO DA VALIDACAO DO VALOR DO IMPOSTO {valida_valor_simples_nacional}")
+        print(f"EU SOU O RETORNO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_valor_simples_nacional}")
 
         valor_simples_nacional = SimplesNacionalAnexo02.calcula_simples_nacional_anexo02(receita_bruta)
-        print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API {valor_simples_nacional}")
+        print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API = {valor_simples_nacional}")
         
         return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
 
