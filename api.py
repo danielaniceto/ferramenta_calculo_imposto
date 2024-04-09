@@ -1,6 +1,7 @@
 from main import *
 from calculos.simples_nacional import *
 from app.models import *
+from app.controller import *
 from flask import Flask, request, render_template
 
 #empresa = Cliente("Maiore", 0000000000000)
@@ -34,15 +35,14 @@ def is_CalculoImpostoSimplesNacionalAnexo01():
         print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS {receita_bruta}")
 
         valida_valor_simples_nacional = SimplesNacionalAnexo02(receita_bruta)
-        print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO {valida_valor_simples_nacional}")
+        print(f"EU SOU O RETORNO DA VALIDACAO DO VALOR DO IMPOSTO {valida_valor_simples_nacional}")
 
         valor_simples_nacional = SimplesNacionalAnexo02.calcula_simples_nacional_anexo02(receita_bruta)
-        print(print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API {valor_simples_nacional}"))
+        print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API {valor_simples_nacional}")
         
         return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
 
 #def is_CalculoImpostoSimplesNacionalAnexo02():
-
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
