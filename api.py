@@ -13,34 +13,20 @@ def recebe_receita_html():
     return render_template("receita_bruta.html")
 
 @app.route('/resultados_calculos_imposto', methods=['POST'])
-def is_CalculoImpostoSimplesNacionalAnexo01():
+def is_CalculoImpostoSimplesNacional():
 
-    anexo = str(request.form.get("Anexos_Simples_Nacional"))
-    print(f"EU SOU O ANEXO VINDO DO FORMS = {anexo}")
+    attachment = str(request.form.get("Anexos_Simples_Nacional"))
+    print(f"EU SOU O ANEXO VINDO DO FORMS = {attachment}")
 
-    if anexo == "Anexo 01":
-        receita_bruta = float(request.form.get("renda_bruta"))
-        print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
+    receita_bruta = float(request.form.get("renda_bruta"))
+    print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
 
-        valida_valor_simples_nacional = SimplesNacionalAnexo01(receita_bruta)
-        print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_valor_simples_nacional}")
+    validacao_simples_nacional = SimplesNacional(receita_bruta, attachment)
+    print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {validacao_simples_nacional}")
 
-        valor_simples_nacional = SimplesNacionalAnexo01.calcula_simples_nacional_anexo01(receita_bruta)
-        print(print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API = {valor_simples_nacional}"))
+    valor_simples_nacional = SimplesNacional.calcula_simples_nacional(receita_bruta, attachment)
         
-        return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
-    
-    elif anexo == "Anexo 02":
-        receita_bruta = float(request.form.get("renda_bruta"))
-        print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
-
-        valida_valor_simples_nacional = SimplesNacionalAnexo02(receita_bruta)
-        print(f"EU SOU O RETORNO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_valor_simples_nacional}")
-
-        valor_simples_nacional = SimplesNacionalAnexo02.calcula_simples_nacional_anexo02(receita_bruta)
-        print(f"EU SOU O RETORNO VALOR SIMPLES NACIONAL DENTRO DA API = {valor_simples_nacional}")
-        
-        return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
+    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
 
 #def is_CalculoImpostoSimplesNacionalAnexo02():
 
