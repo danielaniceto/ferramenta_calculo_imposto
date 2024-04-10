@@ -30,6 +30,24 @@ class SimplesNacional:
     {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.33, "desconto": 648000}
   ]
 
+  TRIBUTACOES_ANEXO_04: List[Dict[str, int]] = [
+    {"minimo": 0, "maximo": 180000, "aliquota": 0.45, "desconto": 0},
+    {"minimo": 180001, "maximo": 360000, "aliquota": 0.9, "desconto": 9360},
+    {"minimo": 360001, "maximo": 720000, "aliquota": 0.102, "desconto": 17640},
+    {"minimo": 720001, "maximo": 1800000, "aliquota": 0.14, "desconto": 35640},
+    {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.22, "desconto": 125640},
+    {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.33, "desconto": 648000}
+  ]
+
+  TRIBUTACOES_ANEXO_05: List[Dict[str, int]] = [
+    {"minimo": 0, "maximo": 180000, "aliquota": 0.155, "desconto": 0},
+    {"minimo": 180001, "maximo": 360000, "aliquota": 0.18, "desconto": 9360},
+    {"minimo": 360001, "maximo": 720000, "aliquota": 0.195, "desconto": 17640},
+    {"minimo": 720001, "maximo": 1800000, "aliquota": 0.205, "desconto": 35640},
+    {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.23, "desconto": 125640},
+    {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.3005, "desconto": 648000}
+  ]
+
   def __init__(self, receita_bruta:float, attachment:str, porcentagem_aliquota:float=None, faixa_desconto:float=None):
     self.attachment = str(attachment)
     self.receita_bruta = float(receita_bruta)
@@ -98,6 +116,24 @@ class SimplesNacional:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
+    elif attachment == "Anexo 04":
+      side_tributacao = self.__get_tributacao_anexo04_side(self.receita_bruta)
+      
+      if porcentagem_aliquota is None:
+        self.porcentagem_aliquota = side_tributacao.get("aliquota")
+        print(F"EU SOU A PORCENTAGEM {self.porcentagem_aliquota}")
+
+      else:
+        self.porcentagem_aliquota = porcentagem_aliquota
+              
+      if faixa_desconto is None:
+        self.faixa_desconto = side_tributacao.get("desconto")
+        print(f"EU SOU O DESCONTO {self.faixa_desconto}")
+        
+      else:
+        self.faixa_desconto = faixa_desconto
+        print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
+
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
     for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
@@ -130,6 +166,28 @@ class SimplesNacional:
         print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
         return tributacao
     return {}
+  
+  @staticmethod
+  def __get_tributacao_anexo04_side(receita_bruta:float)->dict:
+    for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_04:
+      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
+        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
+        
+        tributacao["receita_bruta"] = receita_bruta
+        print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+        return tributacao
+    return {}
+  
+  @staticmethod
+  def __get_tributacao_anexo05_side(receita_bruta:float)->dict:
+    for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_05:
+      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
+        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
+        
+        tributacao["receita_bruta"] = receita_bruta
+        print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+        return tributacao
+    return {}
     
   @staticmethod
   def calcula_simples_nacional(receita_bruta:float, attachment:str)->float:
@@ -152,6 +210,22 @@ class SimplesNacional:
     elif attachment == "Anexo 03":
       receita_bruta = float(receita_bruta)
       side_tributacao_anexo = SimplesNacional.__get_tributacao_anexo03_side(receita_bruta)
+      valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo)
+      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
+            
+      return valor_simples_nacional
+    
+    elif attachment == "Anexo 04":
+      receita_bruta = float(receita_bruta)
+      side_tributacao_anexo = SimplesNacional.__get_tributacao_anexo04_side(receita_bruta)
+      valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo)
+      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
+            
+      return valor_simples_nacional
+    
+    elif attachment == "Anexo 05":
+      receita_bruta = float(receita_bruta)
+      side_tributacao_anexo = SimplesNacional.__get_tributacao_anexo05_side(receita_bruta)
       valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo)
       print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
             
