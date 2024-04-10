@@ -28,7 +28,5 @@ def is_CalculoImpostoSimplesNacional():
         
     return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
 
-#def is_CalculoImpostoSimplesNacionalAnexo02():
-
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
