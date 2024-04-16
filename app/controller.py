@@ -31,8 +31,8 @@ class SimplesNacional:
   ]
 
   TRIBUTACOES_ANEXO_04: List[Dict[str, int]] = [
-    {"minimo": 0, "maximo": 180000, "aliquota": 0.45, "desconto": 0},
-    {"minimo": 180001, "maximo": 360000, "aliquota": 0.9, "desconto": 9360},
+    {"minimo": 0, "maximo": 180000, "aliquota": 0.045, "desconto": 0},
+    {"minimo": 180001, "maximo": 360000, "aliquota": 0.09, "desconto": 9360},
     {"minimo": 360001, "maximo": 720000, "aliquota": 0.102, "desconto": 17640},
     {"minimo": 720001, "maximo": 1800000, "aliquota": 0.14, "desconto": 35640},
     {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.22, "desconto": 125640},
@@ -133,6 +133,25 @@ class SimplesNacional:
       else:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
+
+    elif attachment == "Anexo 05":
+      side_tributacao = self.__get_tributacao_anexo05_side(self.receita_bruta)
+      
+      if porcentagem_aliquota is None:
+        self.porcentagem_aliquota = side_tributacao.get("aliquota")
+        print(F"EU SOU A PORCENTAGEM {self.porcentagem_aliquota}")
+
+      else:
+        self.porcentagem_aliquota = porcentagem_aliquota
+              
+      if faixa_desconto is None:
+        self.faixa_desconto = side_tributacao.get("desconto")
+        print(f"EU SOU O DESCONTO {self.faixa_desconto}")
+        
+      else:
+        self.faixa_desconto = faixa_desconto
+        print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
+
 
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
