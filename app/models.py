@@ -8,4 +8,3 @@ class EmpresaCliente:
     self.nome_empresa = nome_empresa
     self.documento = cnpj
     self.renda_bruta = renda_bruta
-
