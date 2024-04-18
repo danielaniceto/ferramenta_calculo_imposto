@@ -49,3 +49,8 @@ h1, h2 {
 .error-message {
     color: red;
 }
+
+.imglogo{
+    width: 500;
+    height: 500;
+};
