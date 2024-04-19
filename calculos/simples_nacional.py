@@ -8,4 +8,3 @@ class CalculoSimplesNacional():
         print(f"EU SOU O IMPOSTO ANEXO 01 = {imposto_simples_nacional}")
                      
         return round(imposto_simples_nacional, 2)
-    
