@@ -6,12 +6,12 @@ body {
 }
 
 .container {
-    max-width: 600px; /* Largura máxima do conteúdo */
+    max-width: 500px; /* Largura máxima do conteúdo */
     margin: 0 auto; /* Centralizar na tela */
 }
 
 .form-group {
-    margin-bottom: 20px; /* Espaçamento entre os campos */
+    margin-bottom: 50px; /* Espaçamento entre os campos */
 }
 
 label {
@@ -21,9 +21,10 @@ label {
 }
 
 input[type="text"],
+
 input[type="number"] {
     width: 50%; /* Preenche toda a largura do container pai */
-    padding: 10px; /* Espaçamento interno */
+    padding: 12px; /* Espaçamento interno */
     border: 1px solid #ccc; /* Borda cinza */
     border-radius: 5px; /* Cantos arredondados */
 }
