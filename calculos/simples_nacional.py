@@ -1,7 +1,7 @@
 from typing import Dict
 
-class CalculoSimplesNacional():        
-#Anexo 01 - Comercio
+class CalculoSimplesNacional():
+    
     @classmethod
     def calcular_simples_nacional(cls, side_tributacao: Dict[str, float]) -> float:
         imposto_simples_nacional = (float(side_tributacao["receita_bruta"] * side_tributacao["aliquota"]) - side_tributacao["desconto"])
