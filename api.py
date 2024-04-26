@@ -18,6 +18,8 @@ def is_CalculoImpostoSimplesNacional():
     attachment = str(request.form.get("Anexos_Simples_Nacional"))
     print(f"EU SOU O ANEXO VINDO DO FORMS = {attachment}")
 
+    estado = str(request.form.get("Estados"))
+
     receita_bruta = float(request.form.get("renda_bruta"))
     print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
 

@@ -283,12 +283,11 @@ class ICMS:
     
 @staticmethod
 def __get_tributacao_estados_side(receita_bruta:float)->dict:
-  for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_05:
-    if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-      print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
-        
-      tributacao["receita_bruta"] = receita_bruta
-      print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
-      return tributacao
+  for icms in ICMS.TRIBUTACOES_ESTADOS_2024:
+    if icms ==ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
+      aliquota = ICMS.TRIBUTACOES_ESTADOS_2024["aliquota"]
+      print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {icms}")
+
+      return aliquota
     
   return {}
