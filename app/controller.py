@@ -282,11 +282,11 @@ class ICMS:
   ]
     
 @staticmethod
-def __get_tributacao_estados_side(receita_bruta:float)->dict:
-  for icms in ICMS.TRIBUTACOES_ESTADOS_2024:
-    if icms ==ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
+def __get_tributacao_estados_side(estado:str)->float:
+  for estado in ICMS.TRIBUTACOES_ESTADOS_2024:
+    if estado == ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
       aliquota = ICMS.TRIBUTACOES_ESTADOS_2024["aliquota"]
-      print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {icms}")
+      print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {aliquota}")
 
       return aliquota
     
