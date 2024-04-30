@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Cálculo Tributário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha_imposto.css') }}">
+    <img class=".imglogo" src="{{ url_for('static', filename='img/logo.png') }}" width="220" height="100">
+</head>
+
+<body>
+    <h1>Simples Nacional - Informe a Renda Bruta e o Anexo da sua Empresa</h1>
+    <form action="/resultados_calculos_imposto" method="post">
+
+        <select name="Anexos_Simples_Nacional">
+            <option value="Anexo 01">Anexo 01 - Comercio</option>
+            <option value="Anexo 02">Anexo 02 - Industria</option>
+            <option value="Anexo 03">Anexo 03 - Prestadores de Serviços - Serviços de Instalação, reparos, manutenções, agencia de viagens, contabilidade, academias, laboratorios, empresas de medicina e odontologia.</option>
+            <option value="Anexo 04">Anexo 04 - Prestadores de Serviços - Serviço de limpeza, vigilância, obras, construção de imóveis, serviços advocatícios</option>
+            <option value="Anexo 05">Anexo 05 - Prestadores de Serviços - Serviço de auditoria, jornalismo, tecnologia, publicidade, engenharia, entre outros</option>
+        </select>
+        Renda Bruta: <input type="number" name="renda_bruta" maxlength="1000000000000000"/>
+        <button type="submit" > Enviar </button>
+    </form>
+</body>
+</html>

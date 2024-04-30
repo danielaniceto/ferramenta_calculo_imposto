@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def recebe_receita_html():
-    return render_template("receita_bruta.html")
+    return render_template("escolha_imposto.html")
 
 @app.route('/resultados_calculos_imposto', methods=['POST'])
 def is_CalculoImpostoSimplesNacional():
