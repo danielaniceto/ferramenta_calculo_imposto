@@ -12,26 +12,33 @@ app = Flask(__name__)
 def recebe_receita_html():
     return render_template("escolha_imposto.html")
 
-@app.route('/resultados_calculos_imposto', methods=['POST'])
+@app.route('/simples_nacional', methods=['POST'])
 def is_CalculoImpostoSimplesNacional():
 
-    attachment = str(request.form.get("Anexos_Simples_Nacional"))
-    print(f"EU SOU O ANEXO VINDO DO FORMS = {attachment}")
-
-    estado = str(request.form.get("Estados"))
+    anexos = str(request.form.get("Anexos_Simples_Nacional"))
+    print(f"EU SOU O ANEXO VINDO DO FORMS = {anexos}")
 
     receita_bruta = float(request.form.get("renda_bruta"))
     print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
 
-    validacao_simples_nacional = SimplesNacional(receita_bruta, attachment)
+    validacao_simples_nacional = SimplesNacional(receita_bruta, anexos)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {validacao_simples_nacional}")
 
-    valor_simples_nacional = SimplesNacional.calcula_simples_nacional(receita_bruta, attachment)
+    valor_simples_nacional = SimplesNacional.calcula_simples_nacional(receita_bruta, anexos)
 
     icms = "DANIEL PASSOU POR AQUI"
     mei = "DANIEL PASSOU POR AQUI TAMBÉM"
         
     return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional, imposto_icms = icms, imposto_mei = mei)
+
+@app.route('/icms', methods=['POST'])
+def is_CalculoICMS():
+
+    estado = str(request.form.get("Estados"))
+
+    return render_template("/icms")
+
+
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
