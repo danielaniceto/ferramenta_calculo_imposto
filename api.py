@@ -25,11 +25,8 @@ def is_CalculoImpostoSimplesNacional():
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {validacao_simples_nacional}")
 
     valor_simples_nacional = SimplesNacional.calcula_simples_nacional(receita_bruta, anexos)
-
-    icms = "DANIEL PASSOU POR AQUI"
-    mei = "DANIEL PASSOU POR AQUI TAMBÉM"
         
-    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional, imposto_icms = icms, imposto_mei = mei)
+    return render_template ("/resultados_calculos_imposto.html", imposto_simples_nacional = valor_simples_nacional)
 
 @app.route('/icms', methods=['POST'])
 def is_CalculoICMS():
