@@ -15,6 +15,8 @@ def recebe_receita_html():
 @app.route('/simples_nacional', methods=['POST'])
 def is_CalculoImpostoSimplesNacional():
 
+    render_template("/simples_nacional.html")
+
     anexos = str(request.form.get("Anexos_Simples_Nacional"))
     print(f"EU SOU O ANEXO VINDO DO FORMS = {anexos}")
 
