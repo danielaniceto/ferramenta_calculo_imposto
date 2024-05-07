@@ -12,7 +12,11 @@
 
 <body>
     <h1>Simples Nacional - Informe a Renda Bruta e o Anexo da sua Empresa</h1>
+
     <form action="/resultados_calculos_imposto" method="post">
+
+        Renda Bruta: <input type="number" name="renda_bruta" maxlength="1000000000000000"/>
+
         <select name="Anexos_Simples_Nacional">
             <option value="Anexo 01">Anexo 01 - Comercio</option>
             <option value="Anexo 02">Anexo 02 - Industria</option>
@@ -20,8 +24,9 @@
             <option value="Anexo 04">Anexo 04 - Prestadores de Serviços - Serviço de limpeza, vigilância, obras, construção de imóveis, serviços advocatícios</option>
             <option value="Anexo 05">Anexo 05 - Prestadores de Serviços - Serviço de auditoria, jornalismo, tecnologia, publicidade, engenharia, entre outros</option>
         </select>
-        Renda Bruta: <input type="number" name="renda_bruta" maxlength="1000000000000000"/>
+
         <button type="submit" > Enviar </button>
+
     </form>
 
 </body>

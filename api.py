@@ -15,13 +15,13 @@ def recebe_receita_html():
 @app.route('/simples_nacional', methods=['POST'])
 def is_CalculoImpostoSimplesNacional():
 
-    render_template("/simples_nacional.html")
-
-    anexos = str(request.form.get("Anexos_Simples_Nacional"))
-    print(f"EU SOU O ANEXO VINDO DO FORMS = {anexos}")
+    render_template ("simples_nacional.html")
 
     receita_bruta = float(request.form.get("renda_bruta"))
     print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
+
+    anexos = str(request.form.get("Anexos_Simples_Nacional"))
+    print(f"EU SOU O ANEXO VINDO DO FORMS = {anexos}")
 
     validacao_simples_nacional = SimplesNacional(receita_bruta, anexos)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {validacao_simples_nacional}")
