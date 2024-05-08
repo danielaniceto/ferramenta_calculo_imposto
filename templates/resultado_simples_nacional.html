@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha_imposto.css') }}">
     <img class=".imglogo" src="{{ url_for('static', filename='img/logo.png') }}"  width="220" height="100">
 </head>
+
 <body>
     <h1> Resultado Valor do Imposto Simples Nacional</h1>
     <p>O valor do imposto a ser pago nessa modalidade e de R$: {{ imposto_simples_nacional }}</p>
-
-    <h1> Resultado Valor do Imposto ICMS</h1>
-    <p>O valor do imposto a ser pago nessa modalidade e de R$: {{ imposto_icms }}</p>
-
-    <h1> Resultado Valor do Imposto MEI</h1>
-    <p>O valor do imposto a ser pago nessa modalidade e de R$: {{ imposto_mei }}</p>
     
     <form action="/" method="get">
         <button type="submit"> Recalcular Imposto </button>
     </form>
     
 </body>
+
 </html>
     
