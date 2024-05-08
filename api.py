@@ -15,7 +15,7 @@ def recebe_receita_html():
 @app.route('/simples_nacional', methods=['POST'])
 def is_CalculoImpostoSimplesNacional():
 
-    render_template ("simples_nacional.html")
+    render_template("simples_nacional.html")
 
     receita_bruta = float(request.form.get("renda_bruta"))
     print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
