@@ -1,5 +1,6 @@
 from typing import List, Dict
 from calculos.simples_nacional import CalculoSimplesNacional
+#from calculos.icms import CalculoIcms
 
 class SimplesNacional:
     
@@ -48,8 +49,8 @@ class SimplesNacional:
     {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.3005, "desconto": 648000}
   ]
 
-  def __init__(self, receita_bruta:float, attachment:str, porcentagem_aliquota:float=None, faixa_desconto:float=None):
-    self.attachment = str(attachment)
+  def __init__(self, receita_bruta:float, anexo:str, porcentagem_aliquota:float=None, faixa_desconto:float=None):
+    self.anexo = str(anexo)
     self.receita_bruta = float(receita_bruta)
 
     if receita_bruta < 0:
@@ -61,8 +62,8 @@ class SimplesNacional:
     elif receita_bruta > 5760000:
       raise ValueError("Sua receita anual, estrapola o teto de valor para calculo nessa modalidade")
 
-    if attachment == "Anexo 01":
-      print(F"EU SOU O ANEXO DENTRO DA CONTROLLER {self.attachment}")
+    if anexo == "Anexo 01":
+      print(F"EU SOU O ANEXO DENTRO DA CONTROLLER {self.anexo}")
       side_tributacao = self.__get_tributacao_anexo01_side(self.receita_bruta)
 
       if porcentagem_aliquota is None:
@@ -80,7 +81,7 @@ class SimplesNacional:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
-    elif attachment == "Anexo 02":
+    elif anexo == "Anexo 02":
       side_tributacao = self.__get_tributacao_anexo02_side(self.receita_bruta)
 
       if porcentagem_aliquota is None:
@@ -98,7 +99,7 @@ class SimplesNacional:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
-    elif attachment == "Anexo 03":
+    elif anexo == "Anexo 03":
       side_tributacao = self.__get_tributacao_anexo03_side(self.receita_bruta)
       
       if porcentagem_aliquota is None:
@@ -116,7 +117,7 @@ class SimplesNacional:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
-    elif attachment == "Anexo 04":
+    elif anexo == "Anexo 04":
       side_tributacao = self.__get_tributacao_anexo04_side(self.receita_bruta)
       
       if porcentagem_aliquota is None:
@@ -134,7 +135,7 @@ class SimplesNacional:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
-    elif attachment == "Anexo 05":
+    elif anexo == "Anexo 05":
       side_tributacao = self.__get_tributacao_anexo05_side(self.receita_bruta)
       
       if porcentagem_aliquota is None:
@@ -280,6 +281,13 @@ class ICMS:
     {"estado": "AMAPA", "aliquota": 0.18},
     {"estado": "RORAIMA", "aliquota": 0.205}
   ]
+    
+def __init__(self, estado:str, aliquota:float=None, valor_produto:float=None):
+    self.estado = str(estado)
+    self.aliquota = float(aliquota)
+
+    if valor_produto < 0:
+      raise Exception("Impossivel calcular ICMS com valor do produto negativo")
     
 @staticmethod
 def __get_tributacao_estados_side(estado:str)->float:

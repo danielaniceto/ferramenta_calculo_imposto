@@ -1,6 +1,6 @@
 from typing import Dict
 
-class CalculoIcms():
+"""class CalculoIcms():
 
     @classmethod
-    def calcular_icms(cls, ):
+    def calcular_icms(cls, aliquota, valor_produto):"""
