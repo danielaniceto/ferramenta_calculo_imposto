@@ -283,8 +283,8 @@ class ICMS:
   ]
     
 def __init__(self, estado:str, aliquota:float=None, valor_produto:float=None):
-    self.estado = str(estado)
     self.aliquota = float(aliquota)
+    self.valor_produto =float(valor_produto)
 
     if valor_produto < 0:
       raise Exception("Impossivel calcular ICMS com valor do produto negativo")
