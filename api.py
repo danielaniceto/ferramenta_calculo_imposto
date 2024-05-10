@@ -38,7 +38,7 @@ def isApresetaICMS():
     return render_template("icms.html")
 
 @app.route('/resultado_calculo_imposto_icms', methods=['POST'])
-def is_CalculoImpostoSimplesNacional():
+def is_CalculoImpostoIcms():
 
     valor_do_produto = float(request.form.get("valor_produto_servico"))
     print(f"EU SOU O VALOR DO PRODUTO VINDO DO FORMS = {valor_do_produto}")
@@ -47,9 +47,10 @@ def is_CalculoImpostoSimplesNacional():
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO PRODUTO = {validacao_valor_produto}")
 
     estado = str(request.form.get("Estados"))
+    print(F"EU SOU O ESTADO VINDO DO FORMS")
 
-    valor_icms = SimplesNacional.calcula_simples_nacional(valor_do_produto, estado)
-    print(f"EU SOU O RETONO DO VALOR DO PRODUTO VINDO DO CALCULO = {valor_icms}")
+    valor_icms = ICMS.calcula_icms(valor_do_produto, estado)
+    print(f"EU SOU O RETONO DO VALOR DO PRODUTO VINDO DO CALCULO = {estado, valor_icms}")
         
     return render_template ("/resultado_icms.html", imposto_icms = valor_icms)
 
