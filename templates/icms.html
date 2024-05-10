@@ -1,37 +1,57 @@
-<h1> Em qual estado você deseja calculas o valor do ICMS?</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<select name="Estados">
-    <option value="MINASGERAIS">Minas Gerais</option>
-    <option value="SAOPAULO">São Paulo</option>
-    <option value="RIODEJANEIRO">Rio de Janeiro</option>
-    <option value="RIOGRANDEDOSUL">Rio Grande do Sul</option>
-    <option value="PARANA">Parana</option>
-    <option value="SANTACATARINA">Santa Catarina</option>
-    <option value="BAHIA">Bahia</option>
-    <option value="DISTRITOFEDERAL">Brasília</option>
-    <option value="GOIAS">Goias</option>
-    <option value="PARA">Para</option>
-    <option value="MATOGROSSO">Mato Grosso</option>
-    <option value="PERNAMBUCO">Pernambuco</option>
-    <option value="CEARA">Ceará</option>
-    <option value="ESPIRITOSANTO">Espirito Santo</option>
-    <option value="MATOGROSSODOSUL">Mato Grosso do Sul</option>
-    <option value="AMAZONAS">Amazonas</option>
-    <option value="MARANHAO">Maranhão</option>
-    <option value="RIOGRANDEDONORTE">Rio Grande do Norte</option>
-    <option value="PARAIBA">Paraíba</option>
-    <option value="ALAGOAS">Alagoas</option>
-    <option value="PIAUI">Piaui</option>
-    <option value="RONDONIA">Rondônia</option>
-    <option value="SERGIPE">Sergipe</option>
-    <option value="TOCANTINS">Tocantins</option>
-    <option value="ACRE">Acre</option>
-    <option value="AMAPA">Amapa</option>
-    <option value="RORAIMA">Roraima</option>
-</select>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Cálculo ICMS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha_imposto.css') }}">
+    <img class=".imglogo" src="{{ url_for('static', filename='img/logo.png') }}" width="220" height="100">
+</head>
 
-<h1> Qual valor do serviço/produto vendido ? </h1>
+<body>
+    <h1> Em qual estado você deseja calculas o valor do ICMS?</h1>
 
-Valor Produto ou Serviço = <input type="number" name="valor_produto_servico" maxlength="100000000000000"/>
+    <form action="/resultado_calculo_icms" method="post">
 
-<button type="submit" > Enviar </button>
+        <select name="Estados">
+            <option value="MINASGERAIS">Minas Gerais</option>
+            <option value="SAOPAULO">São Paulo</option>
+            <option value="RIODEJANEIRO">Rio de Janeiro</option>
+            <option value="RIOGRANDEDOSUL">Rio Grande do Sul</option>
+            <option value="PARANA">Parana</option>
+            <option value="SANTACATARINA">Santa Catarina</option>
+            <option value="BAHIA">Bahia</option>
+            <option value="DISTRITOFEDERAL">Brasília</option>
+            <option value="GOIAS">Goias</option>
+            <option value="PARA">Para</option>
+            <option value="MATOGROSSO">Mato Grosso</option>
+            <option value="PERNAMBUCO">Pernambuco</option>
+            <option value="CEARA">Ceará</option>
+            <option value="ESPIRITOSANTO">Espirito Santo</option>
+            <option value="MATOGROSSODOSUL">Mato Grosso do Sul</option>
+            <option value="AMAZONAS">Amazonas</option>
+            <option value="MARANHAO">Maranhão</option>
+            <option value="RIOGRANDEDONORTE">Rio Grande do Norte</option>
+            <option value="PARAIBA">Paraíba</option>
+            <option value="ALAGOAS">Alagoas</option>
+            <option value="PIAUI">Piaui</option>
+            <option value="RONDONIA">Rondônia</option>
+            <option value="SERGIPE">Sergipe</option>
+            <option value="TOCANTINS">Tocantins</option>
+            <option value="ACRE">Acre</option>
+            <option value="AMAPA">Amapa</option>
+            <option value="RORAIMA">Roraima</option>
+        </select>
+
+        <h1> Qual valor do serviço/produto vendido ? </h1>
+
+        Valor Produto ou Serviço = <input type="number" name="valor_produto_servico" maxlength="100000000000000"/>
+
+        <button type="submit" > Enviar </button>
+
+    </form>
+
+</body>
+</html>

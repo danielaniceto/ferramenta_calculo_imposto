@@ -252,7 +252,8 @@ class SimplesNacional:
       return valor_simples_nacional
     
 class ICMS:
-    TRIBUTACOES_ESTADOS_2024: List[Dict[str, int]] = [
+    
+  TRIBUTACOES_ESTADOS_2024: List[Dict[str, int]] = [
     {"estado": "MINASGERAIS", "aliquota": 0.18},
     {"estado": "SAOPAULO", "aliquota": 0.18},
     {"estado": "RIODEJANEIRO", "aliquota": 0.22},
@@ -282,20 +283,34 @@ class ICMS:
     {"estado": "RORAIMA", "aliquota": 0.205}
   ]
     
-def __init__(self, estado:str, aliquota:float=None, valor_produto:float=None):
+  def __init__(self, estado:str, aliquota:float=None, valor_produto:float=None):
     self.aliquota = float(aliquota)
+    self.estado = str(estado)
     self.valor_produto =float(valor_produto)
 
     if valor_produto < 0:
       raise Exception("Impossivel calcular ICMS com valor do produto negativo")
-    
-@staticmethod
-def __get_tributacao_estados_side(estado:str)->float:
-  for estado in ICMS.TRIBUTACOES_ESTADOS_2024:
-    if estado == ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
-      aliquota = ICMS.TRIBUTACOES_ESTADOS_2024["aliquota"]
-      print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {aliquota}")
+  
+    side_tributacao_icms = self.__get_tributacao_estados_side(self.estado, self.valor_produto)
 
-      return aliquota
-    
-  return {}
+  @staticmethod
+  def __get_tributacao_estados_side(estado:str, valor_produto:float)->dict:
+    for tributacao_icms in ICMS.TRIBUTACOES_ESTADOS_2024:
+      if estado == ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
+        aliquota = ICMS.TRIBUTACOES_ESTADOS_2024["aliquota"]
+        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_icms}")
+
+        tributacao_icms["valor_produto_servico"] = valor_produto
+        print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND")
+        return tributacao_icms
+    return {}
+
+  @staticmethod
+  def calcula_icms(receita_bruta:float, attachment:str)->float:
+    if attachment == "Anexo 01":
+      receita_bruta = float(receita_bruta)
+      side_tributacao_anexo = SimplesNacional.__get_tributacao_anexo01_side(receita_bruta)
+      valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo)
+      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
+            
+      return valor_simples_nacional
