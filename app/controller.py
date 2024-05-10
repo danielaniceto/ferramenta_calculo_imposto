@@ -301,12 +301,24 @@ class ICMS:
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_icms}")
 
         tributacao_icms["valor_produto_servico"] = valor_produto
+        tributacao_icms["aliquota"] = aliquota
         print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND")
         return tributacao_icms
     return {}
 
   @staticmethod
-  def calcula_icms(receita_bruta:float, attachment:str)->float:
+  def calcula_icms(valor_produto:float, aliquota:str)->float:
+      valor_produto = float(valor_produto)
+      aliquota = float(aliquota)
+      side_tributacao_icms = SimplesNacional.__get_tributacao_estados_side(estado)
+      valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo)
+      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
+            
+      return valor_simples_nacional
+  
+  ###########################################
+
+  def calcula_simples_nacional(receita_bruta:float, attachment:str)->float:
     if attachment == "Anexo 01":
       receita_bruta = float(receita_bruta)
       side_tributacao_anexo = SimplesNacional.__get_tributacao_anexo01_side(receita_bruta)
@@ -314,3 +326,9 @@ class ICMS:
       print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
             
       return valor_simples_nacional
+  
+    elif attachment == "Anexo 02":
+      receita_bruta = float(receita_bruta)
+      side_tributacao_anexo = SimplesNacional.__get_tributacao_anexo02_side(receita_bruta)
+      valor_simples_nacional = CalculoSimplesNacional.calcular_simples_nacional(side_tributacao_anexo)
+      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
