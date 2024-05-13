@@ -1,6 +1,6 @@
 from typing import List, Dict
 from calculos.simples_nacional import CalculoSimplesNacional
-#from calculos.icms import CalculoIcms
+from calculos.icms import CalculoIcms
 
 class SimplesNacional:
     
@@ -153,7 +153,6 @@ class SimplesNacional:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
 
-
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
     for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
@@ -252,7 +251,8 @@ class SimplesNacional:
       return valor_simples_nacional
     
 class ICMS:
-    TRIBUTACOES_ESTADOS_2024: List[Dict[str, int]] = [
+    
+  TRIBUTACOES_ESTADOS_2024: List[Dict[str, int]] = [
     {"estado": "MINASGERAIS", "aliquota": 0.18},
     {"estado": "SAOPAULO", "aliquota": 0.18},
     {"estado": "RIODEJANEIRO", "aliquota": 0.22},
@@ -282,20 +282,38 @@ class ICMS:
     {"estado": "RORAIMA", "aliquota": 0.205}
   ]
     
-def __init__(self, estado:str, aliquota:float=None, valor_produto:float=None):
-    self.aliquota = float(aliquota)
+  def __init__(self, estado:str, valor_produto:float=None, aliquota:float=None):
+    self.estado = str(estado)
     self.valor_produto =float(valor_produto)
+    self.aliquota = float(aliquota)
+  
+    side_tributacao_icms = self.__get_tributacao_estados_side(self.estado, self.valor_produto)
 
+    
     if valor_produto < 0:
       raise Exception("Impossivel calcular ICMS com valor do produto negativo")
-    
-@staticmethod
-def __get_tributacao_estados_side(estado:str)->float:
-  for estado in ICMS.TRIBUTACOES_ESTADOS_2024:
-    if estado == ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
-      aliquota = ICMS.TRIBUTACOES_ESTADOS_2024["aliquota"]
-      print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {aliquota}")
 
-      return aliquota
-    
-  return {}
+    if aliquota is None:
+      self.aliquota = side_tributacao_icms.get("aliquota")
+      print(f"EU SOU A ALICOTA DO ESTADO {self.aliquota}")
+
+  @staticmethod
+  def __get_tributacao_estados_side(estado:str, valor_produto:float)->dict:
+    for tributacao_icms in ICMS.TRIBUTACOES_ESTADOS_2024:
+      if estado == ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
+        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_icms}")
+
+        tributacao_icms["valor_produto_servico"] = valor_produto
+        print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_icms}")
+        return tributacao_icms
+    return {}
+
+  @staticmethod
+  def calcula_icms(valor_produto:float, estado:str)->float:
+      valor_produto = float(valor_produto)
+      estado = float(estado)
+      side_tributacao_icms = ICMS.__get_tributacao_estados_side(estado, valor_produto)
+      valor_simples_nacional = CalculoIcms.calcular_icms(side_tributacao_icms)
+      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
+            
+      return valor_simples_nacional
