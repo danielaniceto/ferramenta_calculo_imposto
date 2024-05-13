@@ -43,11 +43,11 @@ def is_CalculoImpostoIcms():
     valor_do_produto = float(request.form.get("valor_produto_servico"))
     print(f"EU SOU O VALOR DO PRODUTO VINDO DO FORMS = {valor_do_produto}")
 
-    validacao_valor_produto = ICMS(valor_do_produto)
-    print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO PRODUTO = {validacao_valor_produto}")
-
     estado = str(request.form.get("Estados"))
-    print(F"EU SOU O ESTADO VINDO DO FORMS")
+    print(F"EU SOU O ESTADO VINDO DO FORMS = {estado}")
+
+    validacao_valor_produto = ICMS(valor_do_produto, estado)
+    print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO PRODUTO = {validacao_valor_produto}")
 
     valor_icms = ICMS.calcula_icms(valor_do_produto, estado)
     print(f"EU SOU O RETONO DO VALOR DO PRODUTO VINDO DO CALCULO = {estado, valor_icms}")
