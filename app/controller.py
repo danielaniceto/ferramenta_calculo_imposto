@@ -252,7 +252,7 @@ class SimplesNacional:
     
 class ICMS:
     
-  TRIBUTACOES_ESTADOS_2024: List[Dict[str, int]] = [
+  TRIBUTACOES_ESTADOS_2024: List[Dict[str, float]] = [
     {"estado": "MINASGERAIS", "aliquota": 0.18},
     {"estado": "SAOPAULO", "aliquota": 0.18},
     {"estado": "RIODEJANEIRO", "aliquota": 0.22},
@@ -284,6 +284,7 @@ class ICMS:
     
   def __init__(self, valor_produto:float, estado:str, aliquota:float=None):
     self.valor_produto = float(valor_produto)
+    print(f"EU SOU O ESTADO DENTRO DA DEF INIT DO ICMS {estado}")
     self.estado = str(estado)
   
     side_tributacao_icms = self.__get_tributacao_estados_side(self.estado, self.valor_produto)
@@ -293,23 +294,28 @@ class ICMS:
 
     if aliquota is None:
       self.aliquota = side_tributacao_icms.get("aliquota")
-      print(f"EU SOU A ALICOTA DO ESTADO {self.aliquota}")
+      print(f"EU SOU A ALIQUOTA DO ESTADO {self.aliquota}")
 
   @staticmethod
   def __get_tributacao_estados_side(estado:str, valor_produto:float)->dict:
     for tributacao_icms in ICMS.TRIBUTACOES_ESTADOS_2024:
-      if estado == ICMS.TRIBUTACOES_ESTADOS_2024["estado"]:
+      if estado == tributacao_icms.get("estado"):
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_icms}")
 
-        tributacao_icms["valor_produto_servico"] = valor_produto
-        print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_icms}")
-        return tributacao_icms
+        break
+
+      else:
+        print("Estado inválido para o cálculo")
+
+      tributacao_icms["valor_produto_servico"] = valor_produto
+      print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_icms}")
+      return tributacao_icms
     return {}
 
   @staticmethod
   def calcula_icms(valor_produto:float, estado:str)->float:
       valor_produto = float(valor_produto)
-      estado = float(estado)
+      estado = str(estado)
       side_tributacao_icms = ICMS.__get_tributacao_estados_side(estado, valor_produto)
       valor_simples_nacional = CalculoIcms.calcular_icms(side_tributacao_icms)
       print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
