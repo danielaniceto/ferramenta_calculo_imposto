@@ -5,44 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferramenta de Cálculo MEI</title>
+    <title>Ferramenta de Cálculo MEI, referete ao ano de 2024</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha_imposto.css') }}">
     <img class=".imglogo" src="{{ url_for('static', filename='img/logo.png') }}" width="220" height="100">
 </head>
 
 <body>
-    <h1> Em qual estado você deseja calculas o valor do ICMS?</h1>
+    <h1> Qual sua atividade declarada no MEI?</h1>
 
-    <form action="/resultado_calculo_imposto_icms" method="post">
+    <form action="/resultado_calculo_imposto_mei" method="post">
 
-        <select name="Estados">
-            <option value="MINASGERAIS">Minas Gerais</option>
-            <option value="SAOPAULO">São Paulo</option>
-            <option value="RIODEJANEIRO">Rio de Janeiro</option>
-            <option value="RIOGRANDEDOSUL">Rio Grande do Sul</option>
-            <option value="PARANA">Parana</option>
-            <option value="SANTACATARINA">Santa Catarina</option>
-            <option value="BAHIA">Bahia</option>
-            <option value="DISTRITOFEDERAL">Brasília</option>
-            <option value="GOIAS">Goias</option>
-            <option value="PARA">Para</option>
-            <option value="MATOGROSSO">Mato Grosso</option>
-            <option value="PERNAMBUCO">Pernambuco</option>
-            <option value="CEARA">Ceará</option>
-            <option value="ESPIRITOSANTO">Espirito Santo</option>
-            <option value="MATOGROSSODOSUL">Mato Grosso do Sul</option>
-            <option value="AMAZONAS">Amazonas</option>
-            <option value="MARANHAO">Maranhão</option>
-            <option value="RIOGRANDEDONORTE">Rio Grande do Norte</option>
-            <option value="PARAIBA">Paraíba</option>
-            <option value="ALAGOAS">Alagoas</option>
-            <option value="PIAUI">Piaui</option>
-            <option value="RONDONIA">Rondônia</option>
-            <option value="SERGIPE">Sergipe</option>
-            <option value="TOCANTINS">Tocantins</option>
-            <option value="ACRE">Acre</option>
-            <option value="AMAPA">Amapa</option>
-            <option value="RORAIMA">Roraima</option>
+        <select name="Atividades">
+            <option value="0121101">CNAE: 0121101 - Viveirista independente</option>
+            <option value="0159801">CNAE: 0159801 - Apicultor(a) independente</option>
+            <option value="0159802">CNAE: 0159802 - Criador(a) de animais domésticos independente</option>
+            <option value="0161002">CNAE: 0161002 - Prestador(a) de serviços de poda, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de colheita, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de preparação de terrenos, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de roçagem, destocamento, lavração, gradagem e sulcamento, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de semeadura, sob contrato de empreitada, independente</option>
+            <option value="0162802">CNAE: 0162802 - Tosquiador(a) independente</option>
+            <option value="0321304">CNAE: 0321304 - Criador(a) de peixes ornamentais em água salgada independente</option>
+            <option value="0322104">CNAE: 0322104 - Criador(a) de peixes ornamentais em água doce independente</option>
+            <option value="0892401">CNAE: 0892401 - Salineiro/extrator de sal marinho independente</option>
+            <option value="1013901">CNAE: 1013901 - Fabricante de produtos derivados de carne independente</option>
+            <option value="1013901">CNAE: 1013901 - Salsicheiro(a)/linguiceiro(a) independente</option>
+            <option value="1031700">CNAE: 1031700 - Beneficiador(a) de castanha independente</option>
+            <option value="1031700">CNAE: 1031700 - Compoteiro(a) independente</option>
+            <option value="1031700">CNAE: 1031700 - Fabricante de amendoim e castanha de caju torrados e salgados independente</option>
+            <option value="1031700">CNAE: 1031700 - Fabricante de conservas de frutas independente</option>
+            <option value="1031700">CNAE: 1031700 - Fabricante de polpas de frutas independente</option>
+            <option value="1032599">CNAE: 1032599 - Fabricante de conservas de legumes e outros vegetais independente</option>
+            <option value="1033301">CNAE: 1033301 - Fabricante de sucos concentrados de frutas, hortaliças e legumes independente</option>
+            <option value="1033302">CNAE: 1033302 - Fabricante de sucos de frutas, hortaliças e legumes independente</option>
+            <option value="1052000">CNAE: 1052000 - Fabricante de laticínios independente</option>
+            <option value="1052000">CNAE: 1052000 - Queijeiro(a)/ manteigueiro(a) independente</option>
+            <option value="1061902">CNAE: 1061902 - Fabricante de produtos derivados do arroz independente</option>
+            <option value="1063500">CNAE: 1063500 - Farinheiro de mandioca independente	</option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
         </select>
 
         <h1> Qual valor do serviço ou produto ? </h1>
