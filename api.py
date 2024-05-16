@@ -54,5 +54,14 @@ def is_CalculoImpostoIcms():
         
     return render_template ("/resultado_icms.html", imposto_icms = valor_icms)
 
+@app.route('/mei', methods=['POST'])
+def isApresetaMEI():
+    return render_template("mei.html")
+
+"""app.route('/resultado_calculo_imposto_mei', methods=['POST'])
+def is_CalculoImpostoMei():"""
+
+
+
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
