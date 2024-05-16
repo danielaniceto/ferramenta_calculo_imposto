@@ -50,7 +50,7 @@ def is_CalculoImpostoIcms():
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO PRODUTO = {validacao_valor_produto}")
 
     valor_icms = ICMS.calcula_icms(valor_do_produto, estado)
-    print(f"EU SOU O RETONO DO VALOR DO PRODUTO VINDO DO CALCULO = {estado, valor_icms}")
+    print(f"EU SOU O RETONO DO VALOR DO IMPOSTO VINDO DO CALCULO = {estado, valor_icms}")
         
     return render_template ("/resultado_icms.html", imposto_icms = valor_icms)
 

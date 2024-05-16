@@ -303,21 +303,16 @@ class ICMS:
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_icms}")
 
         break
-
-      else:
-        print("Estado inválido para o cálculo")
-
-      tributacao_icms["valor_produto_servico"] = valor_produto
-      print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_icms}")
-      return tributacao_icms
-    return {}
+    tributacao_icms["valor_produto_servico"] = valor_produto
+    print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_icms}")
+    return tributacao_icms
 
   @staticmethod
   def calcula_icms(valor_produto:float, estado:str)->float:
       valor_produto = float(valor_produto)
       estado = str(estado)
       side_tributacao_icms = ICMS.__get_tributacao_estados_side(estado, valor_produto)
-      valor_simples_nacional = CalculoIcms.calcular_icms(side_tributacao_icms)
-      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
+      valor_icms = CalculoIcms.calcular_icms_dentro_do_estado(side_tributacao_icms)
+      print(f"EU SOU O RETORNO DA FUNCAO CALCULAR ICMS DENTRO DO CONTROLLER {valor_icms}")
             
-      return valor_simples_nacional
+      return valor_icms
