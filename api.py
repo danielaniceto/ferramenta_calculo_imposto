@@ -61,7 +61,5 @@ def isApresetaMEI():
 """app.route('/resultado_calculo_imposto_mei', methods=['POST'])
 def is_CalculoImpostoMei():"""
 
-
-
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
