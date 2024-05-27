@@ -1,6 +1,8 @@
 import pymysql.cursors
+import mysql.connector
 
 connection = pymysql.connect(
+                             
     host="localhost",
     user="root",
     password="1234",
@@ -11,12 +13,15 @@ connection = pymysql.connect(
     )
 
 def connectionBD():
-    try:
-        with connection.cursor as cursor:
-            cursor.execute("create table aliquotas_simples_nacional")
-        return f"Tabela criada com sucesso"
+    cursor = connection.cursor
+    cursor.execute(connection)
 
+def consulta_aliquota_simples_nacional():
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM aliquotasimplesnacional WHERE AliquotaAnexo01")
+            aliquotas = cursor.fetchall()
+            for aliquota in aliquotas:
+                return(aliquota)
     except Exception as error:
-        return f"Não foi possível conectar ao banco de dados, {error}"
-    
-connection.close()
+        return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")
