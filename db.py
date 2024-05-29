@@ -11,6 +11,7 @@ connection = pymysql.connect(
     charset="utf8mb4",
     cursorclass=pymysql.cursors.DictCursor
     )
+
 class ConexaoBD():
     def connectionBD():
         cursor = connection.cursor
