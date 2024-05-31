@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado do Lucro Presumido</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha_imposto.css') }}">
+    <img class=".imglogo" src="{{ url_for('static', filename='img/logo.png') }}"  width="220" height="100">
+</head>
+
+<body>
+    <h1> Resultado Valor do ICMS</h1>
+    <p>O valor do imposto do Lucro Presumido que você pagará será de R$: {{ imposto_icms }}</p>
+    
+    <form action="/" method="get">
+        <button type="submit"> Recalcular Imposto </button>
+    </form>
+    
+</body>
+
+</html>
