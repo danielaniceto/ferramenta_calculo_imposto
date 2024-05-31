@@ -33,6 +33,10 @@ def is_CalculoImpostoSimplesNacional():
         
     return render_template ("/resultado_simples_nacional.html", imposto_simples_nacional = valor_simples_nacional)
 
+@app.route("/lucro_presumido", methods=["POST"])
+def isApresentaLucroPresumido():
+    return render_template("lucro_presumido.html")
+
 @app.route('/icms', methods=['POST'])
 def isApresetaICMS():
     return render_template("icms.html")
