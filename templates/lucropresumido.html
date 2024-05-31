@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Cálculo Lucro Presumido</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha_imposto.css') }}">
+    <img class=".imglogo" src="{{ url_for('static', filename='img/logo.png') }}" width="220" height="100">
+</head>
+
+<body>
+    <h1>Lucro Presumido - Informe a Renda Bruta e o ramo da sua Empresa</h1>
+
+    <form action="/resultado_calculo_imposto_lucro_presumido" method="post">
+
+        Renda Bruta: <input type="number" name="renda_bruta" maxlength="1000000000000000"/>
+
+        <select name="Anexos_Simples_Nacional">
+            <option value="Presuncao 01">Revenda de combustíveis e gás natural.</option>
+            <option value="Presuncao 02">Transporte de cargas.</option>
+            <option value="Presuncao 03">Atividades imobiliárias.</option>
+            <option value="Presuncao 04">Industrialização para terceiros com recebimento do material.</option>
+            <option value="Presuncao 05">Demais atividades não especificadas que não sejam prestação de serviço.</option>
+            <option value="Presuncao 06">Transporte que não seja de cargas e serviços em geral.</option>
+            <option value="Presuncao 07">Serviços profissionais que exijam formação técnica ou acadêmica, como advocacia e engenharia.</option>
+            <option value="Presuncao 08">Intermediação de negócios.</option>
+            <option value="Presuncao 09">Administração de bens móveis ou imóveis, locação ou cessão desses mesmos bens.</option>
+            <option value="Presuncao 10">Construção civil e serviços em geral.</option>
+        </select>
+
+        <button type="submit" > Enviar </button>
+
+    </form>
+
+</body>
+</html>
