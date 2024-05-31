@@ -37,6 +37,16 @@ def is_CalculoImpostoSimplesNacional():
 def isApresentaLucroPresumido():
     return render_template("lucro_presumido.html")
 
+"""app.route('/resultado_lucro_presumido', methods=['POST'])
+def is_CalculoImpostoLucroPresumido():"""
+
+@app.route("/lucro_real", methods=['POST'])
+def isApresentaLucroReal():
+    return render_template("lucro_real.html")
+
+"""app.route('/resultado_lucro_real', methods=['POST'])
+def is_CalculoImpostoLucroReal():"""
+
 @app.route('/icms', methods=['POST'])
 def isApresetaICMS():
     return render_template("icms.html")
