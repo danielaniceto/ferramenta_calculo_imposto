@@ -1,6 +1,7 @@
 from typing import List, Dict
 from calculos.simples_nacional import CalculoSimplesNacional
 from calculos.icms import CalculoIcms
+from db import ConexaoBD
 
 class SimplesNacional:
     

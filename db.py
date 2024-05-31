@@ -12,16 +12,17 @@ connection = pymysql.connect(
     cursorclass=pymysql.cursors.DictCursor
     )
 
-def connectionBD():
-    cursor = connection.cursor
-    cursor.execute(connection)
+class ConexaoBD():
+    def connectionBD():
+        cursor = connection.cursor
+        cursor.execute(connection)
 
-def consulta_aliquota_simples_nacional():
-    try:
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT * FROM aliquotasimplesnacional WHERE AliquotaAnexo01")
-            aliquotas = cursor.fetchall()
-            for aliquota in aliquotas:
-                return(aliquota)
-    except Exception as error:
-        return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")
+    def consulta_aliquota_simples_nacional():
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT * FROM aliquotasimplesnacional WHERE AliquotaAnexo01")
+                aliquotas = cursor.fetchall()
+                for aliquota in aliquotas:
+                    return(aliquota)
+        except Exception as error:
+            return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")
