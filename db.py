@@ -1,5 +1,4 @@
 import pymysql.cursors
-import mysql.connector
 
 connection = pymysql.connect(
                              
@@ -14,13 +13,14 @@ connection = pymysql.connect(
 
 class ConexaoBD():
     def connectionBD():
-        cursor = connection.cursor
+        cursor = connection.cursor()
         cursor.execute(connection)
 
-    def consulta_aliquota_simples_nacional():
+class ConsultaAliquotas():
+    def consulta_aliquota_simples_nacional_anexo01():
         try:
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM aliquotasimplesnacional WHERE AliquotaAnexo01")
+                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = 'anexo01';")
                 aliquotas = cursor.fetchall()
                 for aliquota in aliquotas:
                     return(aliquota)
