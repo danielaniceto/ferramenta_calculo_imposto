@@ -1,19 +1,12 @@
 from typing import List, Dict
 from calculos.simples_nacional import CalculoSimplesNacional
 from calculos.icms import CalculoIcms
-from db import ConexaoBD
+from db import ConsultaAliquotas
 
 class SimplesNacional:
     
-  TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = [
-    {"minimo": 0, "maximo": 180000, "aliquota": 0.04, "desconto": 0},
-    {"minimo": 180001, "maximo": 360000, "aliquota": 0.073, "desconto": 5940},
-    {"minimo": 360001, "maximo": 720000, "aliquota": 0.095, "desconto": 13860},
-    {"minimo": 720001, "maximo": 1800000, "aliquota": 0.107, "desconto": 22500},
-    {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.143, "desconto": 87300},
-    {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.19, "desconto": 378000}
-  ]
-
+  TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional_anexo01
+  
   TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = [
     {"minimo": 0, "maximo": 180000, "aliquota": 0.045, "desconto": 0},
     {"minimo": 180001, "maximo": 360000, "aliquota": 0.078, "desconto": 5940},
