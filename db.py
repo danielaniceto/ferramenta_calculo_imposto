@@ -38,3 +38,4 @@ class ConsultaAliquotas():
                 return(aliquotas)
         except Exception as error:
             return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")
+        

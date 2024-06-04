@@ -6,6 +6,7 @@ from db import ConsultaAliquotas
 class SimplesNacional:
     
   TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional_anexo01
+  print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
 
   TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional_anexo02
 
