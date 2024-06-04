@@ -12,8 +12,8 @@ class ConexaoBD():
             cursorclass=pymysql.cursors.DictCursor
         )
 
-        def get_connection(self):
-            return self.connection
+    def get_connection(self):
+        return self.connection
 
 class ConsultaAliquotas():
     def __init__(self, conexao):
@@ -29,3 +29,12 @@ class ConsultaAliquotas():
             return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")
         finally:
             self.connection.close()
+
+    def consulta_aliquota_simples_nacional_anexo02(self):
+        try:
+            with self.connection.cursor() as cursor:
+                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = 'anexo02';")
+                aliquotas = cursor.fetchall()
+                return(aliquotas)
+        except Exception as error:
+            return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")

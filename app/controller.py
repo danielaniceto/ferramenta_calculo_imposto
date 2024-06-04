@@ -6,15 +6,8 @@ from db import ConsultaAliquotas
 class SimplesNacional:
     
   TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional_anexo01
-  
-  TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = [
-    {"minimo": 0, "maximo": 180000, "aliquota": 0.045, "desconto": 0},
-    {"minimo": 180001, "maximo": 360000, "aliquota": 0.078, "desconto": 5940},
-    {"minimo": 360001, "maximo": 720000, "aliquota": 0.10, "desconto": 13860},
-    {"minimo": 720001, "maximo": 1800000, "aliquota": 0.112, "desconto": 22500},
-    {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.147, "desconto": 85500},
-    {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.30, "desconto": 720000}
-  ]
+
+  TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional_anexo02
 
   TRIBUTACOES_ANEXO_03: List[Dict[str, int]] = [
     {"minimo": 0, "maximo": 180000, "aliquota": 0.06, "desconto": 0},
