@@ -23,7 +23,7 @@ class ConsultaAliquotas:
     def consulta_aliquota_simples_nacional(self, anexo:str):
         try:
             with self.connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = '{anexo01}';")
+                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = '{anexo}';")
                 aliquotas = cursor.fetchall()
                 if not bool(aliquotas):
                     return []
@@ -34,13 +34,4 @@ class ConsultaAliquotas:
         
     def close_connection(self):
         self.connection.close()
-
-    def consulta_aliquota_simples_nacional_anexo02(self):
-        try:
-            with self.connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = 'anexo02';")
-                aliquotas = cursor.fetchall()
-                return(aliquotas)
-        except Exception as error:
-            return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")
         
