@@ -15,20 +15,25 @@ class ConexaoBD():
     def get_connection(self):
         return self.connection
 
-class ConsultaAliquotas():
-    def __init__(self, conexao):
-        self.connection = conexao
+class ConsultaAliquotas:
+    def __init__(self):
+        conn = ConexaoBD
+        self.connection:pymysql.connect = conn.connection
 
-    def consulta_aliquota_simples_nacional_anexo01(self):
+    def consulta_aliquota_simples_nacional(self, anexo:str):
         try:
             with self.connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = 'anexo01';")
+                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = '{anexo01}';")
                 aliquotas = cursor.fetchall()
-                return(aliquotas)
+                if not bool(aliquotas):
+                    return []
+                self.connection.commit()
+                return aliquotas
         except Exception as error:
-            return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {error}")
-        finally:
-            self.connection.close()
+            return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {str(error)}")
+        
+    def close_connection(self):
+        self.connection.close()
 
     def consulta_aliquota_simples_nacional_anexo02(self):
         try:
