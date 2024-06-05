@@ -4,31 +4,36 @@ from calculos.icms import CalculoIcms
 from db import ConsultaAliquotas
 
 class SimplesNacional:
+
+  @staticmethod
+  def print_aliquotas():
+    ca = ConsultaAliquotas()
     
-  TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional_anexo01
-  print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
+    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ca.consulta_aliquota_simples_nacional("anexo01")
+    print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
 
-  TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional_anexo02
+    TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ca.consulta_aliquota_simples_nacional("anexo02")
+    print(F"EU SOU O DICIONARIO ANEXO 02 VINDO DO BANCO")
 
-  TRIBUTACOES_ANEXO_03: List[Dict[str, int]] = [
-    {"minimo": 0, "maximo": 180000, "aliquota": 0.06, "desconto": 0},
-    {"minimo": 180001, "maximo": 360000, "aliquota": 0.112, "desconto": 9360},
-    {"minimo": 360001, "maximo": 720000, "aliquota": 0.135, "desconto": 17640},
-    {"minimo": 720001, "maximo": 1800000, "aliquota": 0.16, "desconto": 35640},
-    {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.21, "desconto": 125640},
-    {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.33, "desconto": 648000}
-  ]
+    TRIBUTACOES_ANEXO_03: List[Dict[str, int]] = [
+      {"minimo": 0, "maximo": 180000, "aliquota": 0.06, "desconto": 0},
+      {"minimo": 180001, "maximo": 360000, "aliquota": 0.112, "desconto": 9360},
+      {"minimo": 360001, "maximo": 720000, "aliquota": 0.135, "desconto": 17640},
+      {"minimo": 720001, "maximo": 1800000, "aliquota": 0.16, "desconto": 35640},
+      {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.21, "desconto": 125640},
+      {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.33, "desconto": 648000}
+    ]
 
-  TRIBUTACOES_ANEXO_04: List[Dict[str, int]] = [
-    {"minimo": 0, "maximo": 180000, "aliquota": 0.045, "desconto": 0},
-    {"minimo": 180001, "maximo": 360000, "aliquota": 0.09, "desconto": 9360},
-    {"minimo": 360001, "maximo": 720000, "aliquota": 0.102, "desconto": 17640},
-    {"minimo": 720001, "maximo": 1800000, "aliquota": 0.14, "desconto": 35640},
-    {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.22, "desconto": 125640},
-    {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.33, "desconto": 648000}
-  ]
+    TRIBUTACOES_ANEXO_04: List[Dict[str, int]] = [
+      {"minimo": 0, "maximo": 180000, "aliquota": 0.045, "desconto": 0},
+      {"minimo": 180001, "maximo": 360000, "aliquota": 0.09, "desconto": 9360},
+      {"minimo": 360001, "maximo": 720000, "aliquota": 0.102, "desconto": 17640},
+      {"minimo": 720001, "maximo": 1800000, "aliquota": 0.14, "desconto": 35640},
+      {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.22, "desconto": 125640},
+      {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.33, "desconto": 648000}
+    ]
 
-  TRIBUTACOES_ANEXO_05: List[Dict[str, int]] = [
+    TRIBUTACOES_ANEXO_05: List[Dict[str, int]] = [
     {"minimo": 0, "maximo": 180000, "aliquota": 0.155, "desconto": 0},
     {"minimo": 180001, "maximo": 360000, "aliquota": 0.18, "desconto": 9360},
     {"minimo": 360001, "maximo": 720000, "aliquota": 0.195, "desconto": 17640},
@@ -36,6 +41,10 @@ class SimplesNacional:
     {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.23, "desconto": 125640},
     {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.3005, "desconto": 648000}
   ]
+
+    ca.close_connection()
+
+SimplesNacional.print_aliquotas()
 
   def __init__(self, receita_bruta:float, anexo:str, porcentagem_aliquota:float=None, faixa_desconto:float=None):
     self.anexo = str(anexo)
