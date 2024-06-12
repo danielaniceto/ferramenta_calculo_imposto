@@ -152,7 +152,7 @@ class SimplesNacional:
  
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
-    for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
+    for tributacao in SimplesNacional.print_aliquotas():
       if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND = {tributacao}")
         
