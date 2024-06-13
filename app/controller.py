@@ -10,10 +10,10 @@ class SimplesNacional:
     consulta_aliquotas = ConsultaAliquotas
     fecha_conexao = ConexaoBD
           
-    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ca.consulta_aliquota_simples_nacional("anexo01")
+    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = consulta_aliquotas.consulta_aliquota_simples_nacional("anexo01")
     print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
 
-    TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ca.consulta_aliquota_simples_nacional("anexo02")
+    TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = consulta_aliquotas.consulta_aliquota_simples_nacional("anexo02")
     print(F"EU SOU O DICIONARIO ANEXO 02 VINDO DO BANCO")
 
     TRIBUTACOES_ANEXO_03: List[Dict[str, int]] = [
