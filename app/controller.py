@@ -1,13 +1,14 @@
 from typing import List, Dict
 from calculos.simples_nacional import CalculoSimplesNacional
 from calculos.icms import CalculoIcms
-from db import ConsultaAliquotas
+from db import ConsultaAliquotas, ConexaoBD
 
 class SimplesNacional:
 
   @staticmethod
   def print_aliquotas():
-    ca = ConsultaAliquotas()
+    consulta_aliquotas = ConsultaAliquotas
+    fecha_conexao = ConexaoBD
           
     TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ca.consulta_aliquota_simples_nacional("anexo01")
     print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
@@ -42,7 +43,7 @@ class SimplesNacional:
             {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.3005, "desconto": 648000}
           ]
         
-    ca.close_connection()
+    fecha_conexao.close_connection()
 
     SimplesNacional.print_aliquotas()
 
@@ -149,10 +150,10 @@ class SimplesNacional:
       else:
         self.faixa_desconto = faixa_desconto
         print(f"EU SOU O SIDE_TRIBUTACAO {side_tributacao}")
- 
+
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
-    for tributacao in SimplesNacional.print_aliquotas():
+    for tributacao in SimplesNacional.print_aliquotas.TRIBUTACOES_ANEXO_01:
       if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND = {tributacao}")
         
