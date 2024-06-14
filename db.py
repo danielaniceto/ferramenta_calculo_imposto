@@ -23,7 +23,7 @@ class ConsultaAliquotas:
         conn = ConexaoBD
         self.connection:pymysql.connect = conn.get_connection
 
-    def consulta_aliquota_simples_nacional(self, anexo:str):
+    def consulta_aliquota_simples_nacional(self):
         try:
             with self.connection.cursor() as cursor:
                 cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = '{anexo01}';")
