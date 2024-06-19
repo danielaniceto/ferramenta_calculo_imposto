@@ -31,7 +31,9 @@ class ConsultaAliquotas:
                 if not bool(aliquotas):
                     return []
                 self.connection.commit()
+                print(f"EU SOU A ALIQUOTA NO BD.PY{aliquotas}")
                 return aliquotas
+
         except Exception as error:
             return(f"Não conseguimos consultar a aliquota no banco de dados, tente novamente {str(error)}")
 
