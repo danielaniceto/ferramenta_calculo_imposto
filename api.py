@@ -3,7 +3,7 @@ from calculos.simples_nacional import *
 from calculos.icms import *
 from app.models import *
 from app.controller import *
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 
 #empresa = Cliente("Maiore", 0000000000000)
 

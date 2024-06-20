@@ -23,10 +23,11 @@ class ConsultaAliquotas:
         conn = ConexaoBD
         self.connection:pymysql.connect = conn.get_connection
 
-    def consulta_aliquota_simples_nacional(self):
+    def consulta_aliquota_simples_nacional(self, anexo):
         try:
             with self.connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = '{anexo01}';")
+                cursor.execute(f"SELECT * FROM aliquotas WHERE anexo_name = '{anexo}';")
+                print(F"EU SOU O ANEXO DENTRO DA FUNCAO CONSULTA SIMPLES NACIONAL NO DB.PY {anexo}")
                 aliquotas = cursor.fetchall()
                 if not bool(aliquotas):
                     return []
