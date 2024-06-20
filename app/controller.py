@@ -5,9 +5,9 @@ from db import ConsultaAliquotas, ConexaoBD
 
 class SimplesNacional:
 
-  def print_aliquotas_anexo01(self, anexo:str):
-    self.anexo = str(anexo)
-    
+  def print_aliquotas_anexo01(anexo:str):
+    anexo = str(anexo)
+
     TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional(anexo)
     print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 01{anexo}")
     print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
@@ -17,6 +17,8 @@ class SimplesNacional:
     return TRIBUTACOES_ANEXO_01
 
   def print_aliquotas_anexo02(anexo:str):
+    anexo = str(anexo)
+    
     TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional(anexo)
     print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 02{anexo}")
     print(F"EU SOU O DICIONARIO ANEXO 02 VINDO DO BANCO")
