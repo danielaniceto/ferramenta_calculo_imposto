@@ -5,22 +5,20 @@ from db import ConsultaAliquotas, ConexaoBD
 
 class SimplesNacional:
 
-  def print_aliquotas_anexo01(anexo:str):
-    anexo = "anexo01"
+  def print_aliquotas_anexo01():
 
-    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional(anexo)
-    print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 01{anexo}")
+    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional()
+    print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 01")
     print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
 
     ConexaoBD.close_connection()
 
     return TRIBUTACOES_ANEXO_01
 
-  def print_aliquotas_anexo02(anexo:str):
-    anexo = str(anexo)
+  def print_aliquotas_anexo02():
     
-    TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional(anexo)
-    print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 02{anexo}")
+    TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional()
+    print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 02")
     print(F"EU SOU O DICIONARIO ANEXO 02 VINDO DO BANCO")
 
     ConexaoBD.close_connection()
@@ -142,9 +140,8 @@ class SimplesNacional:
 
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
-    anexo="anexo01"
 
-    for tributacao in SimplesNacional.print_aliquotas_anexo01(anexo):
+    for tributacao in SimplesNacional.print_aliquotas_anexo01:
       if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND = {tributacao}")
         
