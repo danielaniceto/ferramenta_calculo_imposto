@@ -27,11 +27,9 @@ class ConsultaAliquotas:
         try:
             with self.connection.cursor() as cursor:
                 cursor.execute("SELECT * FROM aliquotas WHERE anexo_name = '{anexo01}';")
-                print(F"EU SOU O ANEXO DENTRO DA FUNCAO CONSULTA SIMPLES NACIONAL NO DB.PY")
                 aliquotas = cursor.fetchall()
                 if not bool(aliquotas):
                     return []
-                self.connection.commit()
                 print(f"EU SOU A ALIQUOTA NO BD.PY{aliquotas}")
                 return aliquotas
 
