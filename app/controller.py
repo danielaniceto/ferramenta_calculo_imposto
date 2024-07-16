@@ -54,8 +54,8 @@ class SimplesNacional:
       side_tributacao = self.__get_tributacao_anexo01_side(self.receita_bruta)
 
       if porcentagem_aliquota is None:
-          self.porcentagem_aliquota = side_tributacao.get("aliquota")
-          print(F"EU SOU A PORCENTAGEM {self.porcentagem_aliquota}")
+        self.porcentagem_aliquota = side_tributacao.get("aliquota")
+        print(F"EU SOU A PORCENTAGEM {self.porcentagem_aliquota}")
 
       else:
         self.porcentagem_aliquota = porcentagem_aliquota
