@@ -4,7 +4,7 @@ from calculos.icms import CalculoIcms
 from db import ConsultaAliquotas, ConexaoBD
 
 class Valida_Receita:
-  def valida_valor_receita_bruta(self, receita_bruta:float):
+  def __init__(self, receita_bruta:float):
     self.receita_bruta = float(receita_bruta)
 
     if receita_bruta < 0:
@@ -15,8 +15,8 @@ class Valida_Receita:
 
     elif receita_bruta > 5760000:
       raise ValueError("Sua receita anual, estrapola o teto de valor para calculo nessa modalidade")
-
-    return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO")
+    
+    print("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO")
   
 class SimplesNacional:
   @staticmethod
