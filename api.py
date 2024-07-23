@@ -26,8 +26,10 @@ def is_CalculoImpostoSimplesNacional():
     anexos = str(request.form.get("Anexos_Simples_Nacional"))
     print(f"EU SOU O ANEXO VINDO DO FORMS = {anexos}")
 
-    validacao_simples_nacional = SimplesNacional(receita_bruta, anexos)
+    validacao_simples_nacional = SimplesNacional.validacao_receita(receita_bruta)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {validacao_simples_nacional}")
+
+    SimplesNacional(receita_bruta, anexos)
 
     valor_simples_nacional = SimplesNacional.calcula_simples_nacional(receita_bruta, anexos)
         

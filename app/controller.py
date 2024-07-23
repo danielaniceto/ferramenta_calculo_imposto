@@ -3,8 +3,22 @@ from calculos.simples_nacional import CalculoSimplesNacional
 from calculos.icms import CalculoIcms
 from db import ConsultaAliquotas, ConexaoBD
 
-class SimplesNacional:
+class Vlidacao_Receita:
+  def validacao_receita(self, receita_bruta:float):
+    self.receita_bruta = float(receita_bruta)
 
+    if receita_bruta < 0:
+      raise Exception("Impossível Calcular Simples Nacional com receita negativa")
+        
+    elif receita_bruta > 4800000 and receita_bruta <= 5760000:
+      raise ValueError("Com base no valor da receita fornecida, seu imposto será calculado com o valor teto de contribuição, e com valor teto de descontos, porém, para o próximo ano, sua empresa será desenquadrada dessa modalidade")
+
+    elif receita_bruta > 5760000:
+      raise ValueError("Sua receita anual, estrapola o teto de valor para calculo nessa modalidade")
+
+    return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO")
+  
+class SimplesNacional:
   @staticmethod
   def print_aliquotas_anexo01():
 
@@ -39,15 +53,6 @@ class SimplesNacional:
   def __init__(self, receita_bruta:float, anexos:str, porcentagem_aliquota:float=None, faixa_desconto:float=None):
     self.anexos = str(anexos)
     self.receita_bruta = float(receita_bruta)
-
-    if receita_bruta < 0:
-      raise Exception("Impossível Calcular Simples Nacional com receita negativa")
-        
-    elif receita_bruta > 4800000 and receita_bruta <= 5760000:
-      raise ValueError("Com base no valor da receita fornecida, seu imposto será calculado com o valor teto de contribuição, e com valor teto de descontos, porém, para o próximo ano, sua empresa será desenquadrada dessa modalidade")
-
-    elif receita_bruta > 5760000:
-      raise ValueError("Sua receita anual, estrapola o teto de valor para calculo nessa modalidade")
 
     if anexos == "anexos 01":
       print(F"EU SOU O ANEXO DENTRO DA CONTROLLER {self.anexos}")
