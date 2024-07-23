@@ -3,8 +3,8 @@ from calculos.simples_nacional import CalculoSimplesNacional
 from calculos.icms import CalculoIcms
 from db import ConsultaAliquotas, ConexaoBD
 
-class Vlidacao_Receita:
-  def validacao_receita(self, receita_bruta:float):
+class Valida_Receita:
+  def valida_valor_receita_bruta(self, receita_bruta:float):
     self.receita_bruta = float(receita_bruta)
 
     if receita_bruta < 0:
