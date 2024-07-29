@@ -20,9 +20,10 @@ class Valida_Receita:
   
 class SimplesNacional:
   @staticmethod
-  def print_aliquotas_anexo01():
+  def print_aliquotas_anexo01(self, anexo:str):
+    self.anexo = str(anexo)
 
-    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional("aneox01")
+    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional(anexo="anexo01")
     print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 01")
     print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
 
@@ -147,8 +148,7 @@ class SimplesNacional:
 
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
-
-    for tributacao in SimplesNacional.print_aliquotas_anexo01:
+    for tributacao in SimplesNacional.print_aliquotas_anexo01():
       if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND = {tributacao}")
         
