@@ -64,38 +64,6 @@ class SimplesNacional:
     {"minimo": 1800001, "maximo": 3600000, "aliquota": 0.23, "desconto": 125640},
     {"minimo": 3600001, "maximo": 5760000, "aliquota": 0.3005, "desconto": 648000}
   ]
-  
-  @staticmethod
-  def print_aliquotas_anexo01(self, anexo:str):
-    self.anexo = str(anexo)
-
-    TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional(anexo="anexo01")
-    print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 01")
-    print(F"EU SOU O DICIONARIO ANEXO 01 VINDO DO BANCO")
-
-    ConexaoBD.close_connection()
-
-    return TRIBUTACOES_ANEXO_01
-
-  @staticmethod
-  def print_aliquotas_anexo02():
-    
-    TRIBUTACOES_ANEXO_02: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional("aneox02")
-    print(f"EU SOU O ANEXO DENTRO DA FUNCAO PRINT ALIQUOTA ANEXO 02")
-    print(F"EU SOU O DICIONARIO ANEXO 02 VINDO DO BANCO")
-
-    ConexaoBD.close_connection()
-
-    return TRIBUTACOES_ANEXO_02
-
-  """TRIBUTACOES_ANEXO_03: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional("anexo03")
-  print(F"EU SOU O DICIONARIO ANEXO 03 VINDO DO BANCO")
-
-  TRIBUTACOES_ANEXO_04: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional("anexo04")
-  print(F"EU SOU O DICIONARIO ANEXO 04 VINDO DO BANCO")
-
-  TRIBUTACOES_ANEXO_05: List[Dict[str, int]] = ConsultaAliquotas.consulta_aliquota_simples_nacional("anexo05")
-  print(F"EU SOU O DICIONARIO ANEXO 05 VINDO DO BANCO")"""
 
   def __init__(self, receita_bruta:float, anexos:str, porcentagem_aliquota:float=None, faixa_desconto:float=None):
     self.anexos = str(anexos)
@@ -194,7 +162,7 @@ class SimplesNacional:
 
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
-    for tributacao in SimplesNacional.print_aliquotas_anexo01():
+    for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01():
       if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND = {tributacao}")
         
