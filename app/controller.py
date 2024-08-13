@@ -257,8 +257,7 @@ class SimplesNacional:
         print(f"EU SOU O RETORNO DA FUNCAO CALCULAR SIMPLES NACIONAL DENTRO DO SIMPLES NACIONAL {valor_simples_nacional}")
               
         return valor_simples_nacional
-      
-      
+           
 class ICMS:
     
   TRIBUTACOES_ESTADOS_2024: List[Dict[str, float]] = [
@@ -310,8 +309,6 @@ class ICMS:
     for tributacao_icms in ICMS.TRIBUTACOES_ESTADOS_2024:
       if estado == tributacao_icms.get("estado"):
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_icms}")
-
-        break
 
       tributacao_icms["valor_produto_servico"] = valor_produto
       print(F"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_icms}")
