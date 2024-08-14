@@ -323,3 +323,35 @@ class ICMS:
       print(f"EU SOU O RETORNO DA FUNCAO CALCULAR ICMS DENTRO DO CONTROLLER {valor_icms}")
             
       return valor_icms
+
+class LucroPresumido:
+
+  TRIBUTACOES_ATIVIDADES_LUCRO_PRESUMIDO: List[Dict[str, float]] = [
+    {"estado": "MINASGERAIS", "aliquota": 0.18},
+    {"estado": "SAOPAULO", "aliquota": 0.18},
+    {"estado": "RIODEJANEIRO", "aliquota": 0.22},
+    {"estado": "RIOGRANDEDOSUL", "aliquota": 0.17},
+    {"estado": "PARANA", "aliquota": 0.195},
+    {"estado": "SANTACATARINA", "aliquota": 0.17},
+    {"estado": "BAHIA", "aliquota": 0.205},
+    {"estado": "DISTRITOFEDERAL", "aliquota": 0.20},
+    {"estado": "GOIAS", "aliquota": 0.19},
+    {"estado": "PARA", "aliquota": 0.19},
+    {"estado": "MATOGROSSO", "aliquota": 0.17},
+    {"estado": "PERNAMBUCO", "aliquota": 0.205},
+    {"estado": "CEARA", "aliquota": 0.20},
+    {"estado": "ESPIRITOSANTO", "aliquota": 0.17},
+    {"estado": "MATOGROSSODOSUL", "aliquota": 0.17},
+    {"estado": "AMAZONAS", "aliquota": 0.20},
+    {"estado": "MARANHAO", "aliquota": 0.22},
+    {"estado": "RIOGRANDEDONORTE", "aliquota": 0.205},
+    {"estado": "PARAIBA", "aliquota": 0.20},
+    {"estado": "ALAGOAS", "aliquota": 0.19},
+    {"estado": "PIAUI", "aliquota": 0.21},
+    {"estado": "RONDONIA", "aliquota": 0.195},
+    {"estado": "SERGIPE", "aliquota": 0.19},
+    {"estado": "TOCANTINS", "aliquota": 0.20},
+    {"estado": "ACRE", "aliquota": 0.19},
+    {"estado": "AMAPA", "aliquota": 0.18},
+    {"estado": "RORAIMA", "aliquota": 0.205}
+  ]
