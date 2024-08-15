@@ -327,7 +327,7 @@ class ICMS:
 class LucroPresumido:
 
   TRIBUTACOES_ATIVIDADES_LUCRO_PRESUMIDO: List[Dict[str, float]] = [
-    {"estado": "MINASGERAIS", "aliquota": 0.18},
+    {"atividade": "Revenda de combustíveis e gás natural", "aliquota": 0.18},
     {"estado": "SAOPAULO", "aliquota": 0.18},
     {"estado": "RIODEJANEIRO", "aliquota": 0.22},
     {"estado": "RIOGRANDEDOSUL", "aliquota": 0.17},
