@@ -35,14 +35,14 @@ def is_CalculoImpostoSimplesNacional():
         
     return render_template ("/resultado_simples_nacional.html", imposto_simples_nacional = valor_simples_nacional)
 
-@app.route("/lucro_presumido", methods=["POST"])
+@app.route('/lucro_presumido', methods=["POST"])
 def isApresentaLucroPresumido():
     return render_template("lucro_presumido.html")
 
 """app.route('/resultado_lucro_presumido', methods=['POST'])
 def is_CalculoImpostoLucroPresumido():"""
 
-@app.route("/lucro_real", methods=['POST'])
+@app.route('/lucro_real', methods=['POST'])
 def isApresentaLucroReal():
     return render_template("lucro_real.html")
 
