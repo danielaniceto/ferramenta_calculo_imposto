@@ -39,8 +39,13 @@ def is_CalculoImpostoSimplesNacional():
 def isApresentaLucroPresumido():
     return render_template("lucro_presumido.html")
 
-"""app.route('/resultado_lucro_presumido', methods=['POST'])
-def is_CalculoImpostoLucroPresumido():"""
+app.route('/resultado_lucro_presumido', methods=['POST'])
+def is_CalculoImpostoLucroPresumido():
+    receita_bruta = float(request.form.get("renda_bruta"))
+    print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {receita_bruta}")
+
+    atividade = str(request.form.get("Estados"))
+    print(F"EU SOU O ESTADO VINDO DO FORMS = {atividade}")
 
 @app.route('/lucro_real', methods=['POST'])
 def isApresentaLucroReal():
