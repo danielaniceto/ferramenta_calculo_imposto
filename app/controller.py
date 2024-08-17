@@ -352,8 +352,13 @@ class LucroPresumido:
     if aliquota is None:
       self.aliquota = side_tributacao_lucro_presumido.get("aliquota")
 
+  @staticmethod
+  def __get_tributacao_atividades_side(atividade: str, renda_bruta:float)->dict:
+    for tributacao_lucro_presumido in LucroPresumido.TRIBUTACOES_ATIVIDADES_LUCRO_PRESUMIDO:
+      if atividade == tributacao_lucro_presumido.get("atividade"):
+        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_lucro_presumido}")
 
-    @staticmethod
-    def __get_tributacao_atividades_side():
+        #tributacao_lucro_presumido[]=
+
 
 
