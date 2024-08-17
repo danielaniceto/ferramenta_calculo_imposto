@@ -338,3 +338,22 @@ class LucroPresumido:
     {"atividade": "ADMINISTRACAO DE BENS MOVEIS, LOCACAO OU CESSAO DESSES MESMOS BENS", "aliquota": 0.32},
     {"atividade": "CONSTRUCAO CIVIL E SERVICOS EM GERAL", "aliquota": 0.32},
   ]
+
+  def __init__(self, atividade:str, renda_bruta:float, aliquota:float=None):
+    self.atividade = str(atividade)
+    print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {atividade}")
+    self.renda_bruta = float(renda_bruta)
+
+    side_tributacao_lucro_presumido = self.__get_tributacao_atividades_side(self.atividade, self.renda_bruta)
+
+    if renda_bruta < 0:
+      raise Exception ("Impossível calcular seu imposto com a renda bruta negativa")
+    
+    if aliquota is None:
+      self.aliquota = side_tributacao_lucro_presumido.get("aliquota")
+
+
+    @staticmethod
+    def __get_tributacao_atividades_side():
+
+
