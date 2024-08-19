@@ -1,6 +1,7 @@
 from main import *
 from calculos.simples_nacional import *
 from calculos.icms import *
+from calculos.lucropresumido import *
 from app.models import *
 from app.controller import *
 from flask import Flask, request, render_template, redirect
@@ -46,6 +47,10 @@ def is_CalculoImpostoLucroPresumido():
 
     atividade = str(request.form.get("Estados"))
     print(F"EU SOU O ESTADO VINDO DO FORMS = {atividade}")
+
+    resultado_lucro_presumido = 
+
+    return render_template ("/resultado_lucro_presumido.html", resultado_lucro_presumido = resultado_lucro_presumido)
 
 @app.route('/lucro_real', methods=['POST'])
 def isApresentaLucroReal():
