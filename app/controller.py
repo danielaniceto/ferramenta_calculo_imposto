@@ -1,7 +1,7 @@
 from typing import List, Dict
 from calculos.simples_nacional import CalculoSimplesNacional
 from calculos.icms import CalculoIcms
-from db import ConsultaAliquotas, ConexaoBD
+from  calculos.lucropresumido import CalculoLucroPresumido
 
 class Valida_Receita:
   def __init__(self, receita_bruta:float):
@@ -358,7 +358,17 @@ class LucroPresumido:
       if atividade == tributacao_lucro_presumido.get("atividade"):
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_lucro_presumido}")
 
-        #tributacao_lucro_presumido[]=
+        tributacao_lucro_presumido["renda_bruta"] = renda_bruta
+        print(f"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_lucro_presumido}")
+    return tributacao_lucro_presumido
+  
+  @staticmethod
+  def calcula_imposto_lucro_presumido(receita_bruta:float, atividade:str)->float:
+    renda_bruta = float(receita_bruta)
+    atividade = str(atividade)
+    side_tributacao_lucro_presumido = LucroPresumido.__get_tributacao_atividades_side(atividade, renda_bruta)
+    valor_imposto_lucro_presumido = CalculoLucroPresumido.calcular_lucro_presumido(side_tributacao_lucro_presumido)
+    print(f"EU SOU O SITE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_presumido}")
+    print(f"EU SOU O RETORNO DA FUNCAO CALCULAR LUCRO PRESUMIDO DENTRO DA CONTROLLER {valor_imposto_lucro_presumido}")
 
-
-
+    return 
