@@ -4,20 +4,35 @@ from calculos.icms import CalculoIcms
 from  calculos.lucropresumido import CalculoLucroPresumido
 
 class Valida_Receita:
-  def __init__(self, receita_bruta:float):
+  def __init__(self, receita_bruta:float, valor_do_produto_servico):
     self.receita_bruta = float(receita_bruta)
+    self.vvalor_do_produto_servico = valor_do_produto_servico
 
+  def valida_receita_simples_nacional(self, receita_bruta):
     if receita_bruta < 0:
       raise Exception("Impossível Calcular Simples Nacional com receita negativa")
-        
+          
     elif receita_bruta > 4800000 and receita_bruta <= 5760000:
       raise ValueError("Com base no valor da receita fornecida, seu imposto será calculado com o valor teto de contribuição, e com valor teto de descontos, porém, para o próximo ano, sua empresa será desenquadrada dessa modalidade")
 
     elif receita_bruta > 5760000:
       raise ValueError("Sua receita anual, estrapola o teto de valor para calculo nessa modalidade")
-    
-    print("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO")
+      
+    return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
   
+  def valida_valor_icms(sel, valor_do_produto_servico):
+    if valor_do_produto_servico < 0:
+      raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
+    
+    return("TUDO OK, VALIDAÇÃO DE VALOR DE PRODUTO OU SERVIÇO FEITA COM SUCESSO!!!")
+  
+  def valida_receita_bruta_lucro_presumido(receita_bruta):
+    if receita_bruta < 0:
+      raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
+    
+    elif receita_bruta > 78000000:
+      raise Exception("Sua empresa não pode ser enquadrada no imposto de lucro presumido, por ter receita bruta anual maior que o teto de R$78 milhões")
+
 class SimplesNacional:
 
   TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = [
@@ -296,9 +311,6 @@ class ICMS:
     self.estado = str(estado)
   
     side_tributacao_icms = self.__get_tributacao_estados_side(self.estado, self.valor_produto)
-
-    if valor_produto < 0:
-      raise Exception("Impossivel calcular ICMS com valor do produto negativo")
 
     if aliquota is None:
       self.aliquota = side_tributacao_icms.get("aliquota")
