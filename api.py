@@ -55,7 +55,7 @@ def is_CalculoImpostoLucroPresumido():
 
     resultado_lucro_presumido = LucroPresumido.calcula_imposto_lucro_presumido(renda_bruta, atividade)
 
-    return render_template ("/resultado_lucro_presumido.html", resultado_lucro_presumido = resultado_lucro_presumido)
+    return render_template ("/resultado_lucro_presumido.html", imposto_lucro_presumido = resultado_lucro_presumido)
 
 @app.route('/lucro_real', methods=['POST'])
 def isApresentaLucroReal():

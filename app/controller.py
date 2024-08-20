@@ -6,9 +6,10 @@ from  calculos.lucropresumido import CalculoLucroPresumido
 class Valida_Receita:
   def __init__(self, receita_bruta:float, valor_do_produto_servico):
     self.receita_bruta = float(receita_bruta)
-    self.vvalor_do_produto_servico = valor_do_produto_servico
+    self.valor_do_produto_servico = valor_do_produto_servico
 
   def valida_receita_simples_nacional(self, receita_bruta):
+    self.receita_bruta = receita_bruta
     if receita_bruta < 0:
       raise Exception("Impossível Calcular Simples Nacional com receita negativa")
           
@@ -31,7 +32,7 @@ class Valida_Receita:
       raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
     
     elif receita_bruta > 78000000:
-      raise Exception("Sua empresa não pode ser enquadrada no imposto de lucro presumido, por ter receita bruta anual maior que o teto de R$78 milhões")
+      raise Exception("Sua empresa não pode ser enquadrada nessa modalidade imposto, por ter receita bruta anual maior que o teto de R$78 milhões")
 
 class SimplesNacional:
 
@@ -307,8 +308,8 @@ class ICMS:
     
   def __init__(self, valor_produto:float, estado:str, aliquota:float=None):
     self.valor_produto = float(valor_produto)
-    print(f"EU SOU O ESTADO DENTRO DA DEF INIT DO ICMS {estado}")
     self.estado = str(estado)
+    print(f"EU SOU O ESTADO DENTRO DA DEF INIT DO ICMS {estado}")
   
     side_tributacao_icms = self.__get_tributacao_estados_side(self.estado, self.valor_produto)
 
@@ -351,10 +352,10 @@ class LucroPresumido:
     {"atividade": "CONSTRUCAO CIVIL E SERVICOS EM GERAL", "aliquota": 0.32},
   ]
 
-  def __init__(self, atividade:str, renda_bruta:float, aliquota:float=None):
+  def __init__(self, renda_bruta:float, atividade:str, aliquota:float=None):
     self.atividade = str(atividade)
-    print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {atividade}")
     self.renda_bruta = float(renda_bruta)
+    print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {atividade}")
 
     side_tributacao_lucro_presumido = self.__get_tributacao_atividades_side(self.atividade, self.renda_bruta)
 
