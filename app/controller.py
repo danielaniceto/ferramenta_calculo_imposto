@@ -3,13 +3,9 @@ from calculos.simples_nacional import CalculoSimplesNacional
 from calculos.icms import CalculoIcms
 from  calculos.lucropresumido import CalculoLucroPresumido
 
-class Valida_Receita:
-  def __init__(self, receita_bruta:float, valor_do_produto_servico):
-    self.receita_bruta = float(receita_bruta)
-    self.valor_do_produto_servico = valor_do_produto_servico
-
-  def valida_receita_simples_nacional(self, receita_bruta):
-    self.receita_bruta = receita_bruta
+class ValidaReceita:
+  @staticmethod
+  def valida_receita_simples_nacional(receita_bruta:float):
     if receita_bruta < 0:
       raise Exception("Impossível Calcular Simples Nacional com receita negativa")
           
@@ -21,12 +17,14 @@ class Valida_Receita:
       
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
   
+  @staticmethod
   def valida_valor_icms(sel, valor_do_produto_servico):
     if valor_do_produto_servico < 0:
       raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
     
     return("TUDO OK, VALIDAÇÃO DE VALOR DE PRODUTO OU SERVIÇO FEITA COM SUCESSO!!!")
   
+  @staticmethod
   def valida_receita_bruta_lucro_presumido(receita_bruta):
     if receita_bruta < 0:
       raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")

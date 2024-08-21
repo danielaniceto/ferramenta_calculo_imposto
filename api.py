@@ -27,7 +27,7 @@ def is_CalculoImpostoSimplesNacional():
     anexos = str(request.form.get("Anexos_Simples_Nacional"))
     print(f"EU SOU O ANEXO VINDO DO FORMS = {anexos}")
 
-    valida_receita_bruta = Valida_Receita.valida_receita_simples_nacional(receita_bruta)
+    valida_receita_bruta = ValidaReceita.valida_receita_simples_nacional(receita_bruta)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_receita_bruta}")
 
     SimplesNacional(receita_bruta, anexos)
