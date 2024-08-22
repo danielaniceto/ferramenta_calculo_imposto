@@ -18,14 +18,14 @@ class ValidaReceita:
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
   
   @staticmethod
-  def valida_valor_icms(sel, valor_do_produto_servico):
+  def valida_valor_icms(valor_do_produto_servico:float):
     if valor_do_produto_servico < 0:
       raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
     
     return("TUDO OK, VALIDAÇÃO DE VALOR DE PRODUTO OU SERVIÇO FEITA COM SUCESSO!!!")
   
   @staticmethod
-  def valida_receita_bruta_lucro_presumido(receita_bruta):
+  def valida_receita_bruta_lucro_presumido(receita_bruta:float):
     if receita_bruta < 0:
       raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
     

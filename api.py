@@ -48,7 +48,7 @@ def is_CalculoImpostoLucroPresumido():
     atividade = str(request.form.get("Estados"))
     print(F"EU SOU O ESTADO VINDO DO FORMS = {atividade}")
 
-    valida_receita_bruta = Valida_Receita(renda_bruta)
+    valida_receita_bruta = ValidaReceita(renda_bruta)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_receita_bruta}")
 
     LucroPresumido(renda_bruta, atividade)
@@ -77,7 +77,7 @@ def is_CalculoImpostoIcms():
     estado = str(request.form.get("Estados"))
     print(F"EU SOU O ESTADO VINDO DO FORMS = {estado}")
 
-    validacao_valor_produto = Valida_Receita.valida_valor_icms(valor_do_produto_servico)
+    validacao_valor_produto = ValidaReceita.valida_valor_icms(valor_do_produto_servico)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO PRODUTO = {validacao_valor_produto}")
 
     valor_icms = ICMS.calcula_icms(valor_do_produto_servico, estado)
