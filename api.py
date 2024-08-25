@@ -40,7 +40,7 @@ def is_CalculoImpostoSimplesNacional():
 def isApresentaLucroPresumido():
     return render_template("lucro_presumido.html")
 
-app.route('/resultado_lucro_presumido', methods=['POST'])
+@app.route('/resultado_lucro_presumido', methods=['POST'])
 def is_CalculoImpostoLucroPresumido():
     renda_bruta = float(request.form.get("renda_bruta"))
     print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {renda_bruta}")
@@ -48,7 +48,7 @@ def is_CalculoImpostoLucroPresumido():
     atividade = str(request.form.get("Estados"))
     print(F"EU SOU O ESTADO VINDO DO FORMS = {atividade}")
 
-    valida_receita_bruta = ValidaReceita(renda_bruta)
+    valida_receita_bruta = ValidaReceita.valida_receita_bruta_lucro_presumido(renda_bruta)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_receita_bruta}")
 
     LucroPresumido(renda_bruta, atividade)
