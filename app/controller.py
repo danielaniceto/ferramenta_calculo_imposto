@@ -25,11 +25,11 @@ class ValidaReceita:
     return("TUDO OK, VALIDAÇÃO DE VALOR DE PRODUTO OU SERVIÇO FEITA COM SUCESSO!!!")
   
   @staticmethod
-  def valida_receita_bruta_lucro_presumido(receita_bruta:float):
-    if receita_bruta < 0:
+  def valida_receita_bruta_lucro_presumido(renda_bruta:float):
+    if renda_bruta < 0:
       raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
     
-    elif receita_bruta > 78000000:
+    elif renda_bruta > 78000000:
       raise Exception("Sua empresa não pode ser enquadrada nessa modalidade imposto, por ter receita bruta anual maior que o teto de R$78 milhões")
 
 class SimplesNacional:
