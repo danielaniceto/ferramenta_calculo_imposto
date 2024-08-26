@@ -31,6 +31,8 @@ class ValidaReceita:
     
     elif renda_bruta > 78000000:
       raise Exception("Sua empresa não pode ser enquadrada nessa modalidade imposto, por ter receita bruta anual maior que o teto de R$78 milhões")
+    
+    return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
 
 class SimplesNacional:
 
@@ -338,22 +340,23 @@ class ICMS:
 class LucroPresumido:
 
   TRIBUTACOES_ATIVIDADES_LUCRO_PRESUMIDO: List[Dict[str, float]] = [
-    {"atividade": "REVENDA DE COMBUSTIVEIS E GAS NATURAL", "aliquota": 0.016},
-    {"atividade": "TRANSPORTE DE CARGAS", "aliquota": 0.08},
-    {"atividade": "ATIVIDADES IMOBILIARIAS", "aliquota": 0.08},
-    {"atividade": "INDUSTRIALIZACAO PARA TERCEIROS COM RECEBIMENTO DO MATERIAL", "aliquota": 0.08},
-    {"atividade": "DEMAIS ATIVIDADES NÃO ESPECIFICADAS QUE NAO SEJAM PRESTACAO DE SERVICOS", "aliquota": 0.08},
-    {"atividade": "TRANSPORTE QUE NAO SEJA DE CARGAS E SERVICOS EM GERAL", "aliquota": 0.16},
-    {"atividade": "SERVICOS PROFISSIONAIS QUE EXIJAM FORMACAO TECNICA OU ACADEMICA, COMO ADVOCACIA E ENGENHARIA", "aliquota": 0.32},
-    {"atividade": "INTERMEDIACOES DE NEGOCIOS", "aliquota": 0.32},
-    {"atividade": "ADMINISTRACAO DE BENS MOVEIS, LOCACAO OU CESSAO DESSES MESMOS BENS", "aliquota": 0.32},
-    {"atividade": "CONSTRUCAO CIVIL E SERVICOS EM GERAL", "aliquota": 0.32},
+    {"atividade": "Atividade 01", "aliquota": 0.016},
+    {"atividade": "Atividade 02", "aliquota": 0.08},
+    {"atividade": "Atividade 03", "aliquota": 0.08},
+    {"atividade": "Atividade 04", "aliquota": 0.08},
+    {"atividade": "Atividade 05", "aliquota": 0.08},
+    {"atividade": "Atividade 06", "aliquota": 0.16},
+    {"atividade": "Atividade 07", "aliquota": 0.32},
+    {"atividade": "Atividade 08", "aliquota": 0.32},
+    {"atividade": "Atividade 09", "aliquota": 0.32},
+    {"atividade": "Atividade 10", "aliquota": 0.32},
   ]
 
   def __init__(self, renda_bruta:float, atividade:str, aliquota:float=None):
     self.atividade = str(atividade)
     self.renda_bruta = float(renda_bruta)
     print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {atividade}")
+    print(f"EU SOU A RENDA BRUTA DENTRO DA INIT LUCRO PRESUMIDO {renda_bruta}")
 
     side_tributacao_lucro_presumido = self.__get_tributacao_atividades_side(self.atividade, self.renda_bruta)
 

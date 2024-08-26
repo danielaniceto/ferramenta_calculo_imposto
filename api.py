@@ -45,8 +45,8 @@ def is_CalculoImpostoLucroPresumido():
     renda_bruta = float(request.form.get("renda_bruta"))
     print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {renda_bruta}")
 
-    atividade = str(request.form.get("Estados"))
-    print(F"EU SOU O ESTADO VINDO DO FORMS = {atividade}")
+    atividade = str(request.form.get("atividades"))
+    print(F"EU SOU ATIVIDADE VINDO DO FORMS = {atividade}")
 
     valida_receita_bruta = ValidaReceita.valida_receita_bruta_lucro_presumido(renda_bruta)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_receita_bruta}")
