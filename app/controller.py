@@ -27,12 +27,22 @@ class ValidaReceita:
   @staticmethod
   def valida_receita_bruta_lucro_presumido(renda_bruta:float):
     if renda_bruta < 0:
-      raise Exception("Impossível Calcular ICMS com valor do produto ou serviço negativo")
+      raise Exception("Impossível Calcular o imposto Lucro Presumido com valor do produto ou serviço negativo")
     
     elif renda_bruta > 78000000:
       raise Exception("Sua empresa não pode ser enquadrada nessa modalidade imposto, por ter receita bruta anual maior que o teto de R$78 milhões")
     
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
+  
+  @staticmethod
+  def valida_receita_bruta_lucro_real(renda_bruta: float):
+    if renda_bruta < 0:
+      raise Exception("Impossível Calcular o imposto Lucro Real com valor do produto ou serviço negativo")
+    
+    """elif renda_bruta > """
+    
+    return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
+
 
 class SimplesNacional:
 
@@ -179,43 +189,34 @@ class SimplesNacional:
   @staticmethod
   def __get_tributacao_anexo01_side(receita_bruta:float)->dict:
     for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_01:
-      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND = {tributacao}")
-        
+      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:        
         tributacao["receita_bruta"] = receita_bruta
         print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND = {tributacao}")
         return tributacao
-      
-      return {}
+    return {}
 
   @staticmethod
   def __get_tributacao_anexo02_side(receita_bruta:float)->dict:
-      for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_02:
-        if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-          print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
-          
-          tributacao["receita_bruta"] = receita_bruta
-          print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
-          return tributacao
-      return {}
+    for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_02:
+      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:          
+        tributacao["receita_bruta"] = receita_bruta
+        print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+        return tributacao
+    return {}
       
   @staticmethod
   def __get_tributacao_anexo03_side(receita_bruta:float)->dict:
-      for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_03:
-        if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-          print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
-          
-          tributacao["receita_bruta"] = receita_bruta
-          print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
-          return tributacao
-      return {}
+    for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_03:
+      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
+        tributacao["receita_bruta"] = receita_bruta
+        print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
+        return tributacao
+    return {}
     
   @staticmethod
   def __get_tributacao_anexo04_side(receita_bruta:float)->dict:
     for tributacao in SimplesNacional.TRIBUTACOES_ANEXO_04:
-      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:
-        print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao}")
-        
+      if receita_bruta > tributacao["minimo"] and receita_bruta <= tributacao["maximo"]:        
         tributacao["receita_bruta"] = receita_bruta
         print(F"EU SOU A TRIBUTAÇÃO DEPOIS DO APPEND {tributacao}")
         return tributacao
@@ -372,18 +373,21 @@ class LucroPresumido:
       if atividade == tributacao_lucro_presumido.get("atividade"):
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_lucro_presumido}")
         
-      tributacao_lucro_presumido["renda_bruta"] = renda_bruta
-      print(f"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_lucro_presumido}")
-    return tributacao_lucro_presumido
-  
+        tributacao_lucro_presumido["renda_bruta"] = renda_bruta
+        print(f"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_lucro_presumido}")
+        return tributacao_lucro_presumido
+    return {}
+    
   @staticmethod
   def calcula_imposto_lucro_presumido(receita_bruta:float, atividade:str)->float:
     renda_bruta = float(receita_bruta)
     atividade = str(atividade)
     side_tributacao_lucro_presumido = LucroPresumido.__get_tributacao_atividades_side(atividade, renda_bruta)
-    print(f"EU SOU O SITE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_presumido}")
+    print(f"EU SOU O SIDE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_presumido}")
     valor_imposto_lucro_presumido = CalculoLucroPresumido.calcular_lucro_presumido(side_tributacao_lucro_presumido)
     
     print(f"EU SOU O RETORNO DA FUNCAO CALCULAR LUCRO PRESUMIDO DENTRO DA CONTROLLER {valor_imposto_lucro_presumido}")
 
     return valor_imposto_lucro_presumido
+
+class LucroReal:
