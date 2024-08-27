@@ -61,8 +61,22 @@ def is_CalculoImpostoLucroPresumido():
 def isApresentaLucroReal():
     return render_template("lucro_real.html")
 
-"""app.route('/resultado_lucro_real', methods=['POST'])
-def is_CalculoImpostoLucroReal():"""
+app.route('/resultado_lucro_real', methods=['POST'])
+def is_CalculoImpostoLucroReal():
+    renda_bruta = float(request.form.get("renda_bruta"))
+    print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {renda_bruta}")
+
+    lucro_real_empresa = str(request.form.get("lucro_real_empresa"))
+    print(F"EU SOU ATIVIDADE VINDO DO FORMS = {lucro_real_empresa}")
+
+    valida_receita_bruta = ValidaReceita.valida_receita_bruta_lucro_real(renda_bruta)
+    print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_receita_bruta}")
+
+    LucroPresumido(renda_bruta, lucro_real_empresa)
+
+    resultado_lucro_real = LucroPresumido.calcula_imposto_lucro_presumido(renda_bruta, lucro_real_empresa)
+
+    return render_template ("/resultado_lucro_real.html", imposto_lucro_real = resultado_lucro_real)
 
 @app.route('/icms', methods=['POST'])
 def isApresetaICMS():
@@ -85,9 +99,9 @@ def is_CalculoImpostoIcms():
         
     return render_template ("/resultado_icms.html", imposto_icms = valor_icms)
 
-@app.route('/mei', methods=['POST'])
+"""@app.route('/mei', methods=['POST'])
 def isApresetaMEI():
-    return render_template("mei.html")
+    return render_template("mei.html")"""
 
 """app.route('/resultado_calculo_imposto_mei', methods=['POST'])
 def is_CalculoImpostoMei():"""
