@@ -371,9 +371,9 @@ class LucroPresumido:
     for tributacao_lucro_presumido in LucroPresumido.TRIBUTACOES_ATIVIDADES_LUCRO_PRESUMIDO:
       if atividade == tributacao_lucro_presumido.get("atividade"):
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_lucro_presumido}")
-
-        tributacao_lucro_presumido["renda_bruta"] = renda_bruta
-        print(f"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_lucro_presumido}")
+        
+      tributacao_lucro_presumido["renda_bruta"] = renda_bruta
+      print(f"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_lucro_presumido}")
     return tributacao_lucro_presumido
   
   @staticmethod
@@ -381,8 +381,9 @@ class LucroPresumido:
     renda_bruta = float(receita_bruta)
     atividade = str(atividade)
     side_tributacao_lucro_presumido = LucroPresumido.__get_tributacao_atividades_side(atividade, renda_bruta)
-    valor_imposto_lucro_presumido = CalculoLucroPresumido.calcular_lucro_presumido(side_tributacao_lucro_presumido)
     print(f"EU SOU O SITE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_presumido}")
+    valor_imposto_lucro_presumido = CalculoLucroPresumido.calcular_lucro_presumido(side_tributacao_lucro_presumido)
+    
     print(f"EU SOU O RETORNO DA FUNCAO CALCULAR LUCRO PRESUMIDO DENTRO DA CONTROLLER {valor_imposto_lucro_presumido}")
 
-    return 
+    return valor_imposto_lucro_presumido
