@@ -390,4 +390,4 @@ class LucroPresumido:
 
     return valor_imposto_lucro_presumido
 
-class LucroReal:
+#class LucroReal:
