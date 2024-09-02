@@ -35,11 +35,13 @@ class ValidaReceita:
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
   
   @staticmethod
-  def valida_receita_bruta_lucro_real(renda_bruta: float):
+  def valida_receita_bruta_lucro_real(renda_bruta: float, lucro_real_empresa: float):
     if renda_bruta < 0:
       raise Exception("Impossível Calcular o imposto Lucro Real com valor do produto ou serviço negativo")
     
-    """elif renda_bruta > """
+    elif lucro_real_empresa > 240000:
+        valor_adional_lucro_real = lucro_real_empresa - 240000
+        raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 que no caso da sua empresa e R$ {valor_adional_lucro_real}")
     
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
 
@@ -390,4 +392,9 @@ class LucroPresumido:
 
     return valor_imposto_lucro_presumido
 
-#class LucroReal:
+class LucroReal:
+  def __init__(self, renda_bruta:float, lucro_real_empresa:float, tributacao_especial:float=None):
+    self.lucro_real_empresa = float(lucro_real_empresa)
+    self.renda_bruta = float(renda_bruta)
+    print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {lucro_real_empresa}")
+    print(f"EU SOU A RENDA BRUTA DENTRO DA INIT LUCRO PRESUMIDO {renda_bruta}")

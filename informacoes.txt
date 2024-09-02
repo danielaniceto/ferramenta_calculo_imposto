@@ -62,6 +62,10 @@ Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do
     De 3.600.000,01 a 4.800.000,00	        |   30,50%	|     R$ 540.000,00
 
 
+
+INFORMAÇÕES SOBRE AS REGRAS E O CALCULO DO LUCRO PRESUMIDO
+________________________________________________________
+
 Para instituições financeiras e seguradoras, as alíquotas do IRPJ e da CSLL no regime de Lucro Real têm algumas particularidades:
 
 IRPJ (Imposto de Renda Pessoa Jurídica)
@@ -71,13 +75,15 @@ CSLL (Contribuição Social sobre o Lucro Líquido)
 Alíquota Geral: Para a maioria das empresas, a alíquota da CSLL é de 9%.
 Instituições Financeiras: Para instituições financeiras (bancos, financeiras, etc.), a alíquota da CSLL é de 15%.
 Seguradoras: A alíquota da CSLL para seguradoras também é de 15%.
+
 Resumo das Alíquotas:
+
 IRPJ:
+Alíquota Básica empresas gerais: 09%
+Alíquota basica para seguradoras e financeiras: 15%
+Adicional: 10% sobre o lucro que exceder R$ 240.000,00, tanto para empresas gerais quando para as seguradoras e financeiras
 
-Alíquota Básica: 15%
-Adicional: 10% sobre o lucro que exceder R$ 240.000,00
 CSLL:
-
 Alíquota Geral: 9%
 Instituições Financeiras e Seguradoras: 15%
 
@@ -88,14 +94,19 @@ Aplicação: Além da alíquota de 15%, há um adicional de 10% sobre a parte do
 Exceção: Este adicional é aplicável a todas as empresas no Lucro Real, não há exceção baseada no tipo de atividade ou setor.
 Instituições Financeiras e Seguradoras:
 
-Alíquota: Para instituições financeiras (bancos, seguradoras, etc.), o IRPJ é calculado de forma similar, mas podem existir regras específicas e alíquotas adicionais ou diferenciadas para certos tipos de receita e operações. No entanto, o regime geral de alíquotas básicas é o mesmo.
+Alíquota: Para instituições financeiras (bancos, seguradoras, etc.), o IRPJ é calculado de forma similar, mas podem existir regras específicas e alíquotas adicionais ou
+diferenciadas para certos tipos de receita e operações. No entanto, o regime geral de alíquotas básicas é o mesmo.
 Empresas de Lucro Real com Receita Bruta Acima de R$ 78 milhões:
 
-Regras Especiais: Empresas com receita bruta superior a R$ 78 milhões podem ter requisitos específicos para apuração do imposto, mas a alíquota básica continua a mesma. Essas empresas devem cumprir com exigências adicionais de compliance e relatórios.
-Outras Considerações:
-Alíquotas de CSLL: A Contribuição Social sobre o Lucro Líquido (CSLL) também é calculada sobre o lucro real, com uma alíquota de 9% para a maioria das empresas. Existem algumas variações para setores específicos, como instituições financeiras e seguradoras, onde a alíquota pode ser diferente.
+Regras Especiais: Empresas com receita bruta superior a R$ 78 milhões podem ter requisitos específicos para apuração do imposto, mas a alíquota básica continua a mesma.
+Essas empresas devem cumprir com exigências adicionais de compliance e relatórios.
 
-Setores Específicos e Regras Especiais: Certos setores podem ter regras específicas em relação a deduções e ajustes, mas a alíquota básica de IRPJ para o Lucro Real permanece em 15%, com o adicional de 10% sobre o lucro que exceder R$ 240.000,00.
+Outras Considerações:
+Alíquotas de CSLL: A Contribuição Social sobre o Lucro Líquido (CSLL) também é calculada sobre o lucro real, com uma alíquota de 9% para a maioria das empresas. Existem
+algumas variações para setores específicos, como instituições financeiras e seguradoras, onde a alíquota pode ser diferente.
+
+Setores Específicos e Regras Especiais: Certos setores podem ter regras específicas em relação a deduções e ajustes, mas a alíquota básica de IRPJ para o Lucro Real permanece
+em 15%, com o adicional de 10% sobre o lucro que exceder R$ 240.000,00.
 
 Resumo das Alíquotas para o IRPJ:
 Alíquota Básica: 15% sobre o lucro real.
