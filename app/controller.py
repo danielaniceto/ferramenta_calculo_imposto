@@ -45,7 +45,6 @@ class ValidaReceita:
     
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
 
-
 class SimplesNacional:
 
   TRIBUTACOES_ANEXO_01: List[Dict[str, int]] = [
@@ -393,8 +392,21 @@ class LucroPresumido:
     return valor_imposto_lucro_presumido
 
 class LucroReal:
-  def __init__(self, renda_bruta:float, lucro_real_empresa:float, tributacao_especial:float=None):
+
+  TRIBUTACOES_ATIVIDADES_LUCRO_REAL: List[Dict[str, float]] = [
+    {"seguradoraoufinanceira": "Sim", "aliquota": 0.015},
+    {"seguradoraoufinanceira": "Não", "aliquota": 0.09},
+  ]
+
+  def __init__(self, lucro_real_empresa:float, tributacao_especial:str):
     self.lucro_real_empresa = float(lucro_real_empresa)
-    self.renda_bruta = float(renda_bruta)
+    self.tributacao_especial = str(tributacao_especial)
     print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {lucro_real_empresa}")
-    print(f"EU SOU A RENDA BRUTA DENTRO DA INIT LUCRO PRESUMIDO {renda_bruta}")
+    print(f"EU SOU A RENDA BRUTA DENTRO DA INIT LUCRO PRESUMIDO {tributacao_especial}")
+
+    if lucro_real_empresa < 0:
+      raise Exception ("Lucro real negativo, não cabe a aplicação de pagamento de impostos!!!")
+    
+    side_tributacao_lucro_real = self.__get_tributacao_atividades_side(self.atividade, self.renda_bruta)
+    
+    valor_imposto_lucro_real = 
