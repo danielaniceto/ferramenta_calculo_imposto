@@ -77,7 +77,7 @@ def is_CalculoImpostoLucroReal():
 
     LucroReal(periodo, lucro_real_empresa, tributacao_especial)
 
-    resultado_lucro_real = LucroReal.(periodo, lucro_real_empresa, tributacao_especial)
+    resultado_lucro_real = LucroReal.calcula_imposto_lucro_real(periodo, lucro_real_empresa, tributacao_especial)
 
     return render_template ("/resultado_lucro_real.html", imposto_lucro_real = resultado_lucro_real)
 

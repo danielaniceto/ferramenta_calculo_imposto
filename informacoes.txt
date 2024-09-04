@@ -66,6 +66,8 @@ Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do
 INFORMAÇÕES SOBRE AS REGRAS E O CALCULO DO LUCRO PRESUMIDO
 ________________________________________________________
 
+Referências: https://blog.fortestecnologia.com.br/gestao-contabil/lucro-real-entenda-melhor/
+
 Como calcular as alíquotas no regime do Lucro Real?
 
 Nesse sentido, a alíquota cobrada no IRPJ de uma empresa enquadrada no lucro real é de 15%. Caso ela esteja com lucro excedendo R$ 20.000,00 no mês, deve ser aplicado 10%
