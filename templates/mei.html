@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Cálculo MEI, referete ao ano de 2024</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha_imposto.css') }}">
+    <img class=".imglogo" src="{{ url_for('static', filename='img/dga.png') }}" width="220" height="100">
+</head>
+
+<body>
+    <h1> Qual sua atividade declarada no MEI?</h1>
+
+    <form action="/resultado_calculo_imposto_mei" method="post">
+
+        <select name="Atividades">
+            <option value="0121101">CNAE: 0121101 - Viveirista independente</option>
+            <option value="0159801">CNAE: 0159801 - Apicultor(a) independente</option>
+            <option value="0159802">CNAE: 0159802 - Criador(a) de animais domésticos independente</option>
+            <option value="0161002">CNAE: 0161002 - Prestador(a) de serviços de poda, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de colheita, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de preparação de terrenos, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de roçagem, destocamento, lavração, gradagem e sulcamento, sob contrato de empreitada, independente</option>
+            <option value="0161003">CNAE: 0161003 - Prestador(a) de serviços de semeadura, sob contrato de empreitada, independente</option>
+            <option value="0162802">CNAE: 0162802 - Tosquiador(a) independente</option>
+            <option value="0321304">CNAE: 0321304 - Criador(a) de peixes ornamentais em água salgada independente</option>
+            <option value="0322104">CNAE: 0322104 - Criador(a) de peixes ornamentais em água doce independente</option>
+            <option value="0892401">CNAE: 0892401 - Salineiro/extrator de sal marinho independente</option>
+            <option value="1013901">CNAE: 1013901 - Fabricante de produtos derivados de carne independente</option>
+            <option value="1013901">CNAE: 1013901 - Salsicheiro(a)/linguiceiro(a) independente</option>
+            <option value="1031700">CNAE: 1031700 - Beneficiador(a) de castanha independente</option>
+            <option value="1031700">CNAE: 1031700 - Compoteiro(a) independente</option>
+            <option value="1031700">CNAE: 1031700 - Fabricante de amendoim e castanha de caju torrados e salgados independente</option>
+            <option value="1031700">CNAE: 1031700 - Fabricante de conservas de frutas independente</option>
+            <option value="1031700">CNAE: 1031700 - Fabricante de polpas de frutas independente</option>
+            <option value="1032599">CNAE: 1032599 - Fabricante de conservas de legumes e outros vegetais independente</option>
+            <option value="1033301">CNAE: 1033301 - Fabricante de sucos concentrados de frutas, hortaliças e legumes independente</option>
+            <option value="1033302">CNAE: 1033302 - Fabricante de sucos de frutas, hortaliças e legumes independente</option>
+            <option value="1052000">CNAE: 1052000 - Fabricante de laticínios independente</option>
+            <option value="1052000">CNAE: 1052000 - Queijeiro(a)/ manteigueiro(a) independente</option>
+            <option value="1061902">CNAE: 1061902 - Fabricante de produtos derivados do arroz independente</option>
+            <option value="1063500">CNAE: 1063500 - Farinheiro de mandioca independente	</option>
+            <option value="1064300">CNAE: 1064300 - Farinheiro de milho independente</option>
+            <option value="1065101">CNAE: 1065101 - Fabricante de amido e féculas de vegetais independente</option>
+            <option value="1069400">CNAE: 1069400 - Moendeiro(a) independente</option>
+            <option value="1071600">CNAE: 1071600 - Fabricante de açúcar mascavo independente</option>
+            <option value="1071600">CNAE: 1071600 - Fabricante de rapadura e melaço independente</option>
+            <option value="1091101">CNAE: 1091101 - Fabricante de pão de queijo congelado independente</option>
+            <option value="1091101">CNAE: 1091101 - Padeiro(a) independente</option>
+            <option value="1091102">CNAE: 1091102 - Confeiteiro(a) independente</option>
+            <option value="1092900">CNAE: 1092900 - Bolacheiro(a)/biscoiteiro(a) independente</option>
+            <option value="1093701">CNAE: 1093701 - Chocolateiro(a) independente</option>
+            <option value="1093702">CNAE: 1093702 - Fabricante de balas, confeitos e frutas cristalizadas independente</option>
+            <option value="1094500">CNAE: 1094500 - Fabricante de massas alimentícias independente</option>
+            <option value="1095300">CNAE: 1095300 - Fabricante de especiarias independente</option>
+            <option value="1096100">CNAE: 1096100 - Fabricante de alimentos prontos congelados independente</option>
+            <option value="1099601">CNAE: 1099601 - Vinagreiro independente</option>
+            <option value="1099604">CNAE: 1099604 - Fabricante de gelo comum independente</option>
+            <option value="1099605">CNAE: 1099605 - Fabricante de chá independente</option>
+            <option value="1099699">CNAE: 1099699 - Fabricante de geléia de mocotó independente</option>
+            <option value="1099699">CNAE: 1099699 - Fabricante de produtos de soja independente</option>
+            <option value="1122403">CNAE: 1122403 - Fabricante de refrescos, xaropes e pós para refrescos independente</option>
+            <option value="1220499">CNAE: 1220499 - Fabricante de fumo e derivados do fumo independente</option>
+            <option value="1311100">CNAE: 1311100 - Fabricante de fios de algodão independente</option>
+            <option value="1312000">CNAE: 1312000 - Fabricante de fios de linho, rami, juta, seda e lã independente</option>
+            <option value="1321900">CNAE: 1321900 - Tecelão(ã) de algodão independente</option>
+            <option value="1322700">CNAE: 1322700 - Tecelão(ã) independente</option>
+            <option value="1340501">CNAE: 1340501 - Estampador(a) de peças do vestuário independente</option>
+            <option value="1340599">CNAE: 1340599 - Bordadeiro(a) independente</option>
+            <option value="1340599">CNAE: 1340599 - Customizador(a) de roupas independente</option>
+            <option value="1351100">CNAE: 1351100 - Fabricante de artefatos têxteis para uso doméstico independente</option>
+            <option value="1352900">CNAE: 1352900 - Tapeceiro(a) independente</option>
+            <option value="1353700">CNAE: 1353700 - Redeiro(a) independente</option>
+            <option value="1359600">CNAE: 1359600 - Artesão têxtil</option>
+            <option value="1359600">CNAE: 1359600 - Rendeiro(a) independente</option>
+            <option value="1411801">CNAE: 1411801 - Fabricante de roupas íntimas independente</option>
+            <option value="1411802">CNAE: 1411802 - Fabricante de partes de roupas íntimas, facção independente</option>
+            <option value="1412601">CNAE: 1412601 - Costureiro(a) de roupas, exceto sob medida independente</option>
+            <option value="1412602">CNAE: 1412602 - Alfaiate independente</option>
+            <option value="1412602">CNAE: 1412602 - Costureiro(a) de roupas, sob medida independente</option>
+            <option value="1412603">CNAE: 1412603 - Fabricante de partes de peças do vestuário, facção independente</option>
+            <option value="1413403">CNAE: 1413403 - Fabricante de partes de roupas profissionais, facção independente</option>
+            <option value="1414200">CNAE: 1414200 - Boneleiro(a) (fabricante de bonés) independente</option>
+            <option value="1414200">CNAE: 1414200 - Chapeleiro(a) independente</option>
+            <option value="1414200">CNAE: 1414200 - Fabricante de cintos/cinteiro independente</option>
+            <option value="1421500">CNAE: 1421500 - Fabricante de meias independente</option>
+            <option value="1422300">CNAE: 1422300 - Crocheteiro(a) independente</option>
+            <option value="1422300">CNAE: 1422300 - Tricoteiro(a) independente</option>
+            <option value="1510600">CNAE: 1510600 - Curtidor de couro independente</option>
+            <option value="1521100">CNAE: 1521100 - Fabricante de bolsas/bolseiro independente</option>
+            <option value="1521100">CNAE: 1521100 - Fabricante de malas independente</option>
+            <option value="1521100">CNAE: 1521100 - Fabricante de mochilas e carteiras independente</option>
+            <option value="1529700">CNAE: 1529700 - Artesão(ã) em couro independente</option>
+            <option value="1529700">CNAE: 1529700 - Seleiro(a) independente</option>
+            <option value="1531901">CNAE: 1531901 - Fabricante de calçados de couro independente</option>
+            <option value="1531902">CNAE: 1531902 - Acabador(a) de calçados independente</option>
+            <option value="1539400">CNAE: 1539400 - Fabricante de calçados de borracha, madeira e tecidos e fibras independente</option>
+            <option value="1540800">CNAE: 1540800 - Fabricante de partes para calçados independente</option>
+            <option value="1622699">CNAE: 1622699 - Carpinteiro(a) independente</option>
+            <option value="1623400">CNAE: 1623400 - Fabricante de embalagens de madeira independente</option>
+            <option value="1623400">CNAE: 1623400 - Tanoeiro(a) independente</option>
+            <option value="1629301">CNAE: 1629301 - Artesão(ã) em madeira independente</option>
+            <option value="1629302">CNAE: 1629302 - Artesão(ã) em cortiça, bambu e afins independente</option>
+            <option value="1721400">CNAE: 1721400 - Fabricante de papel independente</option>
+            <option value="1731100">CNAE: 1731100 - Fabricante de embalagens de papel independente</option>
+            <option value="1732000">CNAE: 1732000 - Fabricante de embalagens de cartolina e papel-cartão independente</option>
+            <option value="1742799">CNAE: 1742799 - Fabricante de guardanapos e copos de papel independente</option>
+            <option value="1749400">CNAE: 1749400 - Artesão(ã) em papel independente</option>
+            <option value="1813001">CNAE: 1813001 - Serigrafista publicitário independente</option>
+            <option value="1813099">CNAE: 1813099 - Serigrafista independente</option>
+            <option value="1821100">CNAE: 1821100 - Clicherista independente</option>
+            <option value="1822901">CNAE: 1822901 - Encadernador(a)/plastificador(a) independente</option>
+            <option value="2219600">CNAE: 2219600 - Artesão(ã) em borracha independente</option>
+            <option value="2229399">CNAE: 2229399 - Artesão(ã) em plástico independente</option>
+            <option value="2319200">CNAE: 2319200 - Artesão(ã) em vidro independente</option>
+            <option value="2330399">CNAE: 2330399 - Artesão(ã) em cimento independente</option>
+            <option value="2342702">CNAE: 2342702 - Oleiro(a) independente</option>
+            <option value="2349499">CNAE: 2349499 - Artesão(ã) em cerâmica independente</option>
+            <option value="2391501">CNAE: 2391501 - Britador independente</option>
+            <option value="2391503">CNAE: 2391503 - Artesão(ã) em mármore, granito, ardósia e outras pedras independente</option>
+            <option value="2399101">CNAE: 2399101 - Artesão(ã) em louças, vidro e cristal independente</option>
+            <option value="2512800">CNAE: 2512800 - Fabricante de esquadrias metálicas sob encomenda ou não independente</option>
+            <option value="2532201">CNAE: 2532201 - Fabricante de artefatos de funilaria independente</option>
+            <option value="2532201">CNAE: 2532201 - Fabricante de artefatos estampados de metal, sob encomenda ou não independente</option>
+            <option value="2539001">CNAE: 2539001 - Soldador(a) / brasador(a) independente</option>
+            <option value="2539001">CNAE: 2539001 - Torneiro(a) mecânico independente</option>
+            <option value="2539002">CNAE: 2539002 - Galvanizador(a) independente</option>
+            <option value="2541100">CNAE: 2541100 - Fabricante de artigos de cutelaria independente</option>
+            <option value="2542000">CNAE: 2542000 - Serralheiro (a), sob encomenda ou não independente</option>
+            <option value="2543800">CNAE: 2543800 - Ferramenteiro(a) independente</option>
+            <option value="2543800">CNAE: 2543800 - Ferreiro/forjador independente</option>
+            <option value="2599301">CNAE: 2599301 - Armador(a) de ferragens na construção civil independente</option>
+            <option value="2599399">CNAE: 2599399 - Artesão(ã) em metais independente</option>
+            <option value="2740602">CNAE: 2740602 - Fabricante de luminárias e outros equipamentos de iluminação independente</option>
+            <option value="2950600">CNAE: 2950600 - Retificador(a) de motores para veículos automotores independente</option>
+            <option value="3101200">CNAE: 3101200 - Marceneiro (a) sob encomenda ou não independente</option>
+            <option value="3102100">CNAE: 3102100 - Moveleiro(a) de móveis metálicos independente</option>
+            <option value="3103900">CNAE: 3103900 - Moveleiro(a) independente</option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+            <option value="">CNAE:  - </option>
+        </select>
+
+        <h1> Qual valor do serviço ou produto ? </h1>
+
+        Valor Produto ou Serviço = <input type="number" name="valor_produto_servico" maxlength="100000000000000"/>
+
+        <button type="submit" > Enviar </button>
+
+    </form>
+
+</body>
+</html>

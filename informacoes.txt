@@ -60,3 +60,71 @@ Receita Bruta Total em 12 meses	            |  Alíquota	|   Quanto descontar do
     De 720.000,01 a 1.800.000,00	        |   20,5%	|     R$ 17.100,00
     De 1.800.000,01 a 3.600.000,00	        |   23%	    |     R$ 62.100,00
     De 3.600.000,01 a 4.800.000,00	        |   30,50%	|     R$ 540.000,00
+
+
+
+INFORMAÇÕES SOBRE AS REGRAS E O CALCULO DO LUCRO PRESUMIDO
+________________________________________________________
+
+Referências: https://blog.fortestecnologia.com.br/gestao-contabil/lucro-real-entenda-melhor/
+
+Como calcular as alíquotas no regime do Lucro Real?
+
+Nesse sentido, a alíquota cobrada no IRPJ de uma empresa enquadrada no lucro real é de 15%. Caso ela esteja com lucro excedendo R$ 20.000,00 no mês, deve ser aplicado 10%
+adicionais sobre o montante que excedeu esse valor.
+
+Por exemplo, suponha que uma empresa tem um lucro líquido de R$ 40.000,00 por mês. Assim, o cálculo é o seguinte:
+
+15% de R$ 40.000,00 = R$ 6.000,00;
+10% de R$ 20.000,00 = R$ 2.000,00;
+
+Dessa forma, a contribuição devida para o IRPJ é de R$ 8.000,00. Além disso, é preciso quitar entre 9% e 12% de CSLL, que também incide sobre o Lucro Líquido. Há ainda o
+pagamento do PIS, com alíquota de 1,65%, e do Cofins, o qual apresenta 7,6% de alíquota, em geral. Esses 2 últimos são tributados sobre o faturamento.
+
+1. Empresas em Geral (Não Financeiras):
+IRPJ:
+
+15% sobre o lucro total:
+
+Lucro = R$ 30.000
+IRPJ = R$ 30.000 * 15% = R$ 4.500
+Adicional de 10% sobre o lucro que excede R$ 20.000:
+
+Lucro que excede R$ 20.000 = R$ 30.000 - R$ 20.000 = R$ 10.000
+Adicional = R$ 10.000 * 10% = R$ 1.000
+Total de IRPJ:
+
+IRPJ Base + Adicional = R$ 4.500 + R$ 1.000 = R$ 5.500
+CSLL (9% sobre o lucro total):
+
+CSLL = R$ 30.000 * 9% = R$ 2.700
+Total de Impostos:
+
+IRPJ Total = R$ 5.500
+CSLL Total = R$ 2.700
+Total = R$ 5.500 + R$ 2.700 = R$ 8.200
+2. Instituições Financeiras e Entidades de Seguros Privados:
+Para essas instituições, a alíquota da CSLL é maior, geralmente 15%, e o IRPJ base é o mesmo, mas o adicional pode não se aplicar da mesma forma. Vamos calcular o total considerando apenas a CSLL de 15%:
+
+IRPJ:
+
+15% sobre o lucro total:
+
+Lucro = R$ 30.000
+IRPJ = R$ 30.000 * 15% = R$ 4.500
+Adicional de 10% sobre o lucro que excede R$ 20.000:
+
+Lucro que excede R$ 20.000 = R$ 10.000
+Adicional = R$ 10.000 * 10% = R$ 1.000
+Total de IRPJ:
+
+IRPJ Base + Adicional = R$ 4.500 + R$ 1.000 = R$ 5.500
+CSLL (15% sobre o lucro total):
+
+CSLL = R$ 30.000 * 15% = R$ 4.500
+Total de Impostos:
+
+IRPJ Total = R$ 5.500
+CSLL Total = R$ 4.500
+Total = R$ 5.500 + R$ 4.500 = R$ 10.000
+Portanto, para instituições financeiras e similares, o total de impostos seria R$ 10.000.
