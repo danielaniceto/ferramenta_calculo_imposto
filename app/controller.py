@@ -35,14 +35,20 @@ class ValidaReceita:
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
   
   @staticmethod
-  def valida_receita_bruta_lucro_real(renda_bruta: float, lucro_real_empresa: float):
-    if renda_bruta < 0:
-      raise Exception("Impossível Calcular o imposto Lucro Real com valor do produto ou serviço negativo")
+  def valida_lucro_real(lucro_real_empresa: float, periodo: str):
+    if lucro_real_empresa < 0:
+      raise Exception("Impossível Calcular o imposto Lucro Real com lucro negativo")
     
-    elif lucro_real_empresa > 240000:
-        valor_adional_lucro_real = lucro_real_empresa - 240000
+    if periodo == "Trimestral":
+      if lucro_real_empresa > 60000:
+        valor_adional_lucro_real = lucro_real_empresa - 60000
         raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 que no caso da sua empresa e R$ {valor_adional_lucro_real}")
     
+    elif periodo == "Anual":
+      if lucro_real_empresa > 240000:
+        valor_adional_lucro_real = lucro_real_empresa - 240000
+        raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 que no caso da sua empresa e R$ {valor_adional_lucro_real}")
+
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
 
 class SimplesNacional:
@@ -398,7 +404,7 @@ class LucroReal:
     {"seguradoraoufinanceira": "Não", "aliquota": 0.09},
   ]
 
-  def __init__(self, lucro_real_empresa:float, tributacao_especial:str):
+  def __init__(self, periodo, lucro_real_empresa:float, tributacao_especial:str):
     self.lucro_real_empresa = float(lucro_real_empresa)
     self.tributacao_especial = str(tributacao_especial)
     print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {lucro_real_empresa}")
@@ -407,6 +413,30 @@ class LucroReal:
     if lucro_real_empresa < 0:
       raise Exception ("Lucro real negativo, não cabe a aplicação de pagamento de impostos!!!")
     
-    side_tributacao_lucro_real = self.__get_tributacao_atividades_side(self.atividade, self.renda_bruta)
+    side_tributacao_lucro_real = self.__get_tributacao_empresas_side(self.atividade, self.renda_bruta)
     
     valor_imposto_lucro_real = 
+
+    @staticmethod
+    def __get_tributacao_empresas_side(tributacao_especial:str, ):
+      for tributacao_lucro_real in LucroReal.TRIBUTACOES_ATIVIDADES_LUCRO_REAL:
+        if tributacao_especial == tributacao_lucro_real.get("seguradoraoufinanceira"):
+          print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_lucro_presumido}")
+          
+          tributacao_lucro_presumido["renda_bruta"] = renda_bruta
+          print(f"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_lucro_presumido}")
+          return tributacao_lucro_presumido
+      return {}
+    
+  @staticmethod
+  def calcula_imposto_lucro_real(periodo:str, lucro_real_empresa:float, tributacao_especial:str)->float:
+    lucro_real = float(lucro_real_empresa)
+    periodo = str(periodo)
+    tributacao_especial = str(tributacao_especial)
+    side_tributacao_lucro_presumido = LucroPresumido.__get_tributacao_atividades_side(atividade, renda_bruta)
+    print(f"EU SOU O SIDE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_presumido}")
+    valor_imposto_lucro_presumido = CalculoLucroPresumido.calcular_lucro_presumido(side_tributacao_lucro_presumido)
+    
+    print(f"EU SOU O RETORNO DA FUNCAO CALCULAR LUCRO PRESUMIDO DENTRO DA CONTROLLER {valor_imposto_lucro_presumido}")
+
+    return valor_imposto_lucro_presumido
