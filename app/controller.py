@@ -35,14 +35,20 @@ class ValidaReceita:
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
   
   @staticmethod
-  def valida_receita_bruta_lucro_real(renda_bruta: float, lucro_real_empresa: float):
-    if renda_bruta < 0:
-      raise Exception("Impossível Calcular o imposto Lucro Real com valor do produto ou serviço negativo")
+  def valida_lucro_real(lucro_real_empresa: float, periodo: str):
+    if lucro_real_empresa < 0:
+      raise Exception("Impossível Calcular o imposto Lucro Real com lucro negativo")
     
-    elif lucro_real_empresa > 240000:
-        valor_adional_lucro_real = lucro_real_empresa - 240000
+    if periodo == "Trimestral":
+      if lucro_real_empresa > 60000:
+        valor_adional_lucro_real = lucro_real_empresa - 60000
         raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 que no caso da sua empresa e R$ {valor_adional_lucro_real}")
     
+    elif periodo == "Anual":
+      if lucro_real_empresa > 240000:
+        valor_adional_lucro_real = lucro_real_empresa - 240000
+        raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 que no caso da sua empresa e R$ {valor_adional_lucro_real}")
+
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
 
 class SimplesNacional:

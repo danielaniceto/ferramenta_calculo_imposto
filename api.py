@@ -63,21 +63,21 @@ def isApresentaLucroReal():
 
 app.route('/resultado_lucro_real', methods=['POST'])
 def is_CalculoImpostoLucroReal():
-    renda_bruta = float(request.form.get("renda_bruta"))
-    print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {renda_bruta}")
+    periodo = str(request.form.get("periodo"))
+    print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {periodo}")
 
-    lucro_real_empresa = str(request.form.get("lucro_real_empresa"))
+    lucro_real_empresa = str(request.form.get("lucro"))
     print(F"EU SOU ATIVIDADE VINDO DO FORMS = {lucro_real_empresa}")
 
     tributacao_especial = str(request.form.get("SimOuNao"))
     print(f"EU SOU O RETORNO DA OPCAO NO HTML DA SEGURADORA OU FINANCEIRA = {tributacao_especial}")
 
-    valida_receita_bruta = ValidaReceita.valida_receita_bruta_lucro_real(renda_bruta, lucro_real_empresa)
+    valida_receita_bruta = ValidaReceita.valida_lucro_real(lucro_real_empresa)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_receita_bruta}")
 
-    LucroReal(renda_bruta, lucro_real_empresa, tributacao_especial)
+    LucroReal(periodo, lucro_real_empresa, tributacao_especial)
 
-    resultado_lucro_real = LucroPresumido.calcula_imposto_lucro_presumido(renda_bruta, lucro_real_empresa, tributacao_especial)
+    resultado_lucro_real = LucroReal.(periodo, lucro_real_empresa, tributacao_especial)
 
     return render_template ("/resultado_lucro_real.html", imposto_lucro_real = resultado_lucro_real)
 

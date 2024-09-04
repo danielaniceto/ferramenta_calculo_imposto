@@ -15,23 +15,18 @@
 
     <form action="/resultado_calculo_imposto_lucro_real" method="post">
 
-        Sua empresa e um banco, sociedades de créditos, corretoras de títulos, empresas de arrendamento mercantil, empresas de seguros ? Possui algum capital oriundo do exterior ?
+        Selecione o periodo de avalaiação:
         <select name="periodo">
-            <option value="Trimestra"> Trimestre </option>
+            <option value="Trimestral"> Trimestre </option>
             <option value="Anual"> Ano </option>
         </select>
 
-        Valor Total do Lucro da Empresa(De acordo com periodo escolhido, 3 ou 12 meses): <input type="number" name="lucro_real" maxlength="1000000000000000"/>
-
-        </br>
-        </br>
-        
-        Quantidade de Meses de analise: <input type="number" name="Lucro_Real" maxlength="1000000000000000"/>
+        Digite aqui o valor total do Lucro da Empresa (De acordo com periodo escolhido, 3 ou 12 meses): <input type="number" name="lucro" maxlength="1000000000000000"/>
 
         </br>
         </br>
 
-        Sua empresa e um banco, sociedades de créditos, corretoras de títulos, empresas de arrendamento mercantil, empresas de seguros ? Possui algum capital oriundo do exterior ?
+        Sua empresa e um banco, sociedade de créditos, corretora de títulos, empresas de arrendamento mercantil ou empresa de seguros ? Possui algum ganho de capital oriundo do exterior ?
         <select name="SimOuNao">
             <option value="Sim"> Sim </option>
             <option value="Nao"> Não </option>
