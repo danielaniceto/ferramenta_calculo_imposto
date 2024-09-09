@@ -72,7 +72,7 @@ def is_CalculoImpostoLucroReal():
     tributacao_especial = str(request.form.get("SimOuNao"))
     print(f"EU SOU O RETORNO DA OPCAO NO HTML DA SEGURADORA OU FINANCEIRA = {tributacao_especial}")
 
-    valida_receita_bruta = ValidaReceita.valida_lucro_real(lucro_real_empresa)
+    valida_receita_bruta = ValidaReceita.valida_lucro_real(lucro_real_empresa, periodo)
     print(f"EU SOU O RETONO DA VALIDACAO DO VALOR DO IMPOSTO = {valida_receita_bruta}")
 
     LucroReal(periodo, lucro_real_empresa, tributacao_especial)

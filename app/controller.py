@@ -43,12 +43,12 @@ class ValidaReceita:
     if periodo == "Trimestral":
       if lucro_real_empresa > 60000:
         valor_adional_lucro_real = lucro_real_empresa - 60000
-        raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 que no caso da sua empresa e R$ {valor_adional_lucro_real}")
+        raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 60.000,00 dentro do trimestre, no caso da sua empresa o valor e de R$ {valor_adional_lucro_real}")
     
     elif periodo == "Anual":
       if lucro_real_empresa > 240000:
         valor_adional_lucro_real = lucro_real_empresa - 240000
-        raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 que no caso da sua empresa e R$ {valor_adional_lucro_real}")
+        raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 dentro do ano, no caso da sua empresa o valor e de R$ {valor_adional_lucro_real}")
 
     return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
 
@@ -408,7 +408,7 @@ class LucroReal:
   def __init__(self, periodo: str, lucro_real_empresa:float, tributacao_especial:str):
     self.lucro_real_empresa = float(lucro_real_empresa)
     self.tributacao_especial = str(tributacao_especial)
-    self.periodo = int(periodo)
+    self.periodo = str(periodo)
     print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {lucro_real_empresa}")
     print(f"EU SOU A RENDA BRUTA DENTRO DA INIT LUCRO PRESUMIDO {tributacao_especial}")
     print(f"EU SOU O PERIODO DE AVALIACAO {periodo}")
@@ -419,13 +419,13 @@ class LucroReal:
     side_tributacao_lucro_real = self.__get_tributacao_lucro_real_side(self.tributacao_especial, self.lucro_real_empresa)
 
   @staticmethod
-  def __get_tributacao_lucro_real_side(tributacao_especial:str, lucro_real_empresa:float, periodo:int):
+  def __get_tributacao_lucro_real_side(tributacao_especial:str, lucro_real_empresa:float, periodo:int)->dict:
     for tributacao_lucro_real in LucroReal.TRIBUTACOES_ATIVIDADES_LUCRO_REAL:
       if tributacao_especial == tributacao_lucro_real.get("seguradoraoufinanceira"):
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_lucro_real}")
           
         tributacao_lucro_real["lucro_real_empresa"] ["periodo"] = lucro_real_empresa, periodo
-        print(f"EU SOU A TRIBUTACAO DEPOIS DO APPEND{tributacao_lucro_real}")
+        print(f"EU SOU A TRIBUTACAO LUCRO REAL DEPOIS DO APPEND{tributacao_lucro_real}")
         return tributacao_lucro_real
     return {}
     
@@ -434,8 +434,9 @@ class LucroReal:
     lucro_real = float(lucro_real_empresa)
     periodo = str(periodo)
     tributacao_especial = str(tributacao_especial)
-    side_tributacao_lucro_real = LucroReal.__get_tributacao_lucro_real_side(atividade, renda_bruta)
-    print(f"EU SOU O SIDE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_presumido}")
+
+    side_tributacao_lucro_real = LucroReal.__get_tributacao_lucro_real_side(lucro_real, periodo, tributacao_especial)
+    print(f"EU SOU O SIDE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_real}")
     valor_imposto_lucro_presumido = CalculoLucroReal.calcular_lucro_real(side_tributacao_lucro_real)
     
     print(f"EU SOU O RETORNO DA FUNCAO CALCULAR LUCRO PRESUMIDO DENTRO DA CONTROLLER {valor_imposto_lucro_presumido}")
