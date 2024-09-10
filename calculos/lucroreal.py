@@ -9,8 +9,13 @@ class CalculoLucroReal():
             if side_tributacao_lucro_real["lucro_real"] / 3 > 60000:
                valor_exedente = side_tributacao_lucro_real["lucro_real"] - 60000
                imposto_lucro_real = (side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["tributacao_especial"]) + valor_exedente * 0.1
+               
+               imposto_lucro_real = imposto_lucro_real * 0.09
+
+            else:
+                imposto_lucro_real = side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["tributacao_especial"]
         else:
-            side_tributacao_lucro_real["periodo"] == "Anual":
+            side_tributacao_lucro_real["periodo"] == "Anual"
             if side_tributacao_lucro_real["lucro_real"] / 12 > 240000:
                valor_exedente = side_tributacao_lucro_real["lucro_real"] - 240000
                imposto_lucro_real = (side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["tributacao_especial"]) + valor_exedente * 0.1
