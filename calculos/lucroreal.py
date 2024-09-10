@@ -8,18 +8,41 @@ class CalculoLucroReal():
         if side_tributacao_lucro_real["periodo"] == "Trimestral":
             if side_tributacao_lucro_real["lucro_real"] / 3 > 60000:
                valor_exedente = side_tributacao_lucro_real["lucro_real"] - 60000
-               imposto_lucro_real = (side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["tributacao_especial"]) + valor_exedente * 0.1
-               
-               imposto_lucro_real = imposto_lucro_real * 0.09
+               imposto_lucro_real_irpj = (side_tributacao_lucro_real["lucro_real"] * 0.15) + valor_exedente * 0.1
+
+               imposto_lucro_real_csll = side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["aliquota"]
+
+               imposto_lucro_real_total = imposto_lucro_real_irpj + imposto_lucro_real_csll
+
+               return round(imposto_lucro_real_total, 2)
 
             else:
-                imposto_lucro_real = side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["tributacao_especial"]
-        else:
-            side_tributacao_lucro_real["periodo"] == "Anual"
+                imposto_lucro_real_irpj = side_tributacao_lucro_real["lucro_real"] * 0.15
+
+                imposto_lucro_real_csll = side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["aliquota"]
+
+                imposto_lucro_real_total = imposto_lucro_real_irpj + imposto_lucro_real_csll
+
+                return imposto_lucro_real_total
+            
+        elif side_tributacao_lucro_real["periodo"] == "Anual":
             if side_tributacao_lucro_real["lucro_real"] / 12 > 240000:
                valor_exedente = side_tributacao_lucro_real["lucro_real"] - 240000
-               imposto_lucro_real = (side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["tributacao_especial"]) + valor_exedente * 0.1
+               imposto_lucro_real_irpj = (side_tributacao_lucro_real["lucro_real"] * 0.15) + valor_exedente * 0.1
+
+               imposto_lucro_real_csll = side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["aliquota"]
+
+               imposto_lucro_real_total = imposto_lucro_real_irpj + imposto_lucro_real_csll
+
+               return round(imposto_lucro_real_total, 2)
+            
+            else:
+                imposto_lucro_real_irpj = side_tributacao_lucro_real["lucro_real"] * 0.15
+
+                imposto_lucro_real_csll = side_tributacao_lucro_real["lucro_real"] * side_tributacao_lucro_real["aliquota"]
+
+                imposto_lucro_real_total = imposto_lucro_real_irpj + imposto_lucro_real_csll
+
+                return round(imposto_lucro_real_total, 2)
                
-        print(f"EU SOU O IMPOSTO LUCRO PRESUMIDO = {imposto_lucro_real}")
-                     
-        return round(imposto_lucro_real, 2)
+        print(f"EU SOU O IMPOSTO LUCRO PRESUMIDO = {imposto_lucro_real_total}")
