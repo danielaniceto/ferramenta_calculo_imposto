@@ -103,8 +103,10 @@ Total de Impostos:
 IRPJ Total = R$ 5.500
 CSLL Total = R$ 2.700
 Total = R$ 5.500 + R$ 2.700 = R$ 8.200
+
 2. Instituições Financeiras e Entidades de Seguros Privados:
-Para essas instituições, a alíquota da CSLL é maior, geralmente 15%, e o IRPJ base é o mesmo, mas o adicional pode não se aplicar da mesma forma. Vamos calcular o total considerando apenas a CSLL de 15%:
+Para essas instituições, a alíquota da CSLL é maior, geralmente 15%, e o IRPJ base é o mesmo, mas o adicional pode não se aplicar da mesma forma. Vamos calcular o total
+considerando apenas a CSLL de 15%:
 
 IRPJ:
 

@@ -401,27 +401,27 @@ class LucroPresumido:
 class LucroReal:
 
   TRIBUTACOES_ATIVIDADES_LUCRO_REAL: List[Dict[str, float]] = [
-    {"seguradoraoufinanceira": "Sim", "aliquota": 0.015},
+    {"seguradoraoufinanceira": "Sim", "aliquota": 0.15},
     {"seguradoraoufinanceira": "Não", "aliquota": 0.09},
   ]
 
-  def __init__(self, periodo: str, lucro_real_empresa:float, tributacao_especial:str):
+  def __init__(self, periodo: str, lucro_real_empresa:float, tributacao_especial_csll:str):
     self.lucro_real_empresa = float(lucro_real_empresa)
-    self.tributacao_especial = str(tributacao_especial)
+    self.tributacao_especial_csll = str(tributacao_especial_csll)
     self.periodo = str(periodo)
     print(f"EU SOU A ATIVIDADE DENTRO DA INIT LUCRO PRESUMIDO {lucro_real_empresa}")
-    print(f"EU SOU A RENDA BRUTA DENTRO DA INIT LUCRO PRESUMIDO {tributacao_especial}")
-    print(f"EU SOU O PERIODO DE AVALIACAO {periodo}")
+    print(f"EU SOU A RENDA BRUTA DENTRO DA INIT LUCRO PRESUMIDO {tributacao_especial_csll}")
+    print(f"EU SOU O PERIODO DE AVALIACAO DENTRO DA INIT {periodo}")
 
     if lucro_real_empresa < 0:
       raise Exception ("Lucro real negativo, não cabe a aplicação de pagamento de impostos!!!")
     
-    side_tributacao_lucro_real = self.__get_tributacao_lucro_real_side(self.tributacao_especial, self.lucro_real_empresa)
+    side_tributacao_lucro_real = self.__get_tributacao_lucro_real_side(self.tributacao_especial_csll, self.lucro_real_empresa, periodo)
 
   @staticmethod
-  def __get_tributacao_lucro_real_side(tributacao_especial:str, lucro_real_empresa:float, periodo:int)->dict:
+  def __get_tributacao_lucro_real_side(tributacao_especial_csll:str, lucro_real_empresa:float, periodo:int)->dict:
     for tributacao_lucro_real in LucroReal.TRIBUTACOES_ATIVIDADES_LUCRO_REAL:
-      if tributacao_especial == tributacao_lucro_real.get("seguradoraoufinanceira"):
+      if tributacao_especial_csll == tributacao_lucro_real.get("seguradoraoufinanceira"):
         print(F"EU SOU A TRIBUTAÇÃO ANTES DO APPEND {tributacao_lucro_real}")
           
         tributacao_lucro_real["lucro_real_empresa"] ["periodo"] = lucro_real_empresa, periodo
@@ -430,12 +430,12 @@ class LucroReal:
     return {}
     
   @staticmethod
-  def calcula_imposto_lucro_real(periodo:str, lucro_real_empresa:float, tributacao_especial:str)->float:
-    lucro_real = float(lucro_real_empresa)
+  def calcula_imposto_lucro_real(periodo:str, lucro_real_empresa:float, tributacao_especial_csll:str)->float:
+    lucro_real_empresa = float(lucro_real_empresa)
     periodo = str(periodo)
-    tributacao_especial = str(tributacao_especial)
+    tributacao_especial_csll = str(tributacao_especial_csll)
 
-    side_tributacao_lucro_real = LucroReal.__get_tributacao_lucro_real_side(lucro_real, periodo, tributacao_especial)
+    side_tributacao_lucro_real = LucroReal.__get_tributacao_lucro_real_side(lucro_real_empresa, periodo, tributacao_especial_csll)
     print(f"EU SOU O SIDE TRIBUTACAO DENTRO DA FUNCAO CALCULA LUCRO PRESUMIDO {side_tributacao_lucro_real}")
     valor_imposto_lucro_presumido = CalculoLucroReal.calcular_lucro_real(side_tributacao_lucro_real)
     
