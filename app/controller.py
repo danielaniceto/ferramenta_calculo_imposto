@@ -44,13 +44,15 @@ class ValidaReceita:
       if lucro_real_empresa > 60000:
         valor_adional_lucro_real = lucro_real_empresa - 60000
         raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 60.000,00 dentro do trimestre, no caso da sua empresa o valor e de R$ {valor_adional_lucro_real}")
+      
+      return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
     
     elif periodo == "Anual":
       if lucro_real_empresa > 240000:
         valor_adional_lucro_real = lucro_real_empresa - 240000
         raise Exception("Seu lucro liquido estrapola o valor maximo para aliquota padrão, o calculo será feito adicionando 10% a mais sobre o valor que exceder os R$ 240.000,00 dentro do ano, no caso da sua empresa o valor e de R$ {valor_adional_lucro_real}")
-
-    return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
+      
+      return("TUDO OK, VALIDAÇÃO FEITA COM SUCESSO!!!")
 
 class SimplesNacional:
 
