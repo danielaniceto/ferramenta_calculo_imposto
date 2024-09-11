@@ -61,13 +61,13 @@ def is_CalculoImpostoLucroPresumido():
 def isApresentaLucroReal():
     return render_template("lucro_real.html")
 
-app.route('/resultado_calculo_imposto_lucro_real', methods=['POST'])
+@app.route('/resultado_calculo_imposto_lucro_real', methods=['POST'])
 def is_CalculoImpostoLucroReal():
     periodo = str(request.form.get("periodo"))
-    print(f"EU SOU A RECEITA BRUTA VINDA DO FORMS = {periodo}")
+    print(f"EU SOU O PERIODO DE AVALIACAO VINDO DO FORMS = {periodo}")
 
-    lucro_real_empresa = str(request.form.get("lucro"))
-    print(F"EU SOU ATIVIDADE VINDO DO FORMS = {lucro_real_empresa}")
+    lucro_real_empresa = float(request.form.get("lucro"))
+    print(F"EU SOU O VALOR LUCRO REAL VINDO DO FORMS = {lucro_real_empresa}")
 
     tributacao_especial_csll = str(request.form.get("SimOuNao"))
     print(f"EU SOU O RETORNO DA OPCAO NO HTML DA SEGURADORA OU FINANCEIRA = {tributacao_especial_csll}")
