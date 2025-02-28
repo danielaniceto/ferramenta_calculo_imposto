@@ -6,8 +6,6 @@ from app.models import *
 from app.controller import *
 from flask import Flask, request, render_template, redirect
 
-#empresa = Cliente("Maiore", 0000000000000)
-
 app = Flask(__name__)
 
 @app.route('/')
